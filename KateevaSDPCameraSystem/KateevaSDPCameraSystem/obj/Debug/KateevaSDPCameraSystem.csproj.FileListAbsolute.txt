@@ -1,0 +1,7 @@
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\KateevaSDPCameraSystem.exe.config
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\obj\Debug\KateevaSDPCameraSystem.csprojResolveAssemblyReference.cache
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\KateevaSDPCameraSystem.exe
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\KateevaSDPCameraSystem.pdb
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\obj\Debug\KateevaSDPCameraSystem.exe
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\obj\Debug\KateevaSDPCameraSystem.pdb
+c:\users\dan\documents\visual studio 2015\Projects\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\DALSA.SaperaLT.SapClassBasic.dll
