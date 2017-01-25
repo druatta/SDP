@@ -5,3 +5,10 @@ c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCamera
 c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.csprojResolveAssemblyReference.cache
 c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.exe
 c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.pdb
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.exe.config
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.exe
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.pdb
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.exe
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.pdb
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\Dan\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.csprojResolveAssemblyReference.cache

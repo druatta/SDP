@@ -28,16 +28,16 @@ namespace SDPCameraSystem
         {
             try
             {
-
+                CameraObject Cam = new CameraObject();
                 return true;
             }
-            catch (Exception e)
+            catch (SapLibraryException exception)
             {
-
-                return false;
+                throw exception;
             }
-        } //end TestCreateCamera
+        } 
+       
         
        
-    }//end TestCameraObject
+    }
 }
