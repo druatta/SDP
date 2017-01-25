@@ -1,0 +1,7 @@
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.exe.config
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.exe
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.pdb
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\bin\Debug\DALSA.SaperaLT.SapClassBasic.dll
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.csprojResolveAssemblyReference.cache
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.exe
+c:\users\druatta\documents\visual studio 2015\Projects\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.pdb
