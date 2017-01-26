@@ -51,9 +51,7 @@
     <Compile Include="CameraTests.cs" />
     <Compile Include="ExampleUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SavePicture.cs" />
-    <Compile Include="CameraObject.cs" />
-    <Compile Include="CameraGrab.cs" />
+    <Compile Include="Camera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

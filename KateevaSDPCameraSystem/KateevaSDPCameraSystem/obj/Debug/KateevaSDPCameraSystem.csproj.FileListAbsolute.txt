@@ -11,3 +11,4 @@ C:\Users\druatta\Documents\GitHub\SDP\KateevaSDPCameraSystem\KateevaSDPCameraSys
 C:\Users\druatta\Documents\GitHub\SDP\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\KateevaSDPCameraSystem.exe
 C:\Users\druatta\Documents\GitHub\SDP\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\KateevaSDPCameraSystem.pdb
 C:\Users\druatta\Documents\GitHub\SDP\KateevaSDPCameraSystem\KateevaSDPCameraSystem\bin\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\druatta\Documents\GitHub\SDP\KateevaSDPCameraSystem\KateevaSDPCameraSystem\obj\Debug\KateevaSDPCameraSystem.csprojResolveAssemblyReference.cache
