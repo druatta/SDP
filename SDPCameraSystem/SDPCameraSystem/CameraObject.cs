@@ -23,12 +23,13 @@ namespace SDPCameraSystem
         {
             try
             {
-                Params = new MyAcquisitionParams();
                 Location = new SapLocation(Params.ServerName, Params.ResourceIndex);
+                Params = new MyAcquisitionParams();
                 Device = new SapAcqDevice(Location, Params.ConfigFileName);
                 Buffers = new SapBufferWithTrash(DefaultBuffer, Device, SapBuffer.MemoryType.ScatterGather);
                 Acquisition = new SapAcquisition(Location, Params.ConfigFileName);
                 Transfer = new SapAcqToBuf(Acquisition, Buffers);
+                
             }
             catch (SapException CreateException)
             {
@@ -39,6 +40,11 @@ namespace SDPCameraSystem
                 Console.WriteLine("Camera Created!");
             }
             return true;
+        }
+
+        public void FindSaperaServer()
+        {
+
         }
 
     }

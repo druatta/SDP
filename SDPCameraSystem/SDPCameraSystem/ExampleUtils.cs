@@ -94,7 +94,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             Console.WriteLine("..............................................");
 
             // Scan the boards to find those that support acquisition
-            int serverIndex;
+            int serverIndex; // int serverCount = SapManager.GetServerCount();
             bool serverFound =  false;
             bool cameraFound =  false;
             for (serverIndex = 0; serverIndex < serverCount; serverIndex++)
@@ -394,7 +394,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             {
                 if (SapManager.GetResourceCount(serverIndex, SapManager.ResourceType.Acq) != 0)
                 {
-                    GrabberIndex++;
+                    GrabberIndex++; // Important?
                     serverFound = true;
                 }
             }
