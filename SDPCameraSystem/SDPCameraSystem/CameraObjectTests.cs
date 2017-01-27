@@ -13,7 +13,7 @@ namespace SDPCameraSystem
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Hello, World! These are the camera tests.");
+            Console.WriteLine("Hello, World, Yo think is dope as fuck! These are the camera tests.");
             CreateTestCamera();
 
             Console.WriteLine("Press any key to terminate.");
