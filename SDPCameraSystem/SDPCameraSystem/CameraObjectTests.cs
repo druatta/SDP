@@ -12,15 +12,15 @@ namespace SDPCameraSystem
 {
     class CameraObjectTests
     {
-        static void Main(string[] args)
-        {
+        //static void Main(string[] args)
+        //{
 
-            Console.WriteLine("Hello, World! These are the camera tests.");
-            CheckCamValidityUsingSaperaLibraries()
+        //    Console.WriteLine("Hello, World! These are the camera tests.");
+        //    CheckCamValidityUsingSaperaLibraries();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void TestCreateCamera()
         {
@@ -42,14 +42,14 @@ namespace SDPCameraSystem
             SapView View = null;
             MyAcquisitionParams acqParams = new MyAcquisitionParams();
 
+            // Sapera code from ExampleUtils.cs GetCorAcquisitionOptionsFromQuestions(MyAcquisitionParams acqParams) below:
+            acqParams.ResourceIndex = 0; // Could be 1
+
             // Sapera code from ExampleUtils.cs GetOptionsFromQuestions() below:
-            acqParams.ServerName = SapManager.GetServerName(loc);
+            acqParams.ServerName = SapManager.GetServerName(1); // Should be 1
             string configPath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
             string[] ccffiles = Directory.GetFiles(configPath, "*.ccf");
             acqParams.ConfigFileName = ccffiles[0];
-
-            // Sapera code from ExampleUtils.cs GetCorAcquisitionOptionsFromQuestions(MyAcquisitionParams acqParams) below:
-            acqParams.ResourceIndex = 0; // Could be 1
 
             // Remaining code from GrabConsole.cs main() below:
             SapLocation loc = new SapLocation(acqParams.ServerName, acqParams.ResourceIndex);
