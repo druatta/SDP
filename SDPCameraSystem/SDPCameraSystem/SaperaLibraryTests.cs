@@ -213,7 +213,8 @@ namespace SDPCameraSystem
                 if (!Acq.Create())
                 {
                     Console.WriteLine("Error during SapAcqDevice creation!\n");
-                } else
+                }
+                else
                 {
                     Console.WriteLine("SapAcqDevice created!");
                 }
@@ -424,7 +425,8 @@ namespace SDPCameraSystem
                 if (!AcqDevice.Create())
                 {
                     Console.WriteLine("Error during SapAcqDevice creation!\n");
-                } else
+                }
+                else
                 {
                     Console.WriteLine("SapAcqDevice created!");
                 }
@@ -655,7 +657,8 @@ namespace SDPCameraSystem
             {
                 Console.WriteLine("Error during SapBuffer creation!\n");
                 return;
-            } else
+            }
+            else
             {
                 Console.WriteLine("Buffer created!");
             }
@@ -879,19 +882,18 @@ namespace SDPCameraSystem
             Xfer.XferNotify += new SapXferNotifyHandler(xfer_XferNotify);
             Xfer.XferNotifyContext = View;
 
-            // Create buffer object
             if (!Buffers.Create())
             {
                 Console.WriteLine("Error during SapBuffer creation!\n");
                 return;
             }
 
-            // Create buffer object
             if (!Xfer.Create())
             {
                 Console.WriteLine("Error during SapTransfer creation!\n");
                 return;
-            } else
+            }
+            else
             {
                 Console.WriteLine("Transfer created!");
             }
@@ -1025,7 +1027,7 @@ namespace SDPCameraSystem
             else
             {
 
-                Console.WriteLine("\nSelect the config file (or 'q' to quit)");
+                Console.WriteLine("Config file is at index 1 (listed as 2)");
                 Console.WriteLine(".......................................\n");
                 configFileCount = 0;
                 if (deviceCount == 0 && cameraCount != 0)
@@ -1054,25 +1056,8 @@ namespace SDPCameraSystem
 
             }
 
-            info = Console.ReadKey(true);
-            key = info.KeyChar;
-            int configNum = 0;
-            // Use numbers 0 to 9, then lowercase letters if there are more than 10 files
-            if (key >= '1' && key <= '9')
-                configNum = key - '0'; // char-to-int conversion
-            else
-                configNum = key - 'a' + 10; // char-to-int conversion
-
-            if ((configNum >= 1) && (configNum <= configFileCount))
-            {
-                acqParams.ConfigFileName = configFileNames[configNum - 1];
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid selection!\n");
-            }
-
-            Console.WriteLine("\n");
+            int configNum = 1; 
+            acqParams.ConfigFileName = configFileNames[configNum];
 
             SapLocation loc = new SapLocation(acqParams.ServerName, acqParams.ResourceIndex);
 
@@ -1110,8 +1095,6 @@ namespace SDPCameraSystem
 
             // End of frame event
             Xfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
-
-
             Xfer.XferNotify += new SapXferNotifyHandler(xfer_XferNotify);
             Xfer.XferNotifyContext = View;
 
@@ -1129,7 +1112,6 @@ namespace SDPCameraSystem
                 return;
             }
 
-
             // Create buffer object
             if (!View.Create())
             {
@@ -1137,14 +1119,11 @@ namespace SDPCameraSystem
                 return;
             }
 
-
             Xfer.Grab();
             Console.WriteLine("\n\nGrab started, press a key to freeze");
             Console.ReadKey(true);
             Xfer.Freeze();
             Xfer.Wait(1000);
-
-            loc.Dispose();
         }
 
         static float lastFrameRate = 0.0f;
