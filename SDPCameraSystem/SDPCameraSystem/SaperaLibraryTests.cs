@@ -911,9 +911,6 @@ namespace SDPCameraSystem
 
             MyAcquisitionParams acqParams = new MyAcquisitionParams();
 
-            // Call GetOptions to determine which acquisition device to use and which config
-            // file (CCF) should be loaded to configure it.
-
             // Get total number of boards in the system
             string[] configFileNames = new string[MAX_CONFIG_FILES];
             int serverCount = SapManager.GetServerCount();
@@ -995,66 +992,14 @@ namespace SDPCameraSystem
             {
                 acqParams.ResourceIndex = deviceNum - 1;
             }
-            else
-            {
-                Console.WriteLine("Invalid selection!\n");
-            }
 
             ////////////////////////////////////////////////////////////
 
             // List all files in the config directory
             string configPath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-            if (!Directory.Exists(configPath))
-            {
-                Console.WriteLine("Directory : {0} Does not exist", configPath);
-            }
             string[] ccffiles = Directory.GetFiles(configPath, "*.ccf");
             int configFileCount = ccffiles.Length;
-            if (configFileCount == 0)
-            {
-                if (cameraCount == 0)
-                {
-                    Console.WriteLine("No config file found.\nUse CamExpert to generate a config file before running this example.\n");
-                }
-                else
-                {
-                    Console.WriteLine("\nSelect the config file (or 'q' to quit.)");
-                    Console.WriteLine("\n........................................\n");
-                    Console.WriteLine("1: No config File.\n");
-                    configFileCount = 1;
-                }
-            }
-            else
-            {
-
-                Console.WriteLine("Config file is at index 1 (listed as 2)");
-                Console.WriteLine(".......................................\n");
-                configFileCount = 0;
-                if (deviceCount == 0 && cameraCount != 0)
-                {
-                    configFileCount = 1;
-                    Console.WriteLine("1: No config File.");
-                }
-
-                int configFileShow = 0;
-                foreach (string ccfFileName in ccffiles)
-                {
-                    string fileName = ccfFileName.Replace(configPath, "");
-                    if (configFileCount < 9)
-                    {
-                        configFileShow = configFileCount + 1;
-                        Console.WriteLine(configFileShow.ToString() + ": " + fileName);
-                    }
-                    else
-                    {
-                        configFileShow = configFileCount - 9 + 'a';
-                        Console.WriteLine(Convert.ToChar(configFileShow) + ": " + fileName);
-                    }
-                    configFileNames[configFileCount] = ccfFileName;
-                    configFileCount++;
-                }
-
-            }
+       
 
             int configNum = 1; 
             acqParams.ConfigFileName = configFileNames[configNum];
