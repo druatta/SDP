@@ -12,19 +12,9 @@ namespace SDPCameraSystem
 {
     class CameraObjectTests
     {
-        //static void Main(string[] args)
-        //{
-
-        //    Console.WriteLine("Hello, World! These are the camera tests.");
-        //    CheckCamValidityUsingSaperaLibraries();
-
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
-
-        static void TestCreateCamera()
+        static void TestCameraAcquisition()
         {
-            CameraObject TestCam = new CameraObject();
+
         }
 
         static void CheckCamValidityUsingSaperaLibraries()
@@ -63,33 +53,7 @@ namespace SDPCameraSystem
 
         }
 
-        static void TestAcquisitionCreation(SapAcqDevice AcquisitionDevice)
-        {
-            if (!AcquisitionDevice.Create())
-            {
-                Console.WriteLine("Error during SapAcqDevice creation!\n");
-            }
-        }
-
-        static void TestAcquistionDeviceCreation()
-        {
-
-        }
-
-        static void TestBufferCreation()
-        {
-
-        }
-
-        static void TestTransferCreation()
-        {
-
-        }
-
-        static void TestFrameViewCreation()
-        {
-
-        }
+      
 
     }
 }
