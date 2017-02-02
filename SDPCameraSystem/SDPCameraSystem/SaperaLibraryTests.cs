@@ -5,25 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DALSA.SaperaLT.SapClassBasic;
-using DALSA.SaperaLT.Examples.NET.Utils;
+//using DALSA.SaperaLT.Examples.NET.Utils;
 using System.IO;
 
 namespace SDPCameraSystem
 {
     class SaperaLibraryTests
     {
-        const int GAMMA_FACTOR = 10000;
-        const int MAX_CONFIG_FILES = 36;       // 10 numbers + 26 letters
+        /// <summary>
+        /// Uncomment this Main() to run the Sapera library tests
+        /// </summary>
+        //static void Main(string[] args)
+        //{
 
-        static void Main(string[] args)
-        {
 
-            Console.WriteLine("Hello, World! These are the camera tests.");
-            TestViewCreation();
+        //    TestViewCreation();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
 
         static void TestViewCreation()
@@ -32,19 +32,11 @@ namespace SDPCameraSystem
             SapBuffer Buffers = null;
             SapTransfer Xfer = null;
             SapView View = null;
-            MyAcquisitionParams acqParams = new MyAcquisitionParams();
+            AcquisitionParameters acqParams = new AcquisitionParameters();
 
-            // Get total number of boards in the system
-            string[] configFileNames = new string[MAX_CONFIG_FILES];
-            int serverCount = SapManager.GetServerCount();
-            //string configFileIndexToPrint;
+            string[] configFileNames = new string[1];
 
-            if (serverCount == 0)
-            {
-                Console.WriteLine("No device found!\n");
-            }
-
-            int serverNum = 1; // char-to-int conversion     
+            int serverNum = 1;    
             acqParams.ServerName = SapManager.GetServerName(serverNum);
 
             acqParams.ResourceIndex = 0;
