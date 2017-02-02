@@ -13,7 +13,7 @@ namespace SDPCameraSystem
     class CameraObjectTests
     {
 
-
+        
 
         public void AddConfigFileToCameraObject()
         {
