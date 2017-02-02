@@ -25,7 +25,13 @@ namespace SDPCameraSystem
             Device = new SapAcqDevice(Location, AcquisitionParameters.ConfigFileName);
             Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
             Transfer = new SapAcqDeviceToBuf(Device, Buffer);
-            View = null;
+            View = new SapView(Buffer);
+        }
+
+        public void RefreshFrame()
+        {
+            Transfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
+            Transfer.XferNotify += new SapXferNotifyHandler((View.Show()));
         }
 
 
