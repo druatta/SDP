@@ -17,113 +17,123 @@ namespace SDPCameraSystem
 
         static void Main(string[] args)
         {
-            SapAcquisition Acq = null;
+
+            Console.WriteLine("Hello, World! These are the camera tests.");
+            TestViewCreation();
+
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
+
+
+        static void TestViewCreation()
+        {
             SapAcqDevice AcqDevice = null;
             SapBuffer Buffers = null;
             SapTransfer Xfer = null;
             SapView View = null;
-
-            Console.WriteLine("Sapera Console Grab Example (C# version)\n");
-
             MyAcquisitionParams acqParams = new MyAcquisitionParams();
 
             // Get total number of boards in the system
             string[] configFileNames = new string[MAX_CONFIG_FILES];
             int serverCount = SapManager.GetServerCount();
+            //string configFileIndexToPrint;
 
-            Console.WriteLine("\nAcquisition server should be 0");
+            if (serverCount == 0)
+            {
+                Console.WriteLine("No device found!\n");
+            }
 
-            // Scan the boards to find those that support acquisition
-            int serverNum = 0;
-            Console.WriteLine("Server Number is: {0}", serverNum);
+            int serverNum = 1; // char-to-int conversion     
             acqParams.ServerName = SapManager.GetServerName(serverNum);
-
-            Console.WriteLine("Acquisition device is 0.");
 
             acqParams.ResourceIndex = 0;
 
 
-
-            ////////////////////////////////////////////////////////////
-
-            // List all files in the config directory
             string configPath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-
             string[] ccffiles = Directory.GetFiles(configPath, "*.ccf");
             int configFileCount = ccffiles.Length;
-            if (configFileCount == 0)
-            {
 
-                Console.WriteLine("\nSelect the config file (or 'q' to quit.)");
-                configFileCount = 1;
-            }
-            else
-            {
-
-                Console.WriteLine("\nSelect the config file (or 'q' to quit)");
-
-
-                foreach (string ccfFileName in ccffiles)
-                {
-                    string fileName = ccfFileName.Replace(configPath, "");
-
-                    configFileNames[configFileCount] = ccfFileName;
-                }
-
-            }
-
-
-            Console.WriteLine("ConfigNum is 0");
-            acqParams.ConfigFileName = configFileNames[0];
-
-  
+            int configNum = 1;
+            acqParams.ConfigFileName = configFileNames[configNum];
 
             SapLocation loc = new SapLocation(acqParams.ServerName, acqParams.ResourceIndex);
 
-            if (SapManager.GetResourceCount(acqParams.ServerName, SapManager.ResourceType.Acq) > 0)
+            AcqDevice = new SapAcqDevice(loc, acqParams.ConfigFileName);
+            Buffers = new SapBufferWithTrash(2, AcqDevice, SapBuffer.MemoryType.ScatterGather);
+            Xfer = new SapAcqDeviceToBuf(AcqDevice, Buffers);
+
+            // Create acquisition object
+            if (!AcqDevice.Create())
             {
-                Acq = new SapAcquisition(loc, acqParams.ConfigFileName);
-                Buffers = new SapBufferWithTrash(2, Acq, SapBuffer.MemoryType.ScatterGather);
-                Xfer = new SapAcqToBuf(Acq, Buffers);
-                Acq.EnableEvent(SapAcquisition.AcqEventType.StartOfFrame);
+                Console.WriteLine("Error during SapAcqDevice creation!\n");
+                return;
             }
-
-            if (SapManager.GetResourceCount(acqParams.ServerName, SapManager.ResourceType.AcqDevice) > 0)
-            {
-                AcqDevice = new SapAcqDevice(loc, acqParams.ConfigFileName);
-                Buffers = new SapBufferWithTrash(2, AcqDevice, SapBuffer.MemoryType.ScatterGather);
-                Xfer = new SapAcqDeviceToBuf(AcqDevice, Buffers);
-            }
-
-
 
             View = new SapView(Buffers);
 
-            // Create buffer object
+            // End of frame event
+            Xfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
+            Xfer.XferNotify += new SapXferNotifyHandler(xfer_XferNotify);
+            Xfer.XferNotifyContext = View;
+
             if (!Buffers.Create())
             {
                 Console.WriteLine("Error during SapBuffer creation!\n");
+                return;
             }
 
-            // Create buffer object
             if (!Xfer.Create())
             {
                 Console.WriteLine("Error during SapTransfer creation!\n");
+                return;
             }
 
-            // Create buffer object
             if (!View.Create())
             {
                 Console.WriteLine("Error during SapView creation!\n");
+                return;
             }
 
-
-            Console.WriteLine("\nPress any key to terminate\n");
+            Xfer.Grab();
+            Console.WriteLine("\n\nGrab started, press a key to freeze");
             Console.ReadKey(true);
-
+            Xfer.Freeze();
+            Xfer.Wait(1000);
         }
 
+        static float lastFrameRate = 0.0f;
+        public static void xfer_XferNotify(object sender, SapXferNotifyEventArgs args)
+        {
 
+            // refresh view
+            SapView View = args.Context as SapView;
+            View.Show();
+
+            // refresh frame rate
+            SapTransfer transfer = sender as SapTransfer;
+            if (transfer.UpdateFrameRateStatistics())
+            {
+                SapXferFrameRateInfo stats = transfer.FrameRateStatistics;
+                float framerate = 0.0f;
+
+                if (stats.IsLiveFrameRateAvailable)
+                    framerate = stats.LiveFrameRate;
+
+                // check if frame rate is stalled
+                if (stats.IsLiveFrameRateStalled)
+                {
+                    Console.WriteLine("Live Frame rate is stalled.");
+                }
+
+                // update FPS only if the value changed by +/- 0.1
+                else if ((framerate > 0.0f) && (Math.Abs(lastFrameRate - framerate) > 0.1f))
+                {
+                    Console.WriteLine("Grabbing at {0} frames/sec", framerate);
+                    lastFrameRate = framerate;
+                }
+            }
+        }
 
     }
 
