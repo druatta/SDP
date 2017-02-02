@@ -10,14 +10,25 @@ namespace SDPCameraSystem
 {
     class Camera
     {
+        public SapAcqDevice Device;
+        public AcquisitionParameters AcquisitionParameters;
+        public SapLocation Location;
+        protected int BufferCount = 2;
+        public SapBuffer Buffer;
+        public SapTransfer Transfer;
+        public SapView View;
+
         public Camera()
         {
-            SapAcqDevice Device = null;
-            SapBuffer Buffers = null;
-            SapTransfer Transfer = null;
-            SapView View = null;
-            AcquisitionParameters Params = new AcquisitionParameters();
+            AcquisitionParameters = new AcquisitionParameters();
+            Location = new SapLocation(AcquisitionParameters.ServerName, AcquisitionParameters.ResourceIndex);
+            Device = new SapAcqDevice(Location, AcquisitionParameters.ConfigFileName);
+            Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
+            Transfer = new SapAcqDeviceToBuf(Device, Buffer);
+            View = null;
         }
+
+
 
 
 

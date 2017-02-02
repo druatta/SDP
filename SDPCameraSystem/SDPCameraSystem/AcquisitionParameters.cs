@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DALSA.SaperaLT.SapClassBasic;
 
 namespace SDPCameraSystem
 {
     class AcquisitionParameters
     {
+        protected string MyServerName;
+        protected int MyResourceIndex;
+        protected string MyConfigFileName;
+        protected int SDPServerNumber = 1;
+
         public AcquisitionParameters()
         {
-            MyServerName = "";
+            MyServerName = SapManager.GetServerName(SDPServerNumber);
             MyResourceIndex = 0;
             MyConfigFileName = "";
         }
@@ -18,24 +24,18 @@ namespace SDPCameraSystem
         public string ConfigFileName
         {
             get { return MyConfigFileName; }
-            set { MyConfigFileName = value; }
         }
 
         public string ServerName
         {
             get { return MyServerName; }
-            set { MyServerName = value; }
         }
 
         public int ResourceIndex
         {
             get { return MyResourceIndex; }
-            set { MyResourceIndex = value; }
         }
 
-        protected string MyServerName;
-        protected int MyResourceIndex;
-        protected string MyConfigFileName;
     }
 }
 

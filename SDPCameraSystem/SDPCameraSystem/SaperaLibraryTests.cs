@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DALSA.SaperaLT.SapClassBasic;
-//using DALSA.SaperaLT.Examples.NET.Utils;
 using System.IO;
 
 namespace SDPCameraSystem
@@ -33,21 +32,6 @@ namespace SDPCameraSystem
             SapTransfer Xfer = null;
             SapView View = null;
             AcquisitionParameters acqParams = new AcquisitionParameters();
-
-            string[] configFileNames = new string[1];
-
-            int serverNum = 1;    
-            acqParams.ServerName = SapManager.GetServerName(serverNum);
-
-            acqParams.ResourceIndex = 0;
-
-
-            string configPath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-            string[] ccffiles = Directory.GetFiles(configPath, "*.ccf");
-            int configFileCount = ccffiles.Length;
-
-            int configNum = 1;
-            acqParams.ConfigFileName = configFileNames[configNum];
 
             SapLocation loc = new SapLocation(acqParams.ServerName, acqParams.ResourceIndex);
 
