@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraUserInterface
+    class CameraFeed
     {
-        public CameraUserInterface()
+        public CameraFeed()
         {
-
+            
         }
 
         public void FreezeFrame()
@@ -19,10 +19,7 @@ namespace SDPCameraSystem
         }
 
 
-        public void SavePicture()
-        {
 
-        }
 
 
 

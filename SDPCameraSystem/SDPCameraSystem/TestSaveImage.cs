@@ -6,22 +6,13 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraUserInterfaceTests
+    class TestSaveImage
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, world! These are the tests for" +
-        //        "the user input to the camera!");
-        // TestFreezeFrame();
-        // TestSavePicture();
-        //}
-
         static void TestFreezeFrame()
         {
             try
             {
-                CameraUserInterface TestUI = new CameraUserInterface();
-                TestUI.FreezeFrame();
+                Camera TestCamera = new Camera();
                 Console.WriteLine("TestFreezeFrame() passed!");
             }
             catch (Exception FreezeFrameException)
@@ -34,5 +25,7 @@ namespace SDPCameraSystem
         {
 
         }
+
+
     }
 }
