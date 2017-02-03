@@ -28,10 +28,41 @@ namespace SDPCameraSystem
             View = new SapView(Buffer);
         }
 
-        public void RefreshFrame()
+        public static void xfer_XferNotify(object sender, SapXferNotifyEventArgs args)
+        {
+            // refresh view
+            SapView View = args.Context as SapView;
+            View.Show();
+
+            // refresh frame rate
+            SapTransfer transfer = sender as SapTransfer;
+        }
+
+        public void RefreshFrameRate()
         {
             Transfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
-            Transfer.XferNotify += new SapXferNotifyHandler((View.Show()));
+            Transfer.XferNotify += new SapXferNotifyHandler(xfer_XferNotify);
+            Transfer.XferNotifyContext = View;
+        }
+
+        public void CreateBuffers()
+        {
+            Buffer.Create();
+        }
+
+        public void CreateTransfer()
+        {
+            Transfer.Create();
+        }
+
+        public void CreateView()
+        {
+            View.Create();
+        }
+
+        public void CreateCameraFeed()
+        {
+            // Call all functions to create a camera feed
         }
 
 
