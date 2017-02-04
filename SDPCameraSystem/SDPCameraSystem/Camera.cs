@@ -28,6 +28,11 @@ namespace SDPCameraSystem
             View = new SapView(Buffer);
         }
 
+        public void CreateCameraAcquisitionDevice()
+        {
+            Device.Create();
+        }
+
         public void xfer_XferNotify(object sender, SapXferNotifyEventArgs args)
         {
             // refresh view
@@ -58,6 +63,11 @@ namespace SDPCameraSystem
         public void CreateView()
         {
             View.Create();
+        }
+
+        public void GrabCameraFeed()
+        {
+            Transfer.Grab();
         }
 
 

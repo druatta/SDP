@@ -12,21 +12,21 @@ namespace SDPCameraSystem
     class CameraTests
     {
         /// <summary>
-        /// Test driven development for the CameraObject below. All unit tests are within main(). 
-        /// Run only one test at a time to ensure that multiple camera feeds
-        /// are not created at the same time.
+        /// Test driven development for the CameraObject below. 
         /// </summary>
         /// <param name="args"></param>
         //static void Main(string[] args)
         //{
-        //    Console.WriteLine("Hello, World! These are the CameraObject tests.");
+        //    Console.WriteLine("Hello, World! These are the CameraObject tests. ");
+        //    Console.WriteLine("These tests can only be run one at a time since we only have one " +
+        //        "camera to test them with.");
         //    //TestCreateCamera();
-        //    // TestCreateAcquisitionDevice();
-        //    // TestRefreshFrameRate();
-        //    // TestCreateBuffers();
-        //    // TestCreateTransfer();
-        //    // TestCreateView();
-        //    // TestGrabView();
+        //    //TestCreateAcquisitionDevice();
+        //    //TestRefreshFrameRate();
+        //    //TestCreateBuffers();
+        //    //TestCreateTransfer();
+        //    //TestCreateView();
+        //    //TestGrabView();
 
 
         //    Console.WriteLine("Press any key to terminate.");
@@ -51,7 +51,7 @@ namespace SDPCameraSystem
             try
             {
                 Camera TestCamera = new Camera();
-                TestCamera.Device.Create();
+                TestCamera.CreateCameraAcquisitionDevice();
                 Console.WriteLine("TestCreateAcqusitionDevice() passed!");
             }
             catch (Exception CreateAcquisitionDeviceException)
@@ -65,6 +65,7 @@ namespace SDPCameraSystem
             try
             {
                 Camera TestCamera = new Camera();
+                TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 Console.WriteLine("TestRefreshFrame() passed!");
             }
@@ -79,6 +80,8 @@ namespace SDPCameraSystem
             try
             {
                 Camera TestCamera = new Camera();
+                TestCamera.CreateCameraAcquisitionDevice();
+                TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
                 Console.WriteLine("TestCreateBuffers() passed!");
             }
@@ -93,6 +96,9 @@ namespace SDPCameraSystem
             try
             {
                 Camera TestCamera = new Camera();
+                TestCamera.CreateCameraAcquisitionDevice();
+                TestCamera.RefreshFrameRate();
+                TestCamera.CreateBuffers();
                 TestCamera.CreateTransfer();
                 Console.WriteLine("TestCreateTransfer() passed!");
             }
@@ -107,6 +113,10 @@ namespace SDPCameraSystem
             try
             {
                 Camera TestCamera = new Camera();
+                TestCamera.CreateCameraAcquisitionDevice();
+                TestCamera.RefreshFrameRate();
+                TestCamera.CreateBuffers();
+                TestCamera.CreateTransfer();
                 TestCamera.CreateView();
                 Console.WriteLine("TestCreateView() passed!");
             }
@@ -121,18 +131,18 @@ namespace SDPCameraSystem
             try
             {
                 Camera TestCamera = new Camera();
-                TestCamera.Transfer.Grab();
+                TestCamera.CreateCameraAcquisitionDevice();
+                TestCamera.RefreshFrameRate();
+                TestCamera.CreateBuffers();
+                TestCamera.CreateTransfer();
+                TestCamera.CreateView();
+                TestCamera.GrabCameraFeed();
                 Console.WriteLine("TestGrabView() passed!");
             }
             catch
             {
                 Console.WriteLine("TestGrabView() failed! {0}");
             }
-        }
-
-        static void TestCreateCameraFeed()
-        {
-            
         }
 
 

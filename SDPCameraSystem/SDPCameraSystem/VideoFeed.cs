@@ -12,10 +12,12 @@ namespace SDPCameraSystem
 
         public VideoFeed()
         {
+            CamObject.CreateCameraAcquisitionDevice();
             CamObject.RefreshFrameRate();
             CamObject.CreateBuffers();
             CamObject.CreateTransfer();
             CamObject.CreateView();
+            CamObject.GrabCameraFeed();
         }
 
         public void FreezeFrame()

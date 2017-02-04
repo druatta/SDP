@@ -19,3 +19,10 @@ C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\De
 C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.pdb
 C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll
 C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\x64\Debug\SDPCameraSystem.csprojResolveAssemblyReference.cache
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.exe.config
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\x64\Debug\SDPCameraSystem.exe
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\x64\Debug\SDPCameraSystem.pdb
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.exe
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.pdb
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\kateva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\x64\Debug\SDPCameraSystem.csprojResolveAssemblyReference.cache

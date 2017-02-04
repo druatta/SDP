@@ -10,7 +10,11 @@ namespace SDPCameraSystem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello, world! These are the Video Feed Tests!");
             TestCreateVideoFeed();
+
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
         }
 
         static void TestCreateVideoFeed()

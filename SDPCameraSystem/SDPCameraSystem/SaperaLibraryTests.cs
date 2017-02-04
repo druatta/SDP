@@ -31,6 +31,7 @@ namespace SDPCameraSystem
             SapBuffer Buffers = null;
             SapTransfer Xfer = null;
             SapView View = null;
+
             AcquisitionParameters acqParams = new AcquisitionParameters();
 
             SapLocation loc = new SapLocation(acqParams.ServerName, acqParams.ResourceIndex);
@@ -39,16 +40,10 @@ namespace SDPCameraSystem
             Buffers = new SapBufferWithTrash(2, AcqDevice, SapBuffer.MemoryType.ScatterGather);
             Xfer = new SapAcqDeviceToBuf(AcqDevice, Buffers);
 
-            // Create acquisition object
-            if (!AcqDevice.Create())
-            {
-                Console.WriteLine("Error during SapAcqDevice creation!\n");
-                return;
-            }
-
+            AcqDevice.Create();
+        
             View = new SapView(Buffers);
 
-            // End of frame event
             Xfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
             Xfer.XferNotify += new SapXferNotifyHandler(xfer_XferNotify);
             Xfer.XferNotifyContext = View;
