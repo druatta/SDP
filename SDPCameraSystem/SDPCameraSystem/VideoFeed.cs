@@ -22,7 +22,9 @@ namespace SDPCameraSystem
 
         public void FreezeFrame()
         {
+            int FreezeTimeInSeconds = 1000;
             CamObject.Transfer.Freeze();
+            CamObject.Transfer.Wait(FreezeTimeInSeconds);
         }
 
         public void SavePicture()
