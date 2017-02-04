@@ -11,11 +11,15 @@ namespace SDPCameraSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, world! These are the Video Feed Tests!");
+
             //VideoFeedTest();
             FreezeFrameTest();
             //SendSoftwareTriggerFromVisualStudioTest();
             //SendSoftwareTriggerFromPEGTest();
             //CheckForTriggerEventTest();
+
+            //TestFreezeFrame();
+
 
             Console.WriteLine("Press any key to terminate.");
             Console.ReadKey();

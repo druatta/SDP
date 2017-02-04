@@ -27,6 +27,7 @@ namespace SDPCameraSystem
 
         public void FreezeFrame()
         {
+
             Camera.Transfer.Freeze();
             PauseVideoTransferForSeconds(1000);
         }
@@ -57,6 +58,11 @@ namespace SDPCameraSystem
 
         public void FreezeFrameOnTriggerEvent()
         {
+
+
+            int FreezeTimeInSeconds = 1000;
+            Camera.Transfer.Freeze();
+            Camera.Transfer.Wait(FreezeTimeInSeconds);
 
         }
 
