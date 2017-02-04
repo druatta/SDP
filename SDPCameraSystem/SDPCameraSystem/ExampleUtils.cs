@@ -78,7 +78,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
         //////// Ask questions to user to select acquisition board/device and config file ////////
         static public bool GetOptionsFromQuestions(MyAcquisitionParams acqParams)
         {
-           
+
             // Get total number of boards in the system
             string[] configFileNames = new string[MAX_CONFIG_FILES];
             int serverCount = SapManager.GetServerCount();
@@ -87,7 +87,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             if (serverCount == 0)
             {
                 Console.WriteLine("No device found!\n");
-                return  false;
+                return false;
             }
 
             Console.WriteLine("\nSelect the acquisition server (or 'q' to quit)");
@@ -95,8 +95,8 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
 
             // Scan the boards to find those that support acquisition
             int serverIndex; // int serverCount = SapManager.GetServerCount();
-            bool serverFound =  false;
-            bool cameraFound =  false;
+            bool serverFound = false;
+            bool cameraFound = false;
             for (serverIndex = 0; serverIndex < serverCount; serverIndex++)
             {
                 if (SapManager.GetResourceCount(serverIndex, SapManager.ResourceType.Acq) != 0)
@@ -117,13 +117,13 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             if (!serverFound && !cameraFound)
             {
                 Console.WriteLine("No acquisition server found!\n");
-                return  false;
+                return false;
             }
 
             ConsoleKeyInfo info = Console.ReadKey(true);
-            char key = info.KeyChar;      
+            char key = info.KeyChar;
             if (key == 'q')
-                return  false;
+                return false;
             int serverNum = key - '0'; // char-to-int conversion     
             if ((serverNum >= 1) && (serverNum < serverCount))
             {
@@ -132,9 +132,9 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             else
             {
                 Console.WriteLine("Invalid selection!\n");
-                return  false;
+                return false;
             }
-         
+
             // Scan all the acquisition devices on that server and show menu to user
             int deviceCount = SapManager.GetResourceCount(acqParams.ServerName, SapManager.ResourceType.Acq);
             int cameraCount = SapManager.GetResourceCount(acqParams.ServerName, SapManager.ResourceType.AcqDevice);
@@ -161,7 +161,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             info = Console.ReadKey(true);
             key = info.KeyChar;
             if (key == 'q')
-                return  false;
+                return false;
             int deviceNum = key - '0';
             if ((deviceNum >= 1) && (deviceNum <= allDeviceCount))
             {
@@ -170,9 +170,9 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             else
             {
                 Console.WriteLine("Invalid selection!\n");
-                return  false;
+                return false;
             }
-          
+
             ////////////////////////////////////////////////////////////
 
             // List all files in the config directory
@@ -189,7 +189,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 if (cameraCount == 0)
                 {
                     Console.WriteLine("No config file found.\nUse CamExpert to generate a config file before running this example.\n");
-                    return  false;
+                    return false;
                 }
                 else
                 {
@@ -206,11 +206,11 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 Console.WriteLine(".......................................\n");
                 configFileCount = 0;
                 if (deviceCount == 0 && cameraCount != 0)
-                {                  
+                {
                     configFileCount = 1;
                     Console.WriteLine("1: No config File.");
                 }
-               
+
                 int configFileShow = 0;
                 foreach (string ccfFileName in ccffiles)
                 {
@@ -230,7 +230,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 }
 
             }
-         
+
             info = Console.ReadKey(true);
             key = info.KeyChar;
             if (key == 'q')
@@ -241,17 +241,17 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 configNum = key - '0'; // char-to-int conversion
             else
                 configNum = key - 'a' + 10; // char-to-int conversion
- 
+
             if ((configNum >= 1) && (configNum <= configFileCount))
-            {             
+            {
                 acqParams.ConfigFileName = configFileNames[configNum - 1];
             }
             else
             {
                 Console.WriteLine("\nInvalid selection!\n");
-                return  false;
+                return false;
             }
-           
+
             Console.WriteLine("\n");
             return true;
         }
@@ -313,16 +313,16 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             if (serverCount == 0)
             {
                 Console.WriteLine("No device found!\n");
-                return  false;
+                return false;
             }
-            
-            bool cameraFound =  false;
+
+            bool cameraFound = false;
             for (int serverIndex = 0; serverIndex < serverCount; serverIndex++)
             {
                 if (SapManager.GetResourceCount(serverIndex, SapManager.ResourceType.AcqDevice) != 0)
                 {
                     string serverName = SapManager.GetServerName(serverIndex);
-                    if (!showGigEOnly || (showGigEOnly && SapManager.GetResourceCount (serverIndex, SapManager.ResourceType.Acq) == 0))
+                    if (!showGigEOnly || (showGigEOnly && SapManager.GetResourceCount(serverIndex, SapManager.ResourceType.Acq) == 0))
                     {
                         listServerNames.Add(serverName);
                         GenieIndex++;
@@ -335,11 +335,11 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             if (!cameraFound)
             {
                 Console.WriteLine("No GigE camera found!\n");
-                return  false;
+                return false;
             }
-            #if GRAB_CAMERA_LINK
+#if GRAB_CAMERA_LINK
             Console.WriteLine("\nNote:\nOnly CameraLink cameras will work with this example !\nBehavior is undefined for any other devices.\n");
-            #endif
+#endif
             Console.WriteLine("\nSelect one of the camera(s) detected (or 'q' to quit)");
 
             int count = 1;
@@ -353,23 +353,23 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 Console.Write("........................................\n");
                 count++;
             }
-            
+
             ConsoleKeyInfo info = Console.ReadKey(true);
             char key = info.KeyChar;
             if (key == 'q')
-                return  false;
+                return false;
             int serverNum = key - '0'; // char-to-int conversion
             if ((serverNum >= 1) && (serverNum <= GenieIndex))
-            {   
+            {
                 acqParams.ServerName = Convert.ToString(listServerNames[serverNum - 1]);
                 acqParams.ResourceIndex = 0;
             }
             else
             {
                 Console.WriteLine("Invalid selection!\n");
-                return  false;
+                return false;
             }
-      
+
             Console.WriteLine("\n");
             return true;
         }
@@ -385,7 +385,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             if (serverCount == 0)
             {
                 Console.WriteLine("No device found!\n");
-                return  false;
+                return false;
             }
 
             // Scan the boards to find those that support acquisition
@@ -414,12 +414,12 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 if (SapManager.GetResourceCount(serverIndex, SapManager.ResourceType.Acq) != 0)
                 {
                     serverName = SapManager.GetServerName(serverIndex);
-                    Console.WriteLine(serverIndex.ToString() + ": " + serverName);            
+                    Console.WriteLine(serverIndex.ToString() + ": " + serverName);
                 }
             }
-           
+
             ConsoleKeyInfo info = Console.ReadKey(true);
-            char key = info.KeyChar;            
+            char key = info.KeyChar;
             if (key == 'q')
                 return false;
             int serverNum = key - '0'; // char-to-int conversion     
@@ -431,15 +431,15 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             {
                 Console.WriteLine("Invalid selection!\n");
                 return false;
-            }     
+            }
 
             // Scan all the acquisition devices on that server and show menu to user
-            int deviceCount = SapManager.GetResourceCount(acqParams.ServerName, SapManager.ResourceType.Acq);  
+            int deviceCount = SapManager.GetResourceCount(acqParams.ServerName, SapManager.ResourceType.Acq);
 
-            #if GRAB_CAMERA_LINK
+#if GRAB_CAMERA_LINK
                 Console.WriteLine("\nSelect the device you wish to use on this server (or 'q' to quit)");
                 Console.WriteLine(".................................................................");
-            #else
+#else
             Console.WriteLine("\nSelect the acquisition device  (or 'q' to quit)");
             Console.WriteLine("...............................................");
 #endif
@@ -450,9 +450,9 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 deviceName = SapManager.GetResourceName(acqParams.ServerName, SapManager.ResourceType.Acq, deviceIndex);
                 Console.WriteLine(((int)(deviceIndex + 1)).ToString() + ": " + deviceName);
             }
-       
+
             info = Console.ReadKey(true);
-            key = info.KeyChar;          
+            key = info.KeyChar;
             if (key == 'q')
                 return false;
             int deviceNum = key - '0';
@@ -465,7 +465,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 Console.WriteLine("Invalid selection!\n");
                 return false;
             }
-          
+
             ////////////////////////////////////////////////////////////
 
             // List all files in the config directory
@@ -481,8 +481,8 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
 
             if (ccffiles.Length == 0)
             {
-               Console.WriteLine("No config file found.\nUse CamExpert to generate a config file before running this example.\n");
-               return false;
+                Console.WriteLine("No config file found.\nUse CamExpert to generate a config file before running this example.\n");
+                return false;
             }
             else
             {
@@ -526,7 +526,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
                 {
                     Console.WriteLine("\nInvalid selection!\n");
                     return false;
-                }             
+                }
             }
             Console.WriteLine("\n");
             return true;
@@ -537,8 +537,8 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             SapFormat format = pBuffers.Format;
 
             if (format == SapFormat.Uint8 || format == SapFormat.Int8 || format == SapFormat.Int16 || format == SapFormat.Uint16 ||
-                   format==SapFormat.Int24 || format==SapFormat.Uint24 || format==SapFormat.Int32 || format==SapFormat.Uint32 
-                    || format==SapFormat.Int64 || format==SapFormat.Uint64)
+                   format == SapFormat.Int24 || format == SapFormat.Uint24 || format == SapFormat.Int32 || format == SapFormat.Uint32
+                    || format == SapFormat.Int64 || format == SapFormat.Uint64)
                 return true;
             else
                 return false;
@@ -546,232 +546,232 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
 
         static SapData SetDataValue(SapBuffer pBuffers, UInt32 pPrmIndex)
         {
-	        if(IsMonoBuffer(pBuffers))
-	        {
-		        SapDataMono mono = new SapDataMono(128);
-		        return mono;
-	        }
-	        else
-	        {
-		        SapDataRGB rgb = new SapDataRGB();
-		        //SapDataRGB rgb(m_pInfoList->GetValueAt(*pPrmIndex), m_pInfoList->GetValueAt(*pPrmIndex+1), m_pInfoList->GetValueAt(*pPrmIndex+2));
-		        pPrmIndex = pPrmIndex+3;
-		        return rgb;
-	        }
+            if (IsMonoBuffer(pBuffers))
+            {
+                SapDataMono mono = new SapDataMono(128);
+                return mono;
+            }
+            else
+            {
+                SapDataRGB rgb = new SapDataRGB();
+                //SapDataRGB rgb(m_pInfoList->GetValueAt(*pPrmIndex), m_pInfoList->GetValueAt(*pPrmIndex+1), m_pInfoList->GetValueAt(*pPrmIndex+2));
+                pPrmIndex = pPrmIndex + 3;
+                return rgb;
+            }
         }
 
         static public string GetLUTOptionsFromQuestions(SapBuffer pBuffers, SapLut pLut)
         {
-           //////// Ask questions to user to select LUT mode ////////
-	       UInt32 prmIndex = 1;
-	       string acqLutFileName= "";
-           string chAcqLutName = "";
+            //////// Ask questions to user to select LUT mode ////////
+            UInt32 prmIndex = 1;
+            string acqLutFileName = "";
+            string chAcqLutName = "";
 
-           while (string.IsNullOrEmpty(chAcqLutName))
-           {
+            while (string.IsNullOrEmpty(chAcqLutName))
+            {
                 Console.WriteLine("\nSelect the LookUpTable mode you want to apply: \n");
 
-               Console.WriteLine("a : Normal mode");
-               Console.WriteLine("b : Arithmetic mode");
-               Console.WriteLine("c : Binary mode");
-               Console.WriteLine("d : Boolean mode");
-               Console.WriteLine("e : Gamma mode");
-               Console.WriteLine("f : Reverse mode");
-               Console.WriteLine("g : Roll mode");
-               Console.WriteLine("h : Shift mode");
-               Console.WriteLine("i : Slope mode");
-               Console.WriteLine("j : Threshold single mode");
-               Console.WriteLine("k : Threshold double mode");
-                
-               ConsoleKeyInfo info = Console.ReadKey(true);
-               char key = info.KeyChar;	        
-               switch (key)
-	           {
-		            case 'a':
-		            {
-			            pLut.Normal();
-                        acqLutFileName = "Normal_Lut_Mode.lut";
-                        chAcqLutName = "Normal Lut";
-			            break;
-		            }
-		            case 'b':
-		            {
-			            int operationMode = 0;//Linear plus offset with clip
-			            /*
-				            Others operations available
-			            */
-			            //int operation = 1;//Linear minus offset(absolute)
-			            //int operation = 2;//Linear minus offset(with clip)
-			            //int operation = 3;//Linear with lower clip
-			            //int operation = 4;//Linear with upper clip
-			            //int operation = 5;//Scale to maximum limit
-						
-			            SapData offSet;
-			            offSet = SetDataValue(pBuffers, prmIndex);
-			            pLut.Arithmetic((SapLut.ArithmeticOp)operationMode, offSet);
-                        acqLutFileName = "Arithmetic_Lut_Mode.lut";
-                        chAcqLutName = "Arithmetic Lut"; 
-			            break;
-		            }
-		            case 'c':
-		            {
-			            SapData clipValue;
-			            clipValue = SetDataValue(pBuffers, prmIndex);
-			            pLut.BinaryPattern(0, clipValue);
-                        acqLutFileName = "Binary_Lut_Mode.lut";
-                        chAcqLutName = "Binary Lut";
-			            break;
-		            }
-		            case 'd':
-		            {
-			            SapData booleanFunction;
-			            booleanFunction = SetDataValue(pBuffers, prmIndex);
-			            pLut.Boolean((SapLut.BooleanOp)0, booleanFunction);
-			            /*
-				            Others operations available
-			            */
-			            // AND
-			            //pLut->Boolean((SapLut::BooleanOp)1, booleanFunction);
-			            // OR
-			            //pLut->Boolean((SapLut::BooleanOp)2, booleanFunction);
-			            // XOR
-                        acqLutFileName = "Boolean_Lut_Mode.lut";
-                        chAcqLutName = "Boolean Lut";
-			            break;
-		            }
-		            case 'e':
-		            {
-			            int gammaFactor = (int)(2*GAMMA_FACTOR);
-			            pLut.Gamma((float)gammaFactor/GAMMA_FACTOR);
-			            acqLutFileName = "Gamma_Lut_Mode.lut";
-                        chAcqLutName = "Gamma Lut";
-			            break;
-		            }
-		            case 'f':
-		            {
-			            pLut.Reverse();
-			            acqLutFileName =  "Reverse_Lut_Mode.lut";
-                        chAcqLutName = "Reverse Lut";
-			            break;
-		            }
-		            case 'g':
-		            {
-			            int numEntries = 128;
-			            pLut.Roll(numEntries);
-                        acqLutFileName = "Roll_Lut_Mode.lut";
-                        chAcqLutName ="Roll Lut";
-			            break;
-		            }
-		            case 'h':
-		            {
-			            int bitsToShift = 3;
-			            pLut.Shift(bitsToShift);
-                        acqLutFileName = "Shift_Lut_Mode.lut";
-                        chAcqLutName ="Shift Lut";
-			            break;
-		            }
-		            case 'i':
-		            {
-			            int startIndex1 = 76;
-			            int endIndex1 = 179;
-			            bool clipOutSide = false;//TRUE
-			            SapData minValue;
-			            SapData maxValue;
-			            minValue = SetDataValue(pBuffers, prmIndex);
-			            maxValue = SetDataValue(pBuffers, prmIndex);
-			            pLut.Slope(startIndex1, endIndex1, minValue, maxValue, clipOutSide);
-			            acqLutFileName = "Slope_With_Range_Lut_Mode.lut";
-                        chAcqLutName = "Slope With Range Lut";
-			            break;
-		            }
-		            case 'j':
-		            {
-			            SapData treshValue;
-			            treshValue = SetDataValue(pBuffers, prmIndex);
-			            pLut.Threshold(treshValue);
-                        acqLutFileName = "Threshold_Single_Mode.lut";
-                        chAcqLutName = "Threshold Single Lut";
-			            break;
-		            }
-		            case 'k':
-		            {
-			            SapData treshValue1;
-			            SapData treshValue2;
-			            treshValue1 = SetDataValue(pBuffers, prmIndex);
-			            treshValue2 = SetDataValue(pBuffers,  prmIndex);
-			            pLut.Threshold(treshValue1, treshValue2);
-                        acqLutFileName = "Threshold_Double_Mode.lut";
-                        chAcqLutName = "Threshold Double Lut";
-			            break;
-		            }
-                    default :
-                    {
-                    Console.WriteLine("\nInvalid selection!\n");
-                    break;
-                    }
-	          }               
-           }
-	       pLut.Save(acqLutFileName);		// Save LUT to file (can be reloaded in the main demo)
-           Console.WriteLine("\n");
-           return chAcqLutName;
+                Console.WriteLine("a : Normal mode");
+                Console.WriteLine("b : Arithmetic mode");
+                Console.WriteLine("c : Binary mode");
+                Console.WriteLine("d : Boolean mode");
+                Console.WriteLine("e : Gamma mode");
+                Console.WriteLine("f : Reverse mode");
+                Console.WriteLine("g : Roll mode");
+                Console.WriteLine("h : Shift mode");
+                Console.WriteLine("i : Slope mode");
+                Console.WriteLine("j : Threshold single mode");
+                Console.WriteLine("k : Threshold double mode");
+
+                ConsoleKeyInfo info = Console.ReadKey(true);
+                char key = info.KeyChar;
+                switch (key)
+                {
+                    case 'a':
+                        {
+                            pLut.Normal();
+                            acqLutFileName = "Normal_Lut_Mode.lut";
+                            chAcqLutName = "Normal Lut";
+                            break;
+                        }
+                    case 'b':
+                        {
+                            int operationMode = 0;//Linear plus offset with clip
+                                                  /*
+                                                      Others operations available
+                                                  */
+                                                  //int operation = 1;//Linear minus offset(absolute)
+                                                  //int operation = 2;//Linear minus offset(with clip)
+                                                  //int operation = 3;//Linear with lower clip
+                                                  //int operation = 4;//Linear with upper clip
+                                                  //int operation = 5;//Scale to maximum limit
+
+                            SapData offSet;
+                            offSet = SetDataValue(pBuffers, prmIndex);
+                            pLut.Arithmetic((SapLut.ArithmeticOp)operationMode, offSet);
+                            acqLutFileName = "Arithmetic_Lut_Mode.lut";
+                            chAcqLutName = "Arithmetic Lut";
+                            break;
+                        }
+                    case 'c':
+                        {
+                            SapData clipValue;
+                            clipValue = SetDataValue(pBuffers, prmIndex);
+                            pLut.BinaryPattern(0, clipValue);
+                            acqLutFileName = "Binary_Lut_Mode.lut";
+                            chAcqLutName = "Binary Lut";
+                            break;
+                        }
+                    case 'd':
+                        {
+                            SapData booleanFunction;
+                            booleanFunction = SetDataValue(pBuffers, prmIndex);
+                            pLut.Boolean((SapLut.BooleanOp)0, booleanFunction);
+                            /*
+                                Others operations available
+                            */
+                            // AND
+                            //pLut->Boolean((SapLut::BooleanOp)1, booleanFunction);
+                            // OR
+                            //pLut->Boolean((SapLut::BooleanOp)2, booleanFunction);
+                            // XOR
+                            acqLutFileName = "Boolean_Lut_Mode.lut";
+                            chAcqLutName = "Boolean Lut";
+                            break;
+                        }
+                    case 'e':
+                        {
+                            int gammaFactor = (int)(2 * GAMMA_FACTOR);
+                            pLut.Gamma((float)gammaFactor / GAMMA_FACTOR);
+                            acqLutFileName = "Gamma_Lut_Mode.lut";
+                            chAcqLutName = "Gamma Lut";
+                            break;
+                        }
+                    case 'f':
+                        {
+                            pLut.Reverse();
+                            acqLutFileName = "Reverse_Lut_Mode.lut";
+                            chAcqLutName = "Reverse Lut";
+                            break;
+                        }
+                    case 'g':
+                        {
+                            int numEntries = 128;
+                            pLut.Roll(numEntries);
+                            acqLutFileName = "Roll_Lut_Mode.lut";
+                            chAcqLutName = "Roll Lut";
+                            break;
+                        }
+                    case 'h':
+                        {
+                            int bitsToShift = 3;
+                            pLut.Shift(bitsToShift);
+                            acqLutFileName = "Shift_Lut_Mode.lut";
+                            chAcqLutName = "Shift Lut";
+                            break;
+                        }
+                    case 'i':
+                        {
+                            int startIndex1 = 76;
+                            int endIndex1 = 179;
+                            bool clipOutSide = false;//TRUE
+                            SapData minValue;
+                            SapData maxValue;
+                            minValue = SetDataValue(pBuffers, prmIndex);
+                            maxValue = SetDataValue(pBuffers, prmIndex);
+                            pLut.Slope(startIndex1, endIndex1, minValue, maxValue, clipOutSide);
+                            acqLutFileName = "Slope_With_Range_Lut_Mode.lut";
+                            chAcqLutName = "Slope With Range Lut";
+                            break;
+                        }
+                    case 'j':
+                        {
+                            SapData treshValue;
+                            treshValue = SetDataValue(pBuffers, prmIndex);
+                            pLut.Threshold(treshValue);
+                            acqLutFileName = "Threshold_Single_Mode.lut";
+                            chAcqLutName = "Threshold Single Lut";
+                            break;
+                        }
+                    case 'k':
+                        {
+                            SapData treshValue1;
+                            SapData treshValue2;
+                            treshValue1 = SetDataValue(pBuffers, prmIndex);
+                            treshValue2 = SetDataValue(pBuffers, prmIndex);
+                            pLut.Threshold(treshValue1, treshValue2);
+                            acqLutFileName = "Threshold_Double_Mode.lut";
+                            chAcqLutName = "Threshold Double Lut";
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("\nInvalid selection!\n");
+                            break;
+                        }
+                }
+            }
+            pLut.Save(acqLutFileName);      // Save LUT to file (can be reloaded in the main demo)
+            Console.WriteLine("\n");
+            return chAcqLutName;
         }
 
         static public bool GetLoadLUTFiles(SapLut pLut, ArrayList FileSave_list)
         {
-           //////// Ask questions to user to select LUT file ////////
-	        string fileName = "";
+            //////// Ask questions to user to select LUT file ////////
+            string fileName = "";
             Console.WriteLine("\nDo you want to load an existing LUT file? y/n (Yes/No)  \n");
-	        ConsoleKeyInfo keyQuestion = Console.ReadKey(true);
-            char key = keyQuestion.KeyChar;          
+            ConsoleKeyInfo keyQuestion = Console.ReadKey(true);
+            char key = keyQuestion.KeyChar;
             if (key == 'n')
-	        {					       
-		        return false;
-	        }
+            {
+                return false;
+            }
             else if (key == 'y')
             {
-               Console.WriteLine("\nSelect the LUT file available: \n");
-               GetLUTFilesSaved(".", FileSave_list);
-               if (FileSave_list.Count != 0)
-               {
-                   keyQuestion = Console.ReadKey(true);
-                   key = keyQuestion.KeyChar;
-                
-                       int fileNum = key - '0';
-                       if ((fileNum >= 1) && (fileNum <= FileSave_list.Count))
-                       {
-                           fileName = (string)FileSave_list[fileNum - 1];
-                           // Load LUT (saved before in the main demo)
-                           if (pLut.Load(fileName))
-                           {
-                               Console.WriteLine("\n................");
-                               Console.WriteLine(fileName + " loaded.");
-                               Console.WriteLine("..................\n");
-                               return true;
-                           }
-                       }
-                       else
-                       {
-                           Console.WriteLine("\nInvalid selection!\n");
-                           return false;
-                       }
-                   }
-                   else
-                   {
-                       Console.WriteLine("\nInvalid selection!\n");
-                       return false;
-                   }
-           }
-           else
-           {
-               Console.WriteLine("\nNo Lut File Avaible. Please load an existing one\n");
-               return false;
-           }        
-           return false;          
+                Console.WriteLine("\nSelect the LUT file available: \n");
+                GetLUTFilesSaved(".", FileSave_list);
+                if (FileSave_list.Count != 0)
+                {
+                    keyQuestion = Console.ReadKey(true);
+                    key = keyQuestion.KeyChar;
+
+                    int fileNum = key - '0';
+                    if ((fileNum >= 1) && (fileNum <= FileSave_list.Count))
+                    {
+                        fileName = (string)FileSave_list[fileNum - 1];
+                        // Load LUT (saved before in the main demo)
+                        if (pLut.Load(fileName))
+                        {
+                            Console.WriteLine("\n................");
+                            Console.WriteLine(fileName + " loaded.");
+                            Console.WriteLine("..................\n");
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid selection!\n");
+                        return false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid selection!\n");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nNo Lut File Avaible. Please load an existing one\n");
+                return false;
+            }
+            return false;
         }
 
         static void GetLUTFilesSaved(String Path, ArrayList FileSave_list)
         {
-           
+
             string[] lutfiles = Directory.GetFiles(Path, "*.lut");
             int configFileCount = 1;
 
@@ -792,7 +792,7 @@ namespace DALSA.SaperaLT.Examples.NET.Utils
             m_ResourceIndex = 0;
             m_ConfigFileName = "";
         }
-        
+
         public MyAcquisitionParams(string ServerName, int ResourceIndex)
         {
             m_ServerName = ServerName;

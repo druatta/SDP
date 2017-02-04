@@ -5,25 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DALSA.SaperaLT.SapClassBasic;
-using DALSA.SaperaLT.Examples.NET.Utils;
 using System.IO;
 
 namespace SDPCameraSystem
 {
     class SaperaLibraryTests
     {
-        const int GAMMA_FACTOR = 10000;
-        const int MAX_CONFIG_FILES = 36;       // 10 numbers + 26 letters
+        /// <summary>
+        /// Uncomment this Main() to run the Sapera library tests
+        /// </summary>
+        //static void Main(string[] args)
+        //{
 
-        static void Main(string[] args)
-        {
 
-            Console.WriteLine("Hello, World! These are the camera tests.");
-            TestViewCreation();
+        //    TestViewCreation();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
 
         static void TestViewCreation()
@@ -32,30 +31,8 @@ namespace SDPCameraSystem
             SapBuffer Buffers = null;
             SapTransfer Xfer = null;
             SapView View = null;
-            MyAcquisitionParams acqParams = new MyAcquisitionParams();
 
-            // Get total number of boards in the system
-            string[] configFileNames = new string[MAX_CONFIG_FILES];
-            int serverCount = SapManager.GetServerCount();
-            //string configFileIndexToPrint;
-
-            if (serverCount == 0)
-            {
-                Console.WriteLine("No device found!\n");
-            }
-
-            int serverNum = 1; // char-to-int conversion     
-            acqParams.ServerName = SapManager.GetServerName(serverNum);
-
-            acqParams.ResourceIndex = 0;
-
-
-            string configPath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-            string[] ccffiles = Directory.GetFiles(configPath, "*.ccf");
-            int configFileCount = ccffiles.Length;
-
-            int configNum = 1;
-            acqParams.ConfigFileName = configFileNames[configNum];
+            AcquisitionParameters acqParams = new AcquisitionParameters();
 
             SapLocation loc = new SapLocation(acqParams.ServerName, acqParams.ResourceIndex);
 
@@ -63,16 +40,10 @@ namespace SDPCameraSystem
             Buffers = new SapBufferWithTrash(2, AcqDevice, SapBuffer.MemoryType.ScatterGather);
             Xfer = new SapAcqDeviceToBuf(AcqDevice, Buffers);
 
-            // Create acquisition object
-            if (!AcqDevice.Create())
-            {
-                Console.WriteLine("Error during SapAcqDevice creation!\n");
-                return;
-            }
-
+            AcqDevice.Create();
+        
             View = new SapView(Buffers);
 
-            // End of frame event
             Xfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
             Xfer.XferNotify += new SapXferNotifyHandler(xfer_XferNotify);
             Xfer.XferNotifyContext = View;
