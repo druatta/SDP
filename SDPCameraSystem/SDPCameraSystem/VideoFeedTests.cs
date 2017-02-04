@@ -34,6 +34,20 @@ namespace SDPCameraSystem
             }
         }
 
+        static void FreezeFrameTest()
+        {
+            try
+            {
+                VideoFeed TestVideoFeed = new VideoFeed();
+                TestVideoFeed.FreezeFrame();
+                Console.WriteLine("TestFreezeFrame() passed!");
+            }
+            catch (Exception FreezeFrameException)
+            {
+                Console.WriteLine("TestFreezeFrame() failed! {0}", FreezeFrameException.Message);
+            }
+        }
+
         static void SendSoftwareTriggerFromVisualStudioTest()
         {
             try
@@ -74,20 +88,6 @@ namespace SDPCameraSystem
             catch (Exception CheckForTriggerEventException)
             {
                 Console.WriteLine("TestCheckForTriggerEvent() failed! {0}", CheckForTriggerEventException.Message);
-            }
-        }
-
-        static void FreezeFrameTest()
-        {
-            try
-            {
-                VideoFeed TestVideoFeed = new VideoFeed();
-                TestVideoFeed.FreezeFrame();
-                Console.WriteLine("TestFreezeFrame() passed!");
-            }
-            catch (Exception FreezeFrameException)
-            {
-                Console.WriteLine("TestFreezeFrame() failed! {0}", FreezeFrameException.Message);
             }
         }
 
