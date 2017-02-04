@@ -71,9 +71,10 @@
     <Compile Include="Camera.cs" />
     <Compile Include="CameraTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaperaLibraryTests.cs" />
+    <Compile Include="TriggerInput.cs" />
+    <Compile Include="TriggerInputTests.cs" />
     <Compile Include="VideoFeed.cs" />
-    <Compile Include="TestVideoFeed.cs" />
+    <Compile Include="VideoFeedTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

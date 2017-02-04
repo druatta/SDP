@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class TestVideoFeed
+    class VideoFeedTests
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, world! These are the Video Feed Tests!");
-            TestCreateVideoFeed();
+            //TestCreateVideoFeed();
+            TestFreezeFrame();
 
             Console.WriteLine("Press any key to terminate.");
             Console.ReadKey();
@@ -22,6 +23,7 @@ namespace SDPCameraSystem
             try
             {
                 VideoFeed TestVideoFeed = new VideoFeed();
+                Console.WriteLine("TestCreateVideoFeed() passed!");
             }
             catch (Exception CreateVideoFeedException)
             {
@@ -31,7 +33,16 @@ namespace SDPCameraSystem
 
         static void TestFreezeFrame()
         {
-
+            try
+            {
+                VideoFeed TestVideoFeed = new VideoFeed();
+                TestVideoFeed.FreezeFrame();
+                Console.WriteLine("TestFreezeFrame() passed!");
+            }
+            catch (Exception FreezeFrameException)
+            {
+                Console.WriteLine("TestFreezeFrame() failed! {0}", FreezeFrameException.Message);
+            }
         }
 
         static void TestSavePicture()
