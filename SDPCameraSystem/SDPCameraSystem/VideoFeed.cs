@@ -8,26 +8,63 @@ namespace SDPCameraSystem
 {
     class VideoFeed
     {
-        Camera CamObject = new Camera();
+        Camera Camera = new Camera();
 
         public VideoFeed()
         {
-            CamObject.CreateCameraAcquisitionDevice();
-            CamObject.RefreshFrameRate();
-            CamObject.CreateBuffers();
-            CamObject.CreateTransfer();
-            CamObject.CreateView();
-            CamObject.GrabCameraFeed();
+            Camera.CreateCameraAcquisitionDevice();
+            Camera.RefreshFrameRate();
+            Camera.CreateBuffers();
+            Camera.CreateTransfer();
+            Camera.CreateView();
+            Camera.GrabCameraFeed();
+        }
+
+        public void PauseVideoTransferForSeconds(int TimeoutinSeconds)
+        {
+            Camera.Transfer.Wait(TimeoutinSeconds);
         }
 
         public void FreezeFrame()
         {
-            CamObject.Transfer.Freeze();
+            Camera.Transfer.Freeze();
+            PauseVideoTransferForSeconds(1000);
+        }
+
+        public void EnableSoftwareTrigger()
+        {
+
+        }
+
+        public void SendSoftwareTriggerFromVisualStudio()
+        {
+            // Use SetFeatureValue!!!
+            // public bool SetFeatureValue(int featureIndex, bool featureValue);
+            Camera.Device.SetFeatureValue("EventFrameTrigger", true);
+        }
+
+        public void SendSoftwareTriggerFromPEG()
+        {
+
+        }
+
+        public void CheckForTriggerEvent()
+        {
+            if (Camera.Device.IsEventEnabled("EventFrameTrigger")) {
+
+            }
+        }
+
+        public void FreezeFrameOnTriggerEvent()
+        {
+
         }
 
         public void SavePicture()
         {
             // How do we save to a file??
         }
+
+
     }
 }

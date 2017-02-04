@@ -11,14 +11,17 @@ namespace SDPCameraSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, world! These are the Video Feed Tests!");
-            //TestCreateVideoFeed();
-            TestFreezeFrame();
+            //VideoFeedTest();
+            FreezeFrameTest();
+            //SendSoftwareTriggerFromVisualStudioTest();
+            // SendSoftwareTriggerFromPEGTest();
+            //CheckForTriggerEventTest();
 
             Console.WriteLine("Press any key to terminate.");
             Console.ReadKey();
         }
 
-        static void TestCreateVideoFeed()
+        static void VideoFeedTest()
         {
             try
             {
@@ -31,7 +34,50 @@ namespace SDPCameraSystem
             }
         }
 
-        static void TestFreezeFrame()
+        static void SendSoftwareTriggerFromVisualStudioTest()
+        {
+            try
+            {
+                VideoFeed TestVideoFeed = new VideoFeed();
+                Console.WriteLine("Waiting 10 seconds before sending the software trigger");
+                TestVideoFeed.PauseVideoTransferForSeconds(10);
+                TestVideoFeed.SendSoftwareTriggerFromVisualStudio();
+                Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() passed!");
+            }
+            catch (Exception SendSoftwareTriggerFromVisualStudioException)
+            {
+                Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() failed! {0}", SendSoftwareTriggerFromVisualStudioException.Message);
+            }
+        }
+
+        static void SendSoftwareTriggerFromPEGTest()
+        {
+            try
+            {
+                VideoFeed TestVideoFeed = new VideoFeed();
+                TestVideoFeed.SendSoftwareTriggerFromPEG();
+                Console.WriteLine("SendSoftwareTriggerFromPEGTest passed!");
+            } catch (Exception SendSoftwareTriggerFromPEGException)
+            {
+                Console.WriteLine("SendSoftwareTriggerFromPEGTest() failed!", SendSoftwareTriggerFromPEGException.Message);
+            }
+        }
+
+        static void CheckForTriggerEventTest()
+        {
+            try
+            {
+                VideoFeed TestVideoFeed = new VideoFeed();
+                TestVideoFeed.CheckForTriggerEvent();
+                Console.WriteLine("TestCheckForTriggerEvent() passed!");
+            }
+            catch (Exception CheckForTriggerEventException)
+            {
+                Console.WriteLine("TestCheckForTriggerEvent() failed! {0}", CheckForTriggerEventException.Message);
+            }
+        }
+
+        static void FreezeFrameTest()
         {
             try
             {
@@ -45,7 +91,7 @@ namespace SDPCameraSystem
             }
         }
 
-        static void TestSavePicture()
+        static void SavePictureTest()
         {
             try
             {

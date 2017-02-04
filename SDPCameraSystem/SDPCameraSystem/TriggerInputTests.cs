@@ -8,23 +8,21 @@ namespace SDPCameraSystem
 {
     class TriggerInputTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, world! These are the Trigger Input Tests!");
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, world! These are the Trigger Input Tests!");
 
-            VideoFeed TestVideoFeed = new VideoFeed();
+        //    VideoFeed TestVideoFeed = new VideoFeed();
+
+            
 
 
 
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
 
-        static void TestFreezeFrame()
-        {
-
-        }
     }
 }
