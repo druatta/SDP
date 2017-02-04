@@ -28,7 +28,7 @@ namespace SDPCameraSystem
             View = new SapView(Buffer);
         }
 
-        public static void xfer_XferNotify(object sender, SapXferNotifyEventArgs args)
+        public void xfer_XferNotify(object sender, SapXferNotifyEventArgs args)
         {
             // refresh view
             SapView View = args.Context as SapView;
@@ -59,12 +59,6 @@ namespace SDPCameraSystem
         {
             View.Create();
         }
-
-        public void CreateCameraFeed()
-        {
-            // Call all functions to create a camera feed
-        }
-
 
 
 

@@ -17,21 +17,21 @@ namespace SDPCameraSystem
         /// are not created at the same time.
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraObject tests.");
-            TestCreateCamera();
-            // TestCreateAcquisitionDevice();
-            // TestRefreshFrameRate();
-            // TestCreateBuffers();
-            // TestCreateTransfer();
-            // TestCreateView();
-            // TestGrabView();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraObject tests.");
+        //    //TestCreateCamera();
+        //    // TestCreateAcquisitionDevice();
+        //    // TestRefreshFrameRate();
+        //    // TestCreateBuffers();
+        //    // TestCreateTransfer();
+        //    // TestCreateView();
+        //    // TestGrabView();
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void TestCreateCamera()
         {
