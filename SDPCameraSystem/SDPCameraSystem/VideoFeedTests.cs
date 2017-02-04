@@ -8,22 +8,14 @@ namespace SDPCameraSystem
 {
     class VideoFeedTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, world! These are the Video Feed Tests!");
-
-            //VideoFeedTest();
-            //FreezeFrameTest();
-            SendSoftwareTriggerFromVisualStudioTest();
-            //SendSoftwareTriggerFromPEGTest();
-            //CheckForTriggerEventTest();
-
-            //TestFreezeFrame();
-
-
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, world! These are the Video Feed Tests!");
+        //    VideoFeedTest();
+        //    FreezeVideoFeedTest();
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void VideoFeedTest()
         {
@@ -38,12 +30,12 @@ namespace SDPCameraSystem
             }
         }
 
-        static void FreezeFrameTest()
+        static void FreezeVideoFeedTest()
         {
             try
             {
                 VideoFeed TestVideoFeed = new VideoFeed();
-                TestVideoFeed.FreezeFrame();
+                TestVideoFeed.FreezeVideoFeed();
                 Console.WriteLine("TestFreezeFrame() passed!");
             }
             catch (Exception FreezeFrameException)
@@ -52,48 +44,6 @@ namespace SDPCameraSystem
             }
         }
 
-        static void SendSoftwareTriggerFromVisualStudioTest()
-        {
-            try
-            {
-                VideoFeed TestVideoFeed = new VideoFeed();
-                Console.WriteLine("Waiting 10 seconds before sending the software trigger");
-                TestVideoFeed.PauseVideoTransferForSeconds(10);
-                TestVideoFeed.SendSoftwareTriggerFromVisualStudio();
-                Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() passed!");
-            }
-            catch (Exception SendSoftwareTriggerFromVisualStudioException)
-            {
-                Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() failed! {0}", SendSoftwareTriggerFromVisualStudioException.Message);
-            }
-        }
-
-        static void SendSoftwareTriggerFromPEGTest()
-        {
-            try
-            {
-                VideoFeed TestVideoFeed = new VideoFeed();
-                TestVideoFeed.SendSoftwareTriggerFromPEG();
-                Console.WriteLine("SendSoftwareTriggerFromPEGTest passed!");
-            } catch (Exception SendSoftwareTriggerFromPEGException)
-            {
-                Console.WriteLine("SendSoftwareTriggerFromPEGTest() failed!", SendSoftwareTriggerFromPEGException.Message);
-            }
-        }
-
-        static void CheckForTriggerEventTest()
-        {
-            try
-            {
-                VideoFeed TestVideoFeed = new VideoFeed();
-                TestVideoFeed.CheckForTriggerEvent();
-                Console.WriteLine("TestCheckForTriggerEvent() passed!");
-            }
-            catch (Exception CheckForTriggerEventException)
-            {
-                Console.WriteLine("TestCheckForTriggerEvent() failed! {0}", CheckForTriggerEventException.Message);
-            }
-        }
 
         static void SavePictureTest()
         {

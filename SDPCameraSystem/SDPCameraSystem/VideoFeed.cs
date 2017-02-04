@@ -8,7 +8,7 @@ namespace SDPCameraSystem
 {
     class VideoFeed
     {
-        Camera Camera = new Camera();
+        public Camera Camera = new Camera();
 
         public VideoFeed()
         {
@@ -20,51 +20,17 @@ namespace SDPCameraSystem
             Camera.GrabCameraFeed();
         }
 
-        public void PauseVideoTransferForSeconds(int TimeoutinSeconds)
+        public void PauseVideoFeedForSeconds(int TimeoutinSeconds)
         {
             Camera.Transfer.Wait(TimeoutinSeconds);
         }
 
-        public void FreezeFrame()
+        public void FreezeVideoFeed()
         {
-
             Camera.Transfer.Freeze();
-            PauseVideoTransferForSeconds(1000);
+            PauseVideoFeedForSeconds(1000);
         }
 
-        public void EnableSoftwareTrigger()
-        {
-
-        }
-
-        public void SendSoftwareTriggerFromVisualStudio()
-        {
-            // Use SetFeatureValue!!!
-            // public bool SetFeatureValue(int featureIndex, bool featureValue);
-            Camera.Device.SetFeatureValue("EventFrameTrigger", true);
-        }
-
-        public void SendSoftwareTriggerFromPEG()
-        {
-
-        }
-
-        public void CheckForTriggerEvent()
-        {
-            if (Camera.Device.IsEventEnabled("EventFrameTrigger")) {
-
-            }
-        }
-
-        public void FreezeFrameOnTriggerEvent()
-        {
-
-
-            int FreezeTimeInSeconds = 1000;
-            Camera.Transfer.Freeze();
-            Camera.Transfer.Wait(FreezeTimeInSeconds);
-
-        }
 
         public void SavePicture()
         {
