@@ -14,7 +14,7 @@ namespace SDPCameraSystem
             //VideoFeedTest();
             FreezeFrameTest();
             //SendSoftwareTriggerFromVisualStudioTest();
-            // SendSoftwareTriggerFromPEGTest();
+            //SendSoftwareTriggerFromPEGTest();
             //CheckForTriggerEventTest();
 
             Console.WriteLine("Press any key to terminate.");
