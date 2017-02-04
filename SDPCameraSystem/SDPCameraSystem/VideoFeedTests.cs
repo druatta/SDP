@@ -13,8 +13,8 @@ namespace SDPCameraSystem
             Console.WriteLine("Hello, world! These are the Video Feed Tests!");
 
             //VideoFeedTest();
-            FreezeFrameTest();
-            //SendSoftwareTriggerFromVisualStudioTest();
+            //FreezeFrameTest();
+            SendSoftwareTriggerFromVisualStudioTest();
             //SendSoftwareTriggerFromPEGTest();
             //CheckForTriggerEventTest();
 
