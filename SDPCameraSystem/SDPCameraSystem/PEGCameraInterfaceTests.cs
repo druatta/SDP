@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class TriggerInputTests : TriggerInput
+    class PEGCameraInterfaceTests
     {
 
         static void Main(string[] args)
@@ -23,7 +23,7 @@ namespace SDPCameraSystem
                 VideoFeed TestVideoFeed = new VideoFeed();
                 Console.WriteLine("Waiting 10 seconds before sending the software trigger");
                 TestVideoFeed.PauseVideoFeedForSeconds(10);
-                // TestVideoFeed.SendSoftwareTriggerFromVisualStudio();
+                //TestVideoFeed.SendSoftwareTriggerFromVisualStudio();
                 Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() passed!");
             }
             catch (Exception SendSoftwareTriggerFromVisualStudioException)

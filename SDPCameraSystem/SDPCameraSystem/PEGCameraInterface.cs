@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class TriggerInput : VideoFeed
+    class PEGCameraInterface : VideoFeed
     {
 
         public void EnableSoftwareTrigger()
