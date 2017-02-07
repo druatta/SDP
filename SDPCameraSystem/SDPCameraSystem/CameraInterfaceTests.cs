@@ -20,7 +20,7 @@ namespace SDPCameraSystem
             Console.WriteLine("Hello, World! These are the CameraObject tests. ");
             Console.WriteLine("These tests can only be run one at a time since we only have one " +
                 "camera to test them with.");
-            //TestCreateCamera();
+            TestCreateCamera();
             //TestCreateAcquisitionDevice();
             //TestRefreshFrameRate();
             //TestCreateBuffers();

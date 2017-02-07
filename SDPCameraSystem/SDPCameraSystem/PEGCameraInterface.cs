@@ -16,7 +16,7 @@ namespace SDPCameraSystem
 
         public void TurnTriggerModeOn()
         {
-            VideoFeed.Camera.Device.SetFeatureValue("TriggerMode", true);
+            //VideoFeed.Camera.Device.SetFeatureValue("TriggerMode", true);
         }
 
 

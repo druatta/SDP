@@ -21,8 +21,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                TriggerCameraInterface TestVideoFeedInterface = new VideoFeed();
-                TestVideoFeedInterface.TurnTriggerModeOn();
+                //TriggerCameraInterface TestVideoFeedInterface = new VideoFeed();
+                //TestVideoFeedInterface.TurnTriggerModeOn();
                 Console.WriteLine("TestTurnTriggerModeOn() passed!");
             }
             catch (Exception TurnTriggerModeOnException)
