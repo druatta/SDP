@@ -9,7 +9,7 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class CameraTests
+    class CameraInterfaceTests
     {
         /// <summary>
         /// Test driven development for the CameraObject below. 
@@ -37,7 +37,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 Console.WriteLine("TestCreateCamera() passed!");
             }
             catch (Exception CreateCameraException)
@@ -50,7 +50,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 TestCamera.CreateCameraAcquisitionDevice();
                 Console.WriteLine("TestCreateAcqusitionDevice() passed!");
             }
@@ -64,7 +64,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 Console.WriteLine("TestRefreshFrame() passed!");
@@ -79,7 +79,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -95,7 +95,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -112,7 +112,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -130,7 +130,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                Camera TestCamera = new Camera();
+                CameraInterface TestCamera = new CameraInterface();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();

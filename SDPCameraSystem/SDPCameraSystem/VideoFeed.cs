@@ -8,7 +8,7 @@ namespace SDPCameraSystem
 {
     class VideoFeed
     {
-        public Camera Camera = new Camera();
+        public CameraInterface Camera = new CameraInterface();
 
         public VideoFeed()
         {
