@@ -15,23 +15,23 @@ namespace SDPCameraSystem
         /// Test driven development for the CameraObject below. 
         /// </summary>
         /// <param name="args"></param>
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the CameraObject tests. ");
-        //    Console.WriteLine("These tests can only be run one at a time since we only have one " +
-        //        "camera to test them with.");
-        //    //TestCreateCamera();
-        //    //TestCreateAcquisitionDevice();
-        //    //TestRefreshFrameRate();
-        //    //TestCreateBuffers();
-        //    //TestCreateTransfer();
-        //    //TestCreateView();
-        //    //TestGrabView();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the CameraObject tests. ");
+            Console.WriteLine("These tests can only be run one at a time since we only have one " +
+                "camera to test them with.");
+            //TestCreateCamera();
+            //TestCreateAcquisitionDevice();
+            //TestRefreshFrameRate();
+            //TestCreateBuffers();
+            //TestCreateTransfer();
+            //TestCreateView();
+            //TestGrabView();
 
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
         static void TestCreateCamera()
         {

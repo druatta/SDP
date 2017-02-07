@@ -6,25 +6,20 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
+    interface TriggerCameraInterface
+    {
+        void TurnTriggerModeOn();
+    }
+
     class PEGCameraInterface : VideoFeed
     {
 
-        public void EnableSoftwareTrigger()
+        public void TurnTriggerModeOn()
         {
-
+            VideoFeed.Camera.Device.SetFeatureValue("TriggerMode", true);
         }
 
-        public void SendSoftwareTriggerFromVisualStudio()
-        {
-            // Use SetFeatureValue!!!
-            // public bool SetFeatureValue(int featureIndex, bool featureValue);
-            Camera.Device.SetFeatureValue("EventFrameTrigger", true);
-        }
 
-        public void SendSoftwareTriggerFromPEG()
-        {
-
-        }
 
         public void CheckForTriggerEvent()
         {

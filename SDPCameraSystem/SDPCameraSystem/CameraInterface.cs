@@ -17,6 +17,8 @@ namespace SDPCameraSystem
         public SapBuffer Buffer;
         public SapTransfer Transfer;
         public SapView View;
+        public SapFeature Feature;
+        public SapAcqDeviceNotifyHandler Handler;
 
         public Camera()
         {
@@ -26,6 +28,17 @@ namespace SDPCameraSystem
             Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
             Transfer = new SapAcqDeviceToBuf(Device, Buffer);
             View = new SapView(Buffer);
+            CreateCamera();
+        }
+
+        public void CreateCamera()
+        {
+            CreateCameraAcquisitionDevice();
+            RefreshFrameRate();
+            CreateBuffers();
+            CreateTransfer();
+            CreateView();
+            GrabCameraFeed();
         }
 
         public void CreateCameraAcquisitionDevice()

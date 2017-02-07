@@ -9,40 +9,25 @@ namespace SDPCameraSystem
     class PEGCameraInterfaceTests
     {
 
-        static void Main(string[] args)
-        {
-            SendSoftwareTriggerFromVisualStudioTest();
-            //SendSoftwareTriggerFromPEGTest();
-            //CheckForTriggerEventTest();
-        }
+        //static void Main(string[] args)
+        //{
+        //    TestTurnTriggerModeOn();
+            
+            
+        //    //CheckForTriggerEventTest();
+        //}
 
-        static void SendSoftwareTriggerFromVisualStudioTest()
+        static void TestTurnTriggerModeOn()
         {
             try
             {
-                VideoFeed TestVideoFeed = new VideoFeed();
-                Console.WriteLine("Waiting 10 seconds before sending the software trigger");
-                TestVideoFeed.PauseVideoFeedForSeconds(10);
-                //TestVideoFeed.SendSoftwareTriggerFromVisualStudio();
-                Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() passed!");
+                TriggerCameraInterface TestVideoFeedInterface = new VideoFeed();
+                TestVideoFeedInterface.TurnTriggerModeOn();
+                Console.WriteLine("TestTurnTriggerModeOn() passed!");
             }
-            catch (Exception SendSoftwareTriggerFromVisualStudioException)
+            catch (Exception TurnTriggerModeOnException)
             {
-                Console.WriteLine("SendSoftwareTriggerFromVisualStudioTest() failed! {0}", SendSoftwareTriggerFromVisualStudioException.Message);
-            }
-        }
-
-        static void SendSoftwareTriggerFromPEGTest()
-        {
-            try
-            {
-                VideoFeed TestVideoFeed = new VideoFeed();
-                //TestVideoFeed.SendSoftwareTriggerFromPEG();
-                Console.WriteLine("SendSoftwareTriggerFromPEGTest passed!");
-            }
-            catch (Exception SendSoftwareTriggerFromPEGException)
-            {
-                Console.WriteLine("SendSoftwareTriggerFromPEGTest() failed!", SendSoftwareTriggerFromPEGException.Message);
+                Console.WriteLine("TestTurnTriggerModeOn() failed! {0}", TurnTriggerModeOnException.Message);
             }
         }
 
