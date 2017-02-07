@@ -15,34 +15,34 @@ namespace SDPCameraSystem
         /// Test driven development for the CameraObject below. 
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraObject tests. ");
-            Console.WriteLine("These tests can only be run one at a time since we only have one " +
-                "camera to test them with.");
-            TestCreateCamera();
-            //TestCreateAcquisitionDevice();
-            //TestRefreshFrameRate();
-            //TestCreateBuffers();
-            //TestCreateTransfer();
-            //TestCreateView();
-            //TestGrabView();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraObject tests. ");
+        //    Console.WriteLine("These tests can only be run one at a time since we only have one " +
+        //        "camera to test them with.");
+        //    TestCreateCameraInterface();
+        //    //TestCreateAcquisitionDevice();
+        //    //TestRefreshFrameRate();
+        //    //TestCreateBuffers();
+        //    //TestCreateTransfer();
+        //    //TestCreateView();
+        //    //TestGrabView();
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
 
-        static void TestCreateCamera()
+
+        static void TestCreateCameraInterface()
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
+                CameraInterface TestCameraInterface = new CameraInterface();
                 Console.WriteLine("TestCreateCamera() passed!");
             }
-            catch (Exception CreateCameraException)
+            catch (Exception CreateCameraInterfaceException)
             {
-                Console.WriteLine("TestCreateCamera() failed! {0}", CreateCameraException.Message);
+                Console.WriteLine("TestCreateCamera() failed! {0}", CreateCameraInterfaceException.Message);
             }
         }
 
@@ -50,8 +50,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
-                TestCamera.CreateCameraAcquisitionDevice();
+                CameraInterface TestCameraInterface = new CameraInterface();
+                TestCameraInterface.CreateCameraAcquisitionDevice();
                 Console.WriteLine("TestCreateAcqusitionDevice() passed!");
             }
             catch (Exception CreateAcquisitionDeviceException)
@@ -144,7 +144,8 @@ namespace SDPCameraSystem
                 Console.WriteLine("TestGrabView() failed! {0}");
             }
         }
-
-
     }
 }
+
+
+

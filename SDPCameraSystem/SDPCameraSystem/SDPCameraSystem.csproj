@@ -71,10 +71,8 @@
     <Compile Include="CameraInterface.cs" />
     <Compile Include="CameraInterfaceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PEGCameraInterface.cs" />
-    <Compile Include="PEGCameraInterfaceTests.cs" />
-    <Compile Include="VideoFeed.cs" />
-    <Compile Include="VideoFeedTests.cs" />
+    <Compile Include="CameraTrigger.cs" />
+    <Compile Include="CameraTriggerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

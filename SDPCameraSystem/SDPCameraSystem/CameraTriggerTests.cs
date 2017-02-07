@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class PEGCameraInterfaceTests
+    class CameraTriggerTests
     {
 
-        //static void Main(string[] args)
-        //{
-        //    TestTurnTriggerModeOn();
-            
-            
-        //    //CheckForTriggerEventTest();
-        //}
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, world! These are the camera trigger tests!");
+
+            TestTurnTriggerModeOn();
+            //CheckForTriggerEventTest();
+        }
 
         static void TestTurnTriggerModeOn()
         {
             try
             {
-                //TriggerCameraInterface TestVideoFeedInterface = new VideoFeed();
-                //TestVideoFeedInterface.TurnTriggerModeOn();
+                CameraInterface TestCam = new CameraInterface();
+                TurnTriggerModeOn(TestCam);
                 Console.WriteLine("TestTurnTriggerModeOn() passed!");
             }
             catch (Exception TurnTriggerModeOnException)
-            {
+           {
                 Console.WriteLine("TestTurnTriggerModeOn() failed! {0}", TurnTriggerModeOnException.Message);
             }
         }
@@ -35,7 +35,6 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestVideoFeed = new VideoFeed();
                // TestVideoFeed.CheckForTriggerEvent();
                 Console.WriteLine("TestCheckForTriggerEvent() passed!");
             }
