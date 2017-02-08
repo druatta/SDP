@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class AcquisitionParameterTests
+    class ConfigurationParameterTests
     {
-        // Unit Tests in Main()
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World! These are the AcquisitonParameter tests.");
@@ -27,12 +26,13 @@ namespace SDPCameraSystem
         {
             try
             {
-                AcquisitionParameters TestParameters = new AcquisitionParameters();
+                ConfigurationParameters TestParameters = new ConfigurationParameters();
                 Console.WriteLine("CreateAcquisitionParameters() passed!");
             }
             catch (Exception CreateAcquisitionParametersException)
             {
-                Console.WriteLine("CreateAcquisitionParameters() failed! {0}", CreateAcquisitionParametersException.Message);
+                Console.WriteLine("CreateAcquisitionParameters() failed! {0}", 
+                    CreateAcquisitionParametersException.Message);
             }
         }
 

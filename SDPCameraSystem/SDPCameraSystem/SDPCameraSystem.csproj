@@ -69,8 +69,8 @@
   <ItemGroup>
     <Compile Include="AcquisitionDevice.cs" />
     <Compile Include="AcquisitionDeviceTests.cs" />
-    <Compile Include="AcquisitionParameters.cs" />
-    <Compile Include="AcquisitionParameterTests.cs" />
+    <Compile Include="ConfigurationParameters.cs" />
+    <Compile Include="ConfigurationParameterTests.cs" />
     <Compile Include="Buffers.cs" />
     <Compile Include="BufferTests.cs" />
     <Compile Include="CameraLocation.cs" />

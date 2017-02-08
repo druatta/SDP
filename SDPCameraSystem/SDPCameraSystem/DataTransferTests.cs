@@ -14,7 +14,7 @@ namespace SDPCameraSystem
         //    Console.WriteLine("Hello, World! These are the DataTransfer tests. ");
         //    CreateDataTransferTest();
 
-        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.WriteLine("Press any key to terminate this test.");
         //    Console.ReadKey();
         //}
 

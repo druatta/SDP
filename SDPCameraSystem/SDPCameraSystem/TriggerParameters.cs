@@ -9,24 +9,20 @@ namespace SDPCameraSystem
     class TriggerParameters
     {
 
-        public void TurnTriggerModeOn(VideoFeed Cam)
+        public TriggerParameters(VideoFeed VideoFeed)
         {
-            Cam.Device.SetFeatureValue("TriggerMode", true);
+            VideoFeed.
         }
 
-
-
-        public void CheckForTriggerEvent()
+        public void SetTheTriggerSelectorToFrameTrigger(VideoFeed VideoFeed)
         {
-            //if (Device.IsEventEnabled("EventFrameTrigger"))
-            //{
-
-            //}
+            VideoFeed.Device.SetFeatureValue("TriggerSelector", "FrameTrigger");
         }
 
-        public void FreezeFrameOnTriggerEvent()
+        public void TurnTriggerModeOn(VideoFeed VideoFeed)
         {
-
+            VideoFeed.Device.SetFeatureValue("TriggerMode", "On");
         }
+
     }
 }

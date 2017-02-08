@@ -11,13 +11,12 @@ namespace SDPCameraSystem
     class VideoFeed
     {
         public SapAcqDevice Device;
-        public AcquisitionParameters AcquisitionParameters;
+        public ConfigurationParameters ConfigurationParameters;
         public SapLocation Location;
         protected int BufferCount = 2;
         public SapBuffer Buffer;
         public SapTransfer Transfer;
         public SapView View;
-
 
         public SapFeature Feature;
         public SapAcqDeviceNotifyHandler Handler;
@@ -40,15 +39,13 @@ namespace SDPCameraSystem
 
         public VideoFeed()
         {
-            AcquisitionParameters = new AcquisitionParameters();
-            Location = new SapLocation(AcquisitionParameters.ServerName, AcquisitionParameters.ResourceIndex);
-            Device = new SapAcqDevice(Location, AcquisitionParameters.ConfigFileName);
+            ConfigurationParameters = new ConfigurationParameters();
+            Location = new SapLocation(ConfigurationParameters.ServerName, ConfigurationParameters.ResourceIndex);
+            Device = new SapAcqDevice(Location, ConfigurationParameters.ConfigFileName);
             Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
-
 
             Transfer = new SapAcqDeviceToBuf(Device, Buffer);
             View = new SapView(Buffer);
-
 
             CreateCameraAcquisitionDevice();
             RefreshFrameRate();
