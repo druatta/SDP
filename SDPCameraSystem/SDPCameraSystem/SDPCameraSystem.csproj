@@ -67,18 +67,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcquisitionDevice.cs" />
-    <Compile Include="AcquisitionDeviceTests.cs" />
+    <Compile Include="AcquisitionDeviceWrapper.cs" />
+    <Compile Include="AcquisitionDeviceWrapperTests.cs" />
     <Compile Include="ConfigurationParameters.cs" />
     <Compile Include="ConfigurationParameterTests.cs" />
-    <Compile Include="Buffers.cs" />
-    <Compile Include="BufferTests.cs" />
-    <Compile Include="CameraLocation.cs" />
-    <Compile Include="CameraLocationTests.cs" />
-    <Compile Include="DataTransfer.cs" />
-    <Compile Include="DataTransferTests.cs" />
-    <Compile Include="CameraView.cs" />
-    <Compile Include="CameraViewTests.cs" />
+    <Compile Include="BufferWrappers.cs" />
+    <Compile Include="BufferWrapperTests.cs" />
+    <Compile Include="CameraLocationWrapper.cs" />
+    <Compile Include="CameraLocationWrapperTests.cs" />
+    <Compile Include="DataTransferWrapper.cs" />
+    <Compile Include="DataTransferWrapperTests.cs" />
+    <Compile Include="CameraViewWrapper.cs" />
+    <Compile Include="CameraViewWrapperTests.cs" />
     <Compile Include="VideoFeed.cs" />
     <Compile Include="VideoFeedTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

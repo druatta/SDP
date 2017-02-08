@@ -12,9 +12,8 @@ namespace SDPCameraSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, world! These are the camera trigger tests!");
-            VideoFeed TestFeed = new VideoFeed();
-
-            SetTriggerSelectorToFrameTriggerTest(TestFeed);
+      
+            //SetTriggerSelectorToFrameTriggerTest(TestFeed);
             //TurnTriggerModeOnTest(TestFeed);
 
             Console.WriteLine("Press any key to terminate this test.");

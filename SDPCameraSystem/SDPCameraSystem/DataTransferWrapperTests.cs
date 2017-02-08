@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class DataTransferTests
+    class DataTransferWrapperTests
     {
         //// Uncomment to run the DataTransferTests
         //static void Main(string[] args)
@@ -27,7 +27,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                DataTransfer TestDataTransfer = new DataTransfer();
+                DataTransferWrapper TestDataTransfer = new DataTransferWrapper();
             }
             catch (Exception CreateDataTransferException)
             {

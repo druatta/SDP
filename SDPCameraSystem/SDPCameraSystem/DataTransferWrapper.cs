@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraLocation
+    class DataTransferWrapper
     {
+        public DataTransferWrapper()
+        {
+
+        }
     }
 }

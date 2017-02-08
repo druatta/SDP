@@ -16,13 +16,14 @@ namespace SDPCameraSystem
             Console.WriteLine("Hello, World! These are the CameraObject tests. ");
             Console.WriteLine("These tests can only be run one at a time since we only have one " +
                 "camera to test them with.");
-            CreateVideoFeedTest();
+            //CreateVideoFeedTest();
             //TestCreateAcquisitionDevice();
             //TestRefreshFrameRate();
             //TestCreateBuffers();
             //TestCreateTransfer();
             //TestCreateView();
             //TestGrabView();
+
 
 
             Console.WriteLine("Press any key to terminate.");

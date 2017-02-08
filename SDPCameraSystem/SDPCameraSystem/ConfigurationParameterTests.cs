@@ -8,14 +8,14 @@ namespace SDPCameraSystem
 {
     class ConfigurationParameterTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the AcquisitonParameter tests.");
-            CreateAcquisitionParametersTest();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the AcquisitonParameter tests.");
+        //    CreateAcquisitionParametersTest();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateAcquisitionParametersTest()
         {

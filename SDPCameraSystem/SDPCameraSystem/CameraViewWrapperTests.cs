@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class DataTransfer
+    class CameraViewWrapperTests
     {
-        public DataTransfer()
-        {
-
-        }
     }
 }

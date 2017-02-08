@@ -9,14 +9,14 @@ namespace SDPCameraSystem
     class TriggerParameters
     {
 
-        public TriggerParameters(VideoFeed VideoFeed)
+        public TriggerParameters(AcquisitionDeviceWrapper Device)
         {
-            VideoFeed.
+            SetTheTriggerSelectorToFrameTrigger(Device);
         }
 
-        public void SetTheTriggerSelectorToFrameTrigger(VideoFeed VideoFeed)
+        public void SetTheTriggerSelectorToFrameTrigger(AcquisitionDeviceWrapper Device)
         {
-            VideoFeed.Device.SetFeatureValue("TriggerSelector", "FrameTrigger");
+            //Device.SetFeatureValue("TriggerSelector", "FrameTrigger");
         }
 
         public void TurnTriggerModeOn(VideoFeed VideoFeed)

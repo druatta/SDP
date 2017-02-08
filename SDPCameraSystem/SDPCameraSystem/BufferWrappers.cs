@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraLocationTests
+    class BufferWrappers
     {
     }
 }

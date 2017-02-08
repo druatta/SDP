@@ -18,25 +18,9 @@ namespace SDPCameraSystem
         public SapTransfer Transfer;
         public SapView View;
 
-        public SapFeature Feature;
-        public SapAcqDeviceNotifyHandler Handler;
-
-        //Old order:
-        //AcquisitionParameters = new AcquisitionParameters();
-        //Location = new SapLocation(AcquisitionParameters.ServerName, AcquisitionParameters.ResourceIndex);
-        //Device = new SapAcqDevice(Location, AcquisitionParameters.ConfigFileName);
-        //Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
-
-        //Transfer = new SapAcqDeviceToBuf(Device, Buffer);
-        //View = new SapView(Buffer);
-
-        //    CreateCameraAcquisitionDevice();
-        //    RefreshFrameRate();
-        //    CreateBuffers();
-        //    CreateTransfer();
-        //    CreateView();
-        //    GrabCameraFeed();
-
+        //public SapFeature Feature;
+        //public SapAcqDeviceNotifyHandler Handler;
+        
         public VideoFeed()
         {
             ConfigurationParameters = new ConfigurationParameters();
