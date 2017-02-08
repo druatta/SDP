@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraTriggerTests
+    class TriggerParameterTests
     {
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, world! These are the camera trigger tests!");
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, world! These are the camera trigger tests!");
 
-            TestTurnTriggerModeOn();
-            //CheckForTriggerEventTest();
-        }
+        //    TestTurnTriggerModeOn();
+        //    //CheckForTriggerEventTest();
+        //}
 
         static void TestTurnTriggerModeOn()
         {
             try
             {
-                CameraInterface TestCam = new CameraInterface();
-                TurnTriggerModeOn(TestCam);
+                VideoFeed TestCam = new VideoFeed();
+                
                 Console.WriteLine("TestTurnTriggerModeOn() passed!");
             }
             catch (Exception TurnTriggerModeOnException)

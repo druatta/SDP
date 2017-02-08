@@ -9,35 +9,31 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class CameraInterfaceTests
+    class VideoFeedTests
     {
-        /// <summary>
-        /// Test driven development for the CameraObject below. 
-        /// </summary>
-        /// <param name="args"></param>
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the CameraObject tests. ");
-        //    Console.WriteLine("These tests can only be run one at a time since we only have one " +
-        //        "camera to test them with.");
-        //    TestCreateCameraInterface();
-        //    //TestCreateAcquisitionDevice();
-        //    //TestRefreshFrameRate();
-        //    //TestCreateBuffers();
-        //    //TestCreateTransfer();
-        //    //TestCreateView();
-        //    //TestGrabView();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the CameraObject tests. ");
+            Console.WriteLine("These tests can only be run one at a time since we only have one " +
+                "camera to test them with.");
+            CreateVideoFeedTest();
+            //TestCreateAcquisitionDevice();
+            //TestRefreshFrameRate();
+            //TestCreateBuffers();
+            //TestCreateTransfer();
+            //TestCreateView();
+            //TestGrabView();
 
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
-
-        static void TestCreateCameraInterface()
+        static void CreateVideoFeedTest()
         {
             try
             {
-                CameraInterface TestCameraInterface = new CameraInterface();
+                VideoFeed TestCameraInterface = new VideoFeed();
                 Console.WriteLine("TestCreateCamera() passed!");
             }
             catch (Exception CreateCameraInterfaceException)
@@ -50,7 +46,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCameraInterface = new CameraInterface();
+                VideoFeed TestCameraInterface = new VideoFeed();
                 TestCameraInterface.CreateCameraAcquisitionDevice();
                 Console.WriteLine("TestCreateAcqusitionDevice() passed!");
             }
@@ -64,7 +60,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
+                VideoFeed TestCamera = new VideoFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 Console.WriteLine("TestRefreshFrame() passed!");
@@ -79,7 +75,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
+                VideoFeed TestCamera = new VideoFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -95,7 +91,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
+                VideoFeed TestCamera = new VideoFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -112,7 +108,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
+                VideoFeed TestCamera = new VideoFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -130,7 +126,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraInterface TestCamera = new CameraInterface();
+                VideoFeed TestCamera = new VideoFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();

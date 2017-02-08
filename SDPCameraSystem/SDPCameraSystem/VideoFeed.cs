@@ -8,7 +8,7 @@ using DALSA.SaperaLT.SapClassBasic;
 
 namespace SDPCameraSystem
 {
-    class CameraInterface
+    class VideoFeed
     {
         public SapAcqDevice Device;
         public AcquisitionParameters AcquisitionParameters;
@@ -17,17 +17,39 @@ namespace SDPCameraSystem
         public SapBuffer Buffer;
         public SapTransfer Transfer;
         public SapView View;
+
+
         public SapFeature Feature;
         public SapAcqDeviceNotifyHandler Handler;
 
-        public CameraInterface()
+        //Old order:
+        //AcquisitionParameters = new AcquisitionParameters();
+        //Location = new SapLocation(AcquisitionParameters.ServerName, AcquisitionParameters.ResourceIndex);
+        //Device = new SapAcqDevice(Location, AcquisitionParameters.ConfigFileName);
+        //Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
+
+        //Transfer = new SapAcqDeviceToBuf(Device, Buffer);
+        //View = new SapView(Buffer);
+
+        //    CreateCameraAcquisitionDevice();
+        //    RefreshFrameRate();
+        //    CreateBuffers();
+        //    CreateTransfer();
+        //    CreateView();
+        //    GrabCameraFeed();
+
+        public VideoFeed()
         {
             AcquisitionParameters = new AcquisitionParameters();
             Location = new SapLocation(AcquisitionParameters.ServerName, AcquisitionParameters.ResourceIndex);
             Device = new SapAcqDevice(Location, AcquisitionParameters.ConfigFileName);
             Buffer = new SapBufferWithTrash(BufferCount, Device, SapBuffer.MemoryType.ScatterGather);
+
+
             Transfer = new SapAcqDeviceToBuf(Device, Buffer);
             View = new SapView(Buffer);
+
+
             CreateCameraAcquisitionDevice();
             RefreshFrameRate();
             CreateBuffers();

@@ -25,6 +25,7 @@ namespace SDPCameraSystem
             MyConfigFileName = ConfigFiles[0]; 
         }
 
+
         public string ConfigFileName
         {
             get { return MyConfigFileName; }

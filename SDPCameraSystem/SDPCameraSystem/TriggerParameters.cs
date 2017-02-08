@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraTrigger
+    class TriggerParameters
     {
 
-        public void TurnTriggerModeOn(CameraInterface Cam)
+        public void TurnTriggerModeOn(VideoFeed Cam)
         {
             Cam.Device.SetFeatureValue("TriggerMode", true);
         }
