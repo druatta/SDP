@@ -11,28 +11,28 @@ namespace SDPCameraSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-            CreateTestAcquisitionDevice();
+            CreateTestAcquisitionDeviceWrapper();
 
             Console.WriteLine("Press any key to terminate.");
             Console.ReadKey();
         }
 
-        static void CreateTestAcquisitionDevice()
+        static void CreateTestAcquisitionDeviceWrapper()
         {
-            TryToCreateAnAcquisitionDevice();
+            TryToCreateAnAcquisitionDeviceWrapper();
         }
 
-        static void TryToCreateAnAcquisitionDevice()
+        static void TryToCreateAnAcquisitionDeviceWrapper()
         {
             try
             {
-                AcquisitionDeviceWrapper TestDevice = new AcquisitionDeviceWrapper();
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
                 Console.WriteLine("Successfully created an AcquisitionDevice()!");
             }
-            catch (Exception CreateAcquisitionDeviceException)
+            catch (Exception CreateAcquisitionDeviceWrapperException)
             {
                 Console.WriteLine("Failed to create an AcquisitionDevice()! {0}",
-                    CreateAcquisitionDeviceException.Message);
+                    CreateAcquisitionDeviceWrapperException.Message);
             }
         }
     }

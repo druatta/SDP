@@ -8,26 +8,27 @@ namespace SDPCameraSystem
 {
     class DataTransferWrapperTests
     {
-        //// Uncomment to run the DataTransferTests
         //static void Main(string[] args)
         //{
         //    Console.WriteLine("Hello, World! These are the DataTransfer tests. ");
-        //    CreateDataTransferTest();
+        //    CreateTestDataTransferWrapper();
 
         //    Console.WriteLine("Press any key to terminate this test.");
         //    Console.ReadKey();
         //}
 
-        static void CreateDataTransferTest()
+        static void CreateTestDataTransferWrapper()
         {
-            TryToCreateADataTransfer();
+            TryToCreateADataTransferWrapper();
         }
 
-        static void TryToCreateADataTransfer()
+        static void TryToCreateADataTransferWrapper()
         {
             try
             {
-                DataTransferWrapper TestDataTransfer = new DataTransferWrapper();
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
+                BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
+                DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers);
             }
             catch (Exception CreateDataTransferException)
             {

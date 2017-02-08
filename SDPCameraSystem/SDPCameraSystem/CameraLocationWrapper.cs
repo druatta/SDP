@@ -9,8 +9,8 @@ namespace SDPCameraSystem
 {
     class CameraLocationWrapper
     {
-        protected ConfigurationParameters LocationParameters = new ConfigurationParameters();
-        public SapLocation Location = null;
+        private ConfigurationParameters LocationParameters = new ConfigurationParameters();
+        public SapLocation Location;
 
         public CameraLocationWrapper()
         {

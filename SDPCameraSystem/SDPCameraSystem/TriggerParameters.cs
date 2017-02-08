@@ -19,7 +19,7 @@ namespace SDPCameraSystem
             //Device.SetFeatureValue("TriggerSelector", "FrameTrigger");
         }
 
-        public void TurnTriggerModeOn(VideoFeed VideoFeed)
+        public void TurnTriggerModeOn(CameraFeed VideoFeed)
         {
             VideoFeed.Device.SetFeatureValue("TriggerMode", "On");
         }

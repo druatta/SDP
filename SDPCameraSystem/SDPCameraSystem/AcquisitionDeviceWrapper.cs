@@ -9,11 +9,16 @@ namespace SDPCameraSystem
 {
     class AcquisitionDeviceWrapper
     {
-        public SapAcqDevice Device = null;
+        public SapAcqDevice Device;
         ConfigurationParameters DeviceParameters = new ConfigurationParameters();
         CameraLocationWrapper LocationWrapper = new CameraLocationWrapper();
 
         public AcquisitionDeviceWrapper()
+        {
+            CreateNewAcquisitionDevice();
+        }
+
+        public void CreateNewAcquisitionDevice()
         {
             Device = new SapAcqDevice(LocationWrapper.Location, DeviceParameters.ConfigFileName);
         }

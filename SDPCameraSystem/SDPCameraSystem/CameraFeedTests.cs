@@ -9,7 +9,7 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class VideoFeedTests
+    class CameraFeedTests
     {
         static void Main(string[] args)
         {
@@ -34,7 +34,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCameraInterface = new VideoFeed();
+                CameraFeed TestCameraInterface = new CameraFeed();
                 Console.WriteLine("TestCreateCamera() passed!");
             }
             catch (Exception CreateCameraInterfaceException)
@@ -47,7 +47,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCameraInterface = new VideoFeed();
+                CameraFeed TestCameraInterface = new CameraFeed();
                 TestCameraInterface.CreateCameraAcquisitionDevice();
                 Console.WriteLine("TestCreateAcqusitionDevice() passed!");
             }
@@ -61,7 +61,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCamera = new VideoFeed();
+                CameraFeed TestCamera = new CameraFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 Console.WriteLine("TestRefreshFrame() passed!");
@@ -76,7 +76,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCamera = new VideoFeed();
+                CameraFeed TestCamera = new CameraFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -92,7 +92,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCamera = new VideoFeed();
+                CameraFeed TestCamera = new CameraFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -109,7 +109,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCamera = new VideoFeed();
+                CameraFeed TestCamera = new CameraFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();
@@ -127,7 +127,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                VideoFeed TestCamera = new VideoFeed();
+                CameraFeed TestCamera = new CameraFeed();
                 TestCamera.CreateCameraAcquisitionDevice();
                 TestCamera.RefreshFrameRate();
                 TestCamera.CreateBuffers();

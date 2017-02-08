@@ -8,12 +8,12 @@ using DALSA.SaperaLT.SapClassBasic;
 
 namespace SDPCameraSystem
 {
-    class VideoFeed
+    class CameraFeed
     {
         public SapAcqDevice Device;
         public ConfigurationParameters ConfigurationParameters;
         public SapLocation Location;
-        protected int BufferCount = 2;
+        private int BufferCount = 2;
         public SapBuffer Buffer;
         public SapTransfer Transfer;
         public SapView View;
@@ -21,7 +21,7 @@ namespace SDPCameraSystem
         //public SapFeature Feature;
         //public SapAcqDeviceNotifyHandler Handler;
         
-        public VideoFeed()
+        public CameraFeed()
         {
             ConfigurationParameters = new ConfigurationParameters();
             Location = new SapLocation(ConfigurationParameters.ServerName, ConfigurationParameters.ResourceIndex);

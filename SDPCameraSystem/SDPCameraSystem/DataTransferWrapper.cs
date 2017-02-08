@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DALSA.SaperaLT.SapClassBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,47 @@ namespace SDPCameraSystem
 {
     class DataTransferWrapper
     {
-        public DataTransferWrapper()
-        {
+        public SapTransfer Transfer;
 
+        public DataTransferWrapper(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, CameraViewWrapper ViewWrapper)
+        {
+            CreateNewDataTransfer(DeviceWrapper, BufferWrappers, ViewWrapper);
+        }
+
+        public void CreateNewDataTransfer(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, CameraViewWrapper ViewWrapper)
+        {
+            Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffer);
+            UpdateFrameRate(ViewWrapper);
+            CheckForSuccessfulDataTransferCreation();
+        }
+
+        public void UpdateFrameRate(CameraViewWrapper ViewWrapper)
+        {
+            Transfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
+            Transfer.XferNotify += new SapXferNotifyHandler(TransferUpdate);
+            Transfer.XferNotifyContext = ViewWrapper.View;
+        }
+
+        public void TransferUpdate(object sender, SapXferNotifyEventArgs args)
+        {
+            RefreshView(args);
+            RefreshFrameRate(sender);
+        }
+
+        public void RefreshView(SapXferNotifyEventArgs args)
+        {
+            SapView View = args.Context as SapView;
+            View.Show();
+        }
+
+        public void RefreshFrameRate(object sender)
+        {
+            SapTransfer transfer = sender as SapTransfer;
+        }
+
+        public void CheckForSuccessfulDataTransferCreation()
+        {
+            Transfer.Create();
         }
     }
 }

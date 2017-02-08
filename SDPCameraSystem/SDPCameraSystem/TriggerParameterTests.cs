@@ -20,12 +20,12 @@ namespace SDPCameraSystem
             Console.ReadKey();
         }
 
-        static void SetTriggerSelectorToFrameTriggerTest(VideoFeed TestVideoFeed)
+        static void SetTriggerSelectorToFrameTriggerTest(CameraFeed TestVideoFeed)
         {
             TryToSetTheTriggerSelectorToFrameTrigger(TestVideoFeed);
         }
 
-        static void TryToSetTheTriggerSelectorToFrameTrigger(VideoFeed TestVideoFeed)
+        static void TryToSetTheTriggerSelectorToFrameTrigger(CameraFeed TestVideoFeed)
         {
             try
             {
