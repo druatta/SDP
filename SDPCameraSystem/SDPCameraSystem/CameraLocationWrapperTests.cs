@@ -8,15 +8,15 @@ namespace SDPCameraSystem
 {
     class CameraLocationWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraLocationWrapper tests. ");
-            CreateTestLocationWrapper();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraLocationWrapper tests. ");
+        //    CreateTestLocationWrapper();
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestLocationWrapper()
         {

@@ -8,14 +8,14 @@ namespace SDPCameraSystem
 {
     class BufferWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! BufferWrapper tests. ");
-            CreateTestBufferWrappers();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! BufferWrapper tests. ");
+        //    CreateTestBufferWrappers();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestBufferWrappers()
         {

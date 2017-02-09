@@ -28,7 +28,8 @@ namespace SDPCameraSystem
             {
                 AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
                 BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
-                DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers);
+                CameraViewWrapper TestViewWrapper = new CameraViewWrapper(TestBufferWrappers);
+                DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);
             }
             catch (Exception CreateDataTransferException)
             {

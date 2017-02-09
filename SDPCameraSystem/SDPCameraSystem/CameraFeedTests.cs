@@ -16,7 +16,7 @@ namespace SDPCameraSystem
             Console.WriteLine("Hello, World! These are the CameraObject tests. ");
             Console.WriteLine("These tests can only be run one at a time since we only have one " +
                 "camera to test them with.");
-            //CreateVideoFeedTest();
+            CreateCameraFeedTest();
             //TestCreateAcquisitionDevice();
             //TestRefreshFrameRate();
             //TestCreateBuffers();
@@ -30,11 +30,11 @@ namespace SDPCameraSystem
             Console.ReadKey();
         }
 
-        static void CreateVideoFeedTest()
+        static void CreateCameraFeedTest()
         {
             try
             {
-                CameraFeed TestCameraInterface = new CameraFeed();
+                CameraFeed TestCameraFeed = new CameraFeed();
                 Console.WriteLine("TestCreateCamera() passed!");
             }
             catch (Exception CreateCameraInterfaceException)

@@ -9,16 +9,16 @@ namespace SDPCameraSystem
     class TriggerParameterTests
     {
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, world! These are the camera trigger tests!");
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, world! These are the camera trigger tests!");
       
-            //SetTriggerSelectorToFrameTriggerTest(TestFeed);
-            //TurnTriggerModeOnTest(TestFeed);
+        //    //SetTriggerSelectorToFrameTriggerTest(TestFeed);
+        //    //TurnTriggerModeOnTest(TestFeed);
 
-            Console.WriteLine("Press any key to terminate this test.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate this test.");
+        //    Console.ReadKey();
+        //}
 
         static void SetTriggerSelectorToFrameTriggerTest(CameraFeed TestVideoFeed)
         {

@@ -8,14 +8,14 @@ namespace SDPCameraSystem
 {
     class AcquisitionDeviceWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-            CreateTestAcquisitionDeviceWrapper();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
+        //    CreateTestAcquisitionDeviceWrapper();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestAcquisitionDeviceWrapper()
         {
