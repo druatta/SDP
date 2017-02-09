@@ -11,26 +11,26 @@ namespace SDPCameraSystem
     {
         public SapTransfer Transfer;
 
-        public DataTransferWrapper(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, CameraViewWrapper ViewWrapper)
+        public DataTransferWrapper(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, ViewWrapper ViewWrapper)
         {
             CreateNewDataTransfer(DeviceWrapper, BufferWrappers, ViewWrapper);
         }
 
-        public void CreateNewDataTransfer(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, CameraViewWrapper ViewWrapper)
+        public void CreateNewDataTransfer(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, ViewWrapper ViewWrapper)
         {
             Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffer);
             UpdateFrameRate(ViewWrapper);
             CheckForSuccessfulDataTransferCreation();
         }
 
-        public void UpdateFrameRate(CameraViewWrapper ViewWrapper)
+        public void UpdateFrameRate(ViewWrapper ViewWrapper)
         {
             Transfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
-            Transfer.XferNotify += new SapXferNotifyHandler(TransferUpdate);
+            Transfer.XferNotify += new SapXferNotifyHandler(UpdateTransfer);
             Transfer.XferNotifyContext = ViewWrapper.View;
         }
 
-        public void TransferUpdate(object sender, SapXferNotifyEventArgs args)
+        public void UpdateTransfer(object sender, SapXferNotifyEventArgs args)
         {
             RefreshView(args);
             RefreshFrameRate(sender);

@@ -11,6 +11,8 @@ namespace SDPCameraSystem
     {
         public SapBuffer Buffer;
         private int BufferCount = 2;
+        private string SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\TestImages";
+        private string SaveFileName = "TestSave";
 
         public BufferWrappers(AcquisitionDeviceWrapper DeviceWrapper)
         {
@@ -20,6 +22,11 @@ namespace SDPCameraSystem
         public void CreateNewBuffers(AcquisitionDeviceWrapper DeviceWrapper)
         {
             Buffer = new SapBufferWithTrash(BufferCount, DeviceWrapper.Device, SapBuffer.MemoryType.ScatterGather);
+        }
+
+        public void SaveBufferToFile()
+        {
+            Buffer.Save(SaveDirectory, SaveFileName);
         }
     }
 }

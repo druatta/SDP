@@ -11,134 +11,124 @@ namespace SDPCameraSystem
 {
     class CameraFeedTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the CameraObject tests. ");
-        //    Console.WriteLine("These tests can only be run one at a time since we only have one " +
-        //        "camera to test them with.");
-        //    CreateCameraFeedTest();
-        //    //TestCreateAcquisitionDevice();
-        //    //TestRefreshFrameRate();
-        //    //TestCreateBuffers();
-        //    //TestCreateTransfer();
-        //    //TestCreateView();
-        //    //TestGrabView();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
+            Console.WriteLine("These tests can only be run one at a time because " +
+                "we only have one physical camera to test them on.");
+            CreateTestCameraObject();
+            //CreateTestCameraImageBuffers();
+            //CreateTestCameraViewingWindow();
+            //CreateTestCameraDataTransfer();
+            //CreateTestCameraFeed();
 
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
+        static void CreateTestCameraObject()
+        {
+            TryToCreateNewTestCameraObject();
+        }
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
-
-        static void CreateCameraFeedTest()
+        static void TryToCreateNewTestCameraObject()
         {
             try
             {
                 CameraFeed TestCameraFeed = new CameraFeed();
-                Console.WriteLine("TestCreateCamera() passed!");
-            }
-            catch (Exception CreateCameraInterfaceException)
+                TestCameraFeed.CreateCameraObject();
+                Console.WriteLine("Successfully created a CameraObject()!");
+            } 
+            catch (Exception CreateCameraObjectException)
             {
-                Console.WriteLine("TestCreateCamera() failed! {0}", CreateCameraInterfaceException.Message);
+                Console.WriteLine("Failed to create a CameraObject()!",
+                    CreateCameraObjectException.Message);
             }
+            
         }
 
-        static void TestCreateAcquisitionDevice()
+        static void CreateTestCameraImageBuffers()
+        {
+            TryToCreateNewCameraImageBuffers();
+        }
+
+        static void TryToCreateNewCameraImageBuffers()
         {
             try
             {
-                CameraFeed TestCameraInterface = new CameraFeed();
-                TestCameraInterface.CreateCameraAcquisitionDevice();
-                Console.WriteLine("TestCreateAcqusitionDevice() passed!");
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.CreateCameraObject();
+                TestCameraFeed.CreateCameraImageBuffers();
             }
-            catch (Exception CreateAcquisitionDeviceException)
+            catch (Exception CreateCameraImageBufferException)
             {
-                Console.WriteLine("TestCreateAcquisitionDevice() failed! {0}", CreateAcquisitionDeviceException.Message);
-            }
-        }
-
-        static void TestRefreshFrameRate()
-        {
-            try
-            {
-                CameraFeed TestCamera = new CameraFeed();
-                TestCamera.CreateCameraAcquisitionDevice();
-                TestCamera.RefreshFrameRate();
-                Console.WriteLine("TestRefreshFrame() passed!");
-            }
-            catch (Exception RefreshFrameException)
-            {
-                Console.WriteLine("TestRefreshFrame() failed! {0}", RefreshFrameException.Message);
+                Console.WriteLine("Failed to create CameraImageBuffers!",
+                    CreateCameraImageBufferException.Message);
             }
         }
 
-        static void TestCreateBuffers()
+        static void CreateTestCameraViewingWindow()
+        {
+            TryToCreateNewCameraViewingWindow();
+        }
+
+        static void TryToCreateNewCameraViewingWindow()
         {
             try
             {
-                CameraFeed TestCamera = new CameraFeed();
-                TestCamera.CreateCameraAcquisitionDevice();
-                TestCamera.RefreshFrameRate();
-                TestCamera.CreateBuffers();
-                Console.WriteLine("TestCreateBuffers() passed!");
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.CreateCameraObject();
+                TestCameraFeed.CreateCameraImageBuffers();
+                TestCameraFeed.CreateCameraViewingWindow();
+                Console.WriteLine("Successfully created a new camera viewing window!");
             }
-            catch (Exception CreateBufferException)
+            catch (Exception CreateCameraViewingWindowException)
             {
-                Console.WriteLine("TestCreateBuffer() failed! {0}", CreateBufferException.Message);
+                Console.WriteLine("Failed to create a new camera viewing window! {0}",
+                    CreateCameraViewingWindowException.Message);
             }
         }
 
-        static void TestCreateTransfer()
+        static void CreateTestCameraDataTransfer()
         {
-            try
-            {
-                CameraFeed TestCamera = new CameraFeed();
-                TestCamera.CreateCameraAcquisitionDevice();
-                TestCamera.RefreshFrameRate();
-                TestCamera.CreateBuffers();
-                TestCamera.CreateTransfer();
-                Console.WriteLine("TestCreateTransfer() passed!");
-            }
-            catch (Exception CreateTransferException)
-            {
-                Console.WriteLine("TestCreateTransfer() failed! {0}", CreateTransferException.Message);
-            }
+            TryToCreateNewCameraDataTransfer();
         }
 
-        static void TestCreateView()
+        static void TryToCreateNewCameraDataTransfer()
         {
             try
             {
-                CameraFeed TestCamera = new CameraFeed();
-                TestCamera.CreateCameraAcquisitionDevice();
-                TestCamera.RefreshFrameRate();
-                TestCamera.CreateBuffers();
-                TestCamera.CreateTransfer();
-                TestCamera.CreateView();
-                Console.WriteLine("TestCreateView() passed!");
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.CreateCameraObject();
+                TestCameraFeed.CreateCameraImageBuffers();
+                TestCameraFeed.CreateCameraViewingWindow();
+                TestCameraFeed.CreateCameraDataTransfer();
+                Console.WriteLine("Successfully created a CameraDataTransfer!");
             }
-            catch (Exception CreateViewException)
+            catch (Exception CreateCameraDataTransferException)
             {
-                Console.WriteLine("TestCreateView() failed! {0}", CreateViewException.Message);
+                Console.WriteLine("Failed to create a new camera data transfer!",
+                    CreateCameraDataTransferException.Message);
             }
         }
+        
 
-        static void TestGrabView()
+        static void CreateTestCameraFeed()
+        {
+            TryToCreateNewCameraFeed();
+        }
+
+        static void TryToCreateNewCameraFeed()
         {
             try
             {
-                CameraFeed TestCamera = new CameraFeed();
-                TestCamera.CreateCameraAcquisitionDevice();
-                TestCamera.RefreshFrameRate();
-                TestCamera.CreateBuffers();
-                TestCamera.CreateTransfer();
-                TestCamera.CreateView();
-                TestCamera.GrabCameraFeed();
-                Console.WriteLine("TestGrabView() passed!");
+                CameraFeed TestCameraFeed = new CameraFeed();
+                Console.WriteLine("Successfully created a CameraFeed()!");
             }
-            catch
+            catch (Exception CreateNewCameraFeedException)
             {
-                Console.WriteLine("TestGrabView() failed! {0}");
+                Console.WriteLine("Failed to create a new Camera Feed! {0}",
+                    CreateNewCameraFeedException.Message);
             }
         }
     }

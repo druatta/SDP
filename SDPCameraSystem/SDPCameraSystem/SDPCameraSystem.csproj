@@ -73,12 +73,12 @@
     <Compile Include="ConfigurationParameterTests.cs" />
     <Compile Include="BufferWrappers.cs" />
     <Compile Include="BufferWrapperTests.cs" />
-    <Compile Include="CameraLocationWrapper.cs" />
-    <Compile Include="CameraLocationWrapperTests.cs" />
+    <Compile Include="LocationWrapper.cs" />
+    <Compile Include="LocationWrapperTests.cs" />
     <Compile Include="DataTransferWrapper.cs" />
     <Compile Include="DataTransferWrapperTests.cs" />
-    <Compile Include="CameraViewWrapper.cs" />
-    <Compile Include="CameraViewWrapperTests.cs" />
+    <Compile Include="ViewWrapper.cs" />
+    <Compile Include="ViewWrapperTests.cs" />
     <Compile Include="CameraFeed.cs" />
     <Compile Include="CameraFeedTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,37 +6,36 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class DataTransferWrapperTests
+    class ViewWrapperTests
     {
         //static void Main(string[] args)
         //{
         //    Console.WriteLine("Hello, World! These are the DataTransfer tests. ");
-        //    CreateTestDataTransferWrapper();
+        //    CreateTestViewWrapper();
 
         //    Console.WriteLine("Press any key to terminate this test.");
         //    Console.ReadKey();
         //}
 
-        static void CreateTestDataTransferWrapper()
+        static void CreateTestViewWrapper()
         {
-            TryToCreateADataTransferWrapper();
+            TryToCreateNewTestViewWrapper();
         }
 
-        static void TryToCreateADataTransferWrapper()
+        static void TryToCreateNewTestViewWrapper()
         {
             try
             {
                 AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
                 BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
                 ViewWrapper TestViewWrapper = new ViewWrapper(TestBufferWrappers);
-                DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);
+                Console.WriteLine("Successfully created a new TestViewWrapper()!");
             }
-            catch (Exception CreateDataTransferException)
+            catch (Exception CreateViewWrapperException)
             {
-                Console.WriteLine("Failed to create a data transfer! {0}", CreateDataTransferException.Message);
+                Console.WriteLine("Failed to create a new TestViewWrapper! {0}",
+                    CreateViewWrapperException.Message);
             }
         }
-
-
     }
 }

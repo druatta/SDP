@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraLocationWrapper
+    class LocationWrapper
     {
         private ConfigurationParameters LocationParameters = new ConfigurationParameters();
         public SapLocation Location;
 
-        public CameraLocationWrapper()
+        public LocationWrapper()
         {
             Location = new SapLocation(LocationParameters.ServerName, LocationParameters.ResourceIndex);
         }
