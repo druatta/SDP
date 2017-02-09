@@ -30,6 +30,7 @@ namespace SDPCameraSystem
                 BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
                 ViewWrapper TestViewWrapper = new ViewWrapper(TestBufferWrappers);
                 DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);
+                Console.WriteLine("Successfully created a data transfer!");
             }
             catch (Exception CreateDataTransferException)
             {

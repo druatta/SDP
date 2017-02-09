@@ -8,15 +8,15 @@ namespace SDPCameraSystem
 {
     class BufferWrapperTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
-        //    CreateTestBufferWrappers();
-        //    TestSaveCurrentBufferToFile();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
+            //CreateTestBufferWrappers();
+            TestSaveCurrentBufferToFile();
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
         static void CreateTestBufferWrappers()
         {
@@ -47,9 +47,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
-                BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
-                TestBufferWrappers.SaveBufferToFile();
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.BufferWrappers.SaveBufferToFile();
                 Console.WriteLine("Successfully saved the current buffer to file!");
             }
             catch (Exception SaveCurrentBufferToFileException)

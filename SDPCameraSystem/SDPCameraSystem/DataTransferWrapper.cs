@@ -18,9 +18,10 @@ namespace SDPCameraSystem
 
         public void CreateNewDataTransfer(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, ViewWrapper ViewWrapper)
         {
-            Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffer);
+            Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffers);
             UpdateFrameRate(ViewWrapper);
-            CheckForSuccessfulDataTransferCreation();
+            CheckForSuccessfulDataTransferCreation(); // Failed! Invalid handle - Buffer
+            GrabTransferFeed();
         }
 
         public void UpdateFrameRate(ViewWrapper ViewWrapper)
@@ -50,6 +51,11 @@ namespace SDPCameraSystem
         public void CheckForSuccessfulDataTransferCreation()
         {
             Transfer.Create();
+        }
+
+        public void GrabTransferFeed()
+        {
+            Transfer.Grab();
         }
     }
 }

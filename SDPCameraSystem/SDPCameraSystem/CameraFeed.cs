@@ -20,7 +20,7 @@ namespace SDPCameraSystem
         
         public CameraFeed()
         {
-            //CreateCameraFeed(); // Test all four CameraFeed.Create() functions separately, then uncomment
+            CreateCameraFeed(); // Test all four CameraFeed.Create() functions separately, then uncomment
                                     // This to make creating a CameraFeed a single call
         }
 

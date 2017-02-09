@@ -11,20 +11,20 @@ namespace SDPCameraSystem
 {
     class CameraFeedTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
-            Console.WriteLine("These tests can only be run one at a time because " +
-                "we only have one physical camera to test them on.");
-            CreateTestCameraObject();
-            //CreateTestCameraImageBuffers();
-            //CreateTestCameraViewingWindow();
-            //CreateTestCameraDataTransfer();
-            //CreateTestCameraFeed();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
+        //    Console.WriteLine("These tests can only be run one at a time because " +
+        //        "we only have one physical camera to test them on.");
+        //    //CreateTestCameraObject();
+        //    //CreateTestCameraImageBuffers();
+        //    //CreateTestCameraViewingWindow();
+        //    //CreateTestCameraDataTransfer();
+        //    CreateTestCameraFeed();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestCameraObject()
         {
@@ -59,6 +59,7 @@ namespace SDPCameraSystem
                 CameraFeed TestCameraFeed = new CameraFeed();
                 TestCameraFeed.CreateCameraObject();
                 TestCameraFeed.CreateCameraImageBuffers();
+                Console.WriteLine("Successfully created the CameraImageBuffers()!");
             }
             catch (Exception CreateCameraImageBufferException)
             {

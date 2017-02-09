@@ -19,7 +19,7 @@ namespace SDPCameraSystem
 
         public void CreateNewView(BufferWrappers BufferWrappers)
         {
-            View = new SapView(BufferWrappers.Buffer);
+            View = new SapView(BufferWrappers.Buffers);
         }
 
         public void CheckForSuccessfulViewCreation()

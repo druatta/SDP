@@ -16,11 +16,17 @@ namespace SDPCameraSystem
         public AcquisitionDeviceWrapper()
         {
             CreateNewAcquisitionDevice();
+            CheckForSuccessfulAcquisitionDeviceCreation();
         }
 
         public void CreateNewAcquisitionDevice()
         {
             Device = new SapAcqDevice(LocationWrapper.Location, DeviceParameters.ConfigFileName);
+        }
+
+        public void CheckForSuccessfulAcquisitionDeviceCreation()
+        {
+            Device.Create();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SDPCameraSystem
 {
     class BufferWrappers
     {
-        public SapBuffer Buffer;
+        public SapBuffer Buffers;
         private int BufferCount = 2;
         private string SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\TestImages";
         private string SaveFileName = "TestSave";
@@ -17,16 +17,22 @@ namespace SDPCameraSystem
         public BufferWrappers(AcquisitionDeviceWrapper DeviceWrapper)
         {
             CreateNewBuffers(DeviceWrapper);
+            CheckForSuccessfulBufferCreation();
         }
 
         public void CreateNewBuffers(AcquisitionDeviceWrapper DeviceWrapper)
         {
-            Buffer = new SapBufferWithTrash(BufferCount, DeviceWrapper.Device, SapBuffer.MemoryType.ScatterGather);
+            Buffers = new SapBufferWithTrash(BufferCount, DeviceWrapper.Device, SapBuffer.MemoryType.ScatterGather);
+        }
+
+        public void CheckForSuccessfulBufferCreation()
+        {
+            Buffers.Create();
         }
 
         public void SaveBufferToFile()
         {
-            Buffer.Save(SaveDirectory, SaveFileName);
+            Buffers.Save(SaveDirectory, SaveFileName);
         }
     }
 }
