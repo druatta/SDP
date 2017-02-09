@@ -10,7 +10,7 @@ namespace SDPCameraSystem
     {
         //static void Main(string[] args)
         //{
-        //    Console.WriteLine("Hello, World! BufferWrapper tests. ");
+        //    Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
         //    CreateTestBufferWrappers();
 
         //    Console.WriteLine("Press any key to terminate.");
@@ -28,6 +28,7 @@ namespace SDPCameraSystem
             {
                 AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
                 BufferWrappers TestWrappers = new BufferWrappers(TestDeviceWrapper);
+                Console.WriteLine("Successfully created the BufferWrappers()!");
             }
             catch (Exception CreateBufferWrapperException)
             {

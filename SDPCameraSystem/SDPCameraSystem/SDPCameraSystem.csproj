@@ -82,8 +82,6 @@
     <Compile Include="CameraFeed.cs" />
     <Compile Include="CameraFeedTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TriggerParameters.cs" />
-    <Compile Include="TriggerParameterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

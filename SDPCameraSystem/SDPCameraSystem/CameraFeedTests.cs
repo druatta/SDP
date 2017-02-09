@@ -11,24 +11,24 @@ namespace SDPCameraSystem
 {
     class CameraFeedTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraObject tests. ");
-            Console.WriteLine("These tests can only be run one at a time since we only have one " +
-                "camera to test them with.");
-            CreateCameraFeedTest();
-            //TestCreateAcquisitionDevice();
-            //TestRefreshFrameRate();
-            //TestCreateBuffers();
-            //TestCreateTransfer();
-            //TestCreateView();
-            //TestGrabView();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraObject tests. ");
+        //    Console.WriteLine("These tests can only be run one at a time since we only have one " +
+        //        "camera to test them with.");
+        //    CreateCameraFeedTest();
+        //    //TestCreateAcquisitionDevice();
+        //    //TestRefreshFrameRate();
+        //    //TestCreateBuffers();
+        //    //TestCreateTransfer();
+        //    //TestCreateView();
+        //    //TestGrabView();
 
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateCameraFeedTest()
         {
