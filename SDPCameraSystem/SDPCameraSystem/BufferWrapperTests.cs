@@ -12,6 +12,8 @@ namespace SDPCameraSystem
         {
             Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
             //CreateTestBufferWrappers();
+            //CreateBufferSaveParameters();
+            //PrintBufferSaveParameters();
             TestSaveCurrentBufferToFile();
 
             Console.WriteLine("Press any key to terminate.");
@@ -38,6 +40,45 @@ namespace SDPCameraSystem
             }
         }
 
+        static void CreateBufferSaveParameters()
+        {
+            TryToCreateBufferSaveParameters();
+        }
+
+        static void TryToCreateBufferSaveParameters()
+        {
+            try
+            {
+                CameraFeed TestFeed = new CameraFeed();
+                TestFeed.BufferWrappers.CreateBufferSaveParameters(); // Is currently in the Buffer Wrapper constructor!
+                Console.WriteLine("Successfully created the Buffer Save Parameters!");
+            }
+            catch (Exception CreateBufferSaveParametersException)
+            {
+                Console.WriteLine("Failed to create Buffer Save Parameters! {0}",
+                    CreateBufferSaveParametersException.Message);
+            }
+        }
+
+        static void PrintBufferSaveParameters()
+        {
+            TryToPrintBufferSaveParameters();
+        }
+
+        static void TryToPrintBufferSaveParameters()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.BufferWrappers.PrintBufferSaveParameters();
+            }
+            catch (Exception PrintBufferSaveParametersException)
+            {
+                Console.WriteLine("Failed to print out the Buffer Save Parameters! {0}",
+                    PrintBufferSaveParametersException.Message);
+            }
+        }
+
         static void TestSaveCurrentBufferToFile()
         {
             TryToSaveCurrentBufferToFile();
@@ -57,5 +98,7 @@ namespace SDPCameraSystem
                     SaveCurrentBufferToFileException.Message);
             }
         }
+
+
     }
 }

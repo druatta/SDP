@@ -15,7 +15,7 @@ namespace SDPCameraSystem
         public string ConfigFileName;
 
         protected string ConfigFilePath;
-        protected string[] ConfigFiles;
+        protected string[] ConfigFileStringArray;
         protected int SDPServerNumber = 1;
         protected int FirstConfigFile = 0;
 
@@ -23,8 +23,8 @@ namespace SDPCameraSystem
         {
             ServerName = SapManager.GetServerName(SDPServerNumber);
             ConfigFilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-            ConfigFiles = Directory.GetFiles(ConfigFilePath, "*.ccf");
-            ConfigFileName = ConfigFiles[FirstConfigFile]; 
+            ConfigFileStringArray = Directory.GetFiles(ConfigFilePath, "*.ccf");
+            ConfigFileName = ConfigFileStringArray[FirstConfigFile]; 
         }
 
 

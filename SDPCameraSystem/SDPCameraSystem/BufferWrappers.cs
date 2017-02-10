@@ -1,6 +1,7 @@
 ﻿using DALSA.SaperaLT.SapClassBasic;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,33 @@ namespace SDPCameraSystem
     {
         public SapBuffer Buffers;
         private int BufferCount = 2;
-        private string SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\TestImages";
-        private string SaveFileName = "TestSave";
+        private string SaveDirectory;
+        private string[] SaveFileStringArray;
+        private string SaveFileName;
+        private int FirstSaveFile = 0;
+        private string SaveFileType;
 
         public BufferWrappers(AcquisitionDeviceWrapper DeviceWrapper)
         {
+            CreateBufferSaveParameters();
             CreateNewBuffers(DeviceWrapper);
             CheckForSuccessfulBufferCreation();
+        }
+
+        public void CreateBufferSaveParameters()
+        {
+            SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\TestImages";
+            SaveFileStringArray = Directory.GetFiles(SaveDirectory, "*.bmp");
+            SaveFileName = SaveFileStringArray[FirstSaveFile];
+            SaveFileType = "-format bmp";
+        }
+
+        public void PrintBufferSaveParameters()
+        {
+            Console.WriteLine("Buffer Save Directory is: {0}", SaveDirectory);
+            Console.WriteLine("Buffer Save Files are: {0}", SaveFileStringArray);
+            Console.WriteLine("Buffer Save File Type is: {0}", SaveFileType);
+            Console.WriteLine("Buffer Save File Name is: {0}", SaveFileName);
         }
 
         public void CreateNewBuffers(AcquisitionDeviceWrapper DeviceWrapper)
@@ -32,7 +53,11 @@ namespace SDPCameraSystem
 
         public void SaveBufferToFile()
         {
-            Buffers.Save(SaveDirectory, SaveFileName);
+            Buffers.Save(SaveFileName, SaveFileType);
         }
+
+
+
+        
     }
 }
