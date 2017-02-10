@@ -69,10 +69,14 @@
   <ItemGroup>
     <Compile Include="AcquisitionDeviceWrapper.cs" />
     <Compile Include="AcquisitionDeviceWrapperTests.cs" />
+    <Compile Include="AcquisitionWrapper.cs" />
+    <Compile Include="AcquisitionWrapperTests.cs" />
     <Compile Include="ConfigurationParameters.cs" />
     <Compile Include="ConfigurationParameterTests.cs" />
     <Compile Include="BufferWrappers.cs" />
     <Compile Include="BufferWrapperTests.cs" />
+    <Compile Include="FeatureWrapper.cs" />
+    <Compile Include="FeatureWrapperTests.cs" />
     <Compile Include="LocationWrapper.cs" />
     <Compile Include="LocationWrapperTests.cs" />
     <Compile Include="DataTransferWrapper.cs" />

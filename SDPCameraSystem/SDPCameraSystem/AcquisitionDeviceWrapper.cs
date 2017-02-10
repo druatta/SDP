@@ -14,7 +14,7 @@ namespace SDPCameraSystem
         LocationWrapper LocationWrapper = new LocationWrapper();
         private string EventFeatureString = "GigEVisionEvent";
         private bool FeatureValue = true;
-        
+        public Object DataSender;
 
         public AcquisitionDeviceWrapper()
         {
@@ -42,6 +42,11 @@ namespace SDPCameraSystem
                 return false;
             }
             
+        }
+
+        public void CreateAcquisitionDeviceCallback()
+        {
+            Device = DataSender as SapAcqDevice;
         }
     }
 }

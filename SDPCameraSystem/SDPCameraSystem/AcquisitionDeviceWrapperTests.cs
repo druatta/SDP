@@ -8,16 +8,17 @@ namespace SDPCameraSystem
 {
     class AcquisitionDeviceWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-            //CreateTestAcquisitionDeviceWrapper();
-            GetTriggerTest();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
+        //    //CreateTestAcquisitionDeviceWrapper();
+        //    GetTriggerTest();
+                CreateTestAcquisitionDeviceCallback();
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestAcquisitionDeviceWrapper()
         {
@@ -57,6 +58,26 @@ namespace SDPCameraSystem
             catch (Exception GetTriggerException)
             {
                 Console.WriteLine("Failed to get a trigger input!", GetTriggerException.Message);
+            }
+        }
+
+        static void CreateTestAcquisitionDeviceCallback()
+        {
+            TryToCreateAnAcquisitionDeviceCallback();
+        }
+
+        TryToCreateAnAcquisitionDeviceCallback()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.AcquisitionDeviceWrapper.CreateAcquisitionDeviceCallback();
+                Console.WriteLine("Successfully created an AcquisitionDevice callback!")
+            }
+            catch (Exception CreateAcquisitionDeviceCallbackException)
+            {
+                Console.WriteLine("Failed to create an AcquisitionDevice callback! {0}",
+                    CreateAcquisitionDeviceCallbackException.Message);
             }
         }
     }
