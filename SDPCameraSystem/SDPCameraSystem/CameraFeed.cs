@@ -15,7 +15,7 @@ namespace SDPCameraSystem
         public ViewWrapper ViewWrapper;
         public DataTransferWrapper DataTransferWrapper;
 
-        //public SapFeature Feature;
+        public SapFeature Feature;
         //public SapAcqDeviceNotifyHandler Handler;
         
         public CameraFeed()
