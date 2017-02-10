@@ -34,7 +34,7 @@ namespace SDPCameraSystem
 
         public Boolean CheckForTriggerSignal(CameraFeed CameraFeed)
         {
-            if (CameraFeed.AcquisitionDeviceWrapper.Device.GetFeatureValue("EventFrameTrigger", EventFeatureString))
+            if (CameraFeed.AcquisitionDeviceWrapper.Device.GetFeatureValue("FrameTrigger", out FeatureValue))
             {
                 return true;
             } else

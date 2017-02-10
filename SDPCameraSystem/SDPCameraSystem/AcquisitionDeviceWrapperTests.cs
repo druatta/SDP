@@ -11,7 +11,7 @@ namespace SDPCameraSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-            CreateTestAcquisitionDeviceWrapper();
+            //CreateTestAcquisitionDeviceWrapper();
             GetTriggerTest();
 
 
@@ -56,7 +56,7 @@ namespace SDPCameraSystem
             }
             catch (Exception GetTriggerException)
             {
-                Console.WriteLine("Failed to get a trigger input!");
+                Console.WriteLine("Failed to get a trigger input!", GetTriggerException.Message);
             }
         }
     }
