@@ -27,7 +27,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                LocationWrapper TestLocationWrapper = new LocationWrapper();
+                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
                 Console.WriteLine("New LocationWrapper() created!");
             }
             catch (Exception CreateNewLocationWrapperException)

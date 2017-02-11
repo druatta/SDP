@@ -8,17 +8,17 @@ namespace SDPCameraSystem
 {
     class AcquisitionDeviceWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-            //CreateTestAcquisitionDeviceWrapper();
-            WaitForTriggerTest();
-            CreateTestAcquisitionDeviceNotificationInterface();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
+        //    //CreateTestAcquisitionDeviceWrapper();
+        //    WaitForTriggerTest();
+        //    //CreateTestAcquisitionDeviceNotificationInterface();
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestAcquisitionDeviceWrapper()
         {
@@ -29,7 +29,9 @@ namespace SDPCameraSystem
         {
             try
             {
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
+                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper);
                 Console.WriteLine("Successfully created an AcquisitionDevice()!");
             }
             catch (Exception CreateAcquisitionDeviceWrapperException)

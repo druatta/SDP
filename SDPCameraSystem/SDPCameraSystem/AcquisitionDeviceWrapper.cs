@@ -10,21 +10,17 @@ namespace SDPCameraSystem
     class AcquisitionDeviceWrapper
     {
         public SapAcqDevice Device;
-        ConfigurationParameters DeviceParameters = new ConfigurationParameters();
-        LocationWrapper LocationWrapper = new LocationWrapper();
-        private bool FeatureValue = true;
-        public Object DataSender;
 
-        public AcquisitionDeviceWrapper()
+        public AcquisitionDeviceWrapper(ConfigurationFile ConfigurationFile, LocationWrapper LocationWrapper)
         {
-            CreateNewAcquisitionDevice();
+            CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
             CheckForSuccessfulAcquisitionDeviceCreation();
             CreateAcquisitionDeviceNotificationInterface();
         }
 
-        public void CreateNewAcquisitionDevice()
+        public void CreateNewAcquisitionDevice(LocationWrapper LocationWrapper, ConfigurationFile ConfigurationFile)
         {
-            Device = new SapAcqDevice(LocationWrapper.Location, DeviceParameters.ConfigFileName);
+            Device = new SapAcqDevice(LocationWrapper.Location, ConfigurationFile.ConfigFileName);
         }
 
         public void CheckForSuccessfulAcquisitionDeviceCreation()
@@ -40,7 +36,7 @@ namespace SDPCameraSystem
             }
         }
 
-        public void CreateAcquisitionDeviceCallback(object Sender, SapAcqDeviceNotifyEventArgs EventArguments)
+        public void CreateAcquisitionDeviceCallback(object DataSender, SapAcqDeviceNotifyEventArgs EventArguments)
         {
             Device = DataSender as SapAcqDevice;
         }

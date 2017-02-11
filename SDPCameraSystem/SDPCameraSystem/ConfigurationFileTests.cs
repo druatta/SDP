@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class ConfigurationParameterTests
+    class ConfigurationFileTests
     {
         //static void Main(string[] args)
         //{
@@ -26,7 +26,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                ConfigurationParameters TestParameters = new ConfigurationParameters();
+                ConfigurationFile TestParameters = new ConfigurationFile();
                 Console.WriteLine("CreateAcquisitionParameters() passed!");
             }
             catch (Exception CreateAcquisitionParametersException)

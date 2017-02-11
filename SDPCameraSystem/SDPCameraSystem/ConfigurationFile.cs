@@ -8,7 +8,7 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class ConfigurationParameters
+    class ConfigurationFile
     {
         public string ServerName;
         public int ResourceIndex = 0;
@@ -19,7 +19,7 @@ namespace SDPCameraSystem
         protected int SDPServerNumber = 1;
         protected int FirstConfigFile = 0;
 
-        public ConfigurationParameters()
+        public ConfigurationFile()
         {
             ServerName = SapManager.GetServerName(SDPServerNumber);
             ConfigFilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";

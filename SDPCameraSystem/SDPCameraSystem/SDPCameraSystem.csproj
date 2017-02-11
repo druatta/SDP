@@ -71,8 +71,8 @@
     <Compile Include="AcquisitionDeviceWrapperTests.cs" />
     <Compile Include="AcquisitionWrapper.cs" />
     <Compile Include="AcquisitionWrapperTests.cs" />
-    <Compile Include="ConfigurationParameters.cs" />
-    <Compile Include="ConfigurationParameterTests.cs" />
+    <Compile Include="ConfigurationFile.cs" />
+    <Compile Include="ConfigurationFileTests.cs" />
     <Compile Include="BufferWrappers.cs" />
     <Compile Include="BufferWrapperTests.cs" />
     <Compile Include="FeatureWrapper.cs" />

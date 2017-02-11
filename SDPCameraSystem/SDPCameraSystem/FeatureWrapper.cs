@@ -11,15 +11,15 @@ namespace SDPCameraSystem
     {
         public SapFeature Feature;
 
-        public FeatureWrapper()
+        public FeatureWrapper(LocationWrapper LocationWrapper)
         {
-            CreateFeature();
+            CreateFeature(LocationWrapper);
             CheckForSuccessfulFeatureCreationUsingSaperaAPI();
         }
 
-        public void CreateFeature()
+        public void CreateFeature(LocationWrapper LocationWrapper)
         {
-            Feature = new SapFeature();
+            Feature = new SapFeature(LocationWrapper.Location);
         }
 
         public void CheckForSuccessfulFeatureCreationUsingSaperaAPI()

@@ -9,12 +9,11 @@ namespace SDPCameraSystem
 {
     class LocationWrapper
     {
-        private ConfigurationParameters LocationParameters = new ConfigurationParameters();
         public SapLocation Location;
 
-        public LocationWrapper()
+        public LocationWrapper(ConfigurationFile ConfigurationFile)
         {
-            Location = new SapLocation(LocationParameters.ServerName, LocationParameters.ResourceIndex);
+            Location = new SapLocation(ConfigurationFile.ServerName, ConfigurationFile.ResourceIndex);
         }
     }
 }

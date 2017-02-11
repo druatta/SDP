@@ -10,12 +10,13 @@ namespace SDPCameraSystem
 {
     class CameraFeed
     {
+        public ConfigurationFile ConfigurationFile;
+        public LocationWrapper LocationWrapper;
+        public FeatureWrapper FeatureWrapper;
         public AcquisitionDeviceWrapper AcquisitionDeviceWrapper;
         public BufferWrappers BufferWrappers;
         public ViewWrapper ViewWrapper;
         public DataTransferWrapper DataTransferWrapper;
-
-        //public FeatureWrapper FeatureWrapper;
         
         public CameraFeed()
         {
@@ -24,16 +25,33 @@ namespace SDPCameraSystem
 
         public void CreateCameraFeed()
         {
+            CreateCameraConfigurationFile();
+            CreateCameraNetworkLocation();
+            CreateCameraFeatureHandler();
             CreateCameraObject();
             CreateCameraImageBuffers();
             CreateCameraViewingWindow();
             CreateCameraDataTransfer();
-            //CreateCameraFeatureHandler();
+        }
+
+        public void CreateCameraConfigurationFile()
+        {
+            ConfigurationFile = new ConfigurationFile();
+        }
+
+        public void CreateCameraNetworkLocation()
+        {
+            LocationWrapper = new LocationWrapper(ConfigurationFile);
+        }
+
+        public void CreateCameraFeatureHandler()
+        {
+            FeatureWrapper = new FeatureWrapper(LocationWrapper);
         }
 
         public void CreateCameraObject()
         {
-            AcquisitionDeviceWrapper = new AcquisitionDeviceWrapper();
+            AcquisitionDeviceWrapper = new AcquisitionDeviceWrapper(ConfigurationFile, LocationWrapper);
         }
 
         public void CreateCameraImageBuffers()
@@ -51,10 +69,6 @@ namespace SDPCameraSystem
             DataTransferWrapper = new DataTransferWrapper(AcquisitionDeviceWrapper, BufferWrappers, ViewWrapper);
         }
 
-        //public void CreateCameraFeatureHandler()
-        //{
-        //    FeatureWrapper = new FeatureWrapper();
-        //}
 
 
 

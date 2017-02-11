@@ -10,7 +10,7 @@ namespace SDPCameraSystem
     {
         //static void Main(string[] args)
         //{
-        //    Console.WriteLine("Hello, World! These are the AcquisitionWrapper tests. ");
+        //    Console.WriteLine("Hello, World! These are the FeatureWrapper tests. ");
         //    CreateTestFeature();
 
 
@@ -18,25 +18,24 @@ namespace SDPCameraSystem
         //    Console.ReadKey();
         //}
 
-        //static void CreateTestFeature()
-        //{
-        //    TryToCreateTestFeature();
-        //}
+        static void CreateTestFeature()
+        {
+            TryToCreateTestFeature();
+        }
 
-        //static void TryToCreateTestFeature()
-        //{
-        //    try
-        //    {
-        //        CameraFeed TestCameraFeed = new CameraFeed();
-        //        TestCameraFeed.FeatureWrapper.CreateFeature();
-        //        Console.WriteLine("Successfully created a TestFeature!");
-        //    }
-        //    catch (Exception CreateFeatureException)
-        //    {
-        //        Console.WriteLine("Failed to create a Feature! {0}",
-        //            CreateFeatureException.Message);
-        //    }
-        //}
+        static void TryToCreateTestFeature()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                Console.WriteLine("Successfully created a TestFeature!");
+            }
+            catch (Exception CreateFeatureException)
+            {
+                Console.WriteLine("Failed to create a Feature! {0}",
+                    CreateFeatureException.Message);
+            }
+        }
 
     }
 }

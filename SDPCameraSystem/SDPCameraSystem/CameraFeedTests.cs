@@ -11,20 +11,65 @@ namespace SDPCameraSystem
 {
     class CameraFeedTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
-        //    Console.WriteLine("These tests can only be run one at a time because " +
-        //        "we only have one physical camera to test them on.");
-        //    //CreateTestCameraObject();
-        //    //CreateTestCameraImageBuffers();
-        //    //CreateTestCameraViewingWindow();
-        //    //CreateTestCameraDataTransfer();
-        //    CreateTestCameraFeed();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
+            Console.WriteLine("These tests can only be run one at a time because " +
+                "we only have one physical camera to test them on.");
+            Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
+                " as you change tests!");
+            //CreateTestCameraConfigurationFile();
+            CreateTestCameraNetworkLocation();
+            //CreateTestCameraObject();
+            //CreateTestCameraImageBuffers();
+            //CreateTestCameraViewingWindow();
+            //CreateTestCameraDataTransfer();
+            //CreateTestCameraFeed();
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
+
+        static void CreateTestCameraConfigurationFile()
+        {
+            TryToCreateCameraConfigurationFile();
+        }
+
+        static void TryToCreateCameraConfigurationFile()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.CreateCameraConfigurationFile();
+                Console.WriteLine("Successfully created a camera configuration file!");
+            }
+            catch (Exception CreateCameraConfigurationFileException)
+            {
+                Console.WriteLine("Failed to create a Camera configuration file! {0}",
+                    CreateCameraConfigurationFileException.Message);
+            }
+        }
+
+        static void CreateTestCameraNetworkLocation()
+        {
+            TryToCreateCameraNetworkLocation();
+        }
+
+        static void TryToCreateCameraNetworkLocation()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.CreateCameraNetworkLocation();
+                Console.WriteLine("Successfully created Camera network location!");
+            }
+            catch (Exception CreateCameraNetworkLocationException)
+            {
+                Console.WriteLine("Failed to create camera network location! {0}",
+                    CreateCameraNetworkLocationException.Message);
+            }
+        }
+
 
         static void CreateTestCameraObject()
         {
