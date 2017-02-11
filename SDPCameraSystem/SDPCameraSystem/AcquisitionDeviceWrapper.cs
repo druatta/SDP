@@ -12,7 +12,6 @@ namespace SDPCameraSystem
         public SapAcqDevice Device;
         ConfigurationParameters DeviceParameters = new ConfigurationParameters();
         LocationWrapper LocationWrapper = new LocationWrapper();
-        private string EventFeatureString = "GigEVisionEvent";
         private bool FeatureValue = true;
         public Object DataSender;
 
@@ -20,6 +19,7 @@ namespace SDPCameraSystem
         {
             CreateNewAcquisitionDevice();
             CheckForSuccessfulAcquisitionDeviceCreation();
+            CreateAcquisitionDeviceNotificationInterface();
         }
 
         public void CreateNewAcquisitionDevice()
@@ -32,21 +32,22 @@ namespace SDPCameraSystem
             Device.Create();
         }
 
-        public Boolean CheckForTriggerSignal(CameraFeed CameraFeed)
+        public void WaitForTriggerInput()
         {
-            if (CameraFeed.AcquisitionDeviceWrapper.Device.GetFeatureValue("FrameTrigger", out FeatureValue))
+            while (!Device.IsFeatureAvailable("FrameTrigger"))
             {
-                return true;
-            } else
-            {
-                return false;
+                Console.WriteLine("Trigger not available!");
             }
-            
         }
 
-        public void CreateAcquisitionDeviceCallback()
+        public void CreateAcquisitionDeviceCallback(object Sender, SapAcqDeviceNotifyEventArgs EventArguments)
         {
             Device = DataSender as SapAcqDevice;
+        }
+
+        public void CreateAcquisitionDeviceNotificationInterface()
+        {
+            Device.AcqDeviceNotify += new SapAcqDeviceNotifyHandler(CreateAcquisitionDeviceCallback);
         }
     }
 }

@@ -15,13 +15,11 @@ namespace SDPCameraSystem
         public ViewWrapper ViewWrapper;
         public DataTransferWrapper DataTransferWrapper;
 
-        public SapFeature Feature;
-        //public SapAcqDeviceNotifyHandler Handler;
+        //public FeatureWrapper FeatureWrapper;
         
         public CameraFeed()
         {
-            CreateCameraFeed(); // Test all four CameraFeed.Create() functions separately, then uncomment
-                                    // This to make creating a CameraFeed a single call
+            CreateCameraFeed(); 
         }
 
         public void CreateCameraFeed()
@@ -30,6 +28,7 @@ namespace SDPCameraSystem
             CreateCameraImageBuffers();
             CreateCameraViewingWindow();
             CreateCameraDataTransfer();
+            //CreateCameraFeatureHandler();
         }
 
         public void CreateCameraObject()
@@ -51,6 +50,11 @@ namespace SDPCameraSystem
         {
             DataTransferWrapper = new DataTransferWrapper(AcquisitionDeviceWrapper, BufferWrappers, ViewWrapper);
         }
+
+        //public void CreateCameraFeatureHandler()
+        //{
+        //    FeatureWrapper = new FeatureWrapper();
+        //}
 
 
 

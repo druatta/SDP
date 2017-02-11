@@ -8,17 +8,17 @@ namespace SDPCameraSystem
 {
     class AcquisitionDeviceWrapperTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-        //    //CreateTestAcquisitionDeviceWrapper();
-        //    GetTriggerTest();
-                CreateTestAcquisitionDeviceCallback();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
+            //CreateTestAcquisitionDeviceWrapper();
+            WaitForTriggerTest();
+            CreateTestAcquisitionDeviceNotificationInterface();
 
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
         static void CreateTestAcquisitionDeviceWrapper()
         {
@@ -39,21 +39,18 @@ namespace SDPCameraSystem
             }
         }
 
-        static void GetTriggerTest()
+        static void WaitForTriggerTest()
         {
-            TryToGetATriggerInput();
+            TryToWaitForATriggerInput();
         }
 
-        static void TryToGetATriggerInput()
+        static void TryToWaitForATriggerInput()
         {
             CameraFeed TestCameraFeed = new CameraFeed();
             try
             {
-                while (TestCameraFeed.AcquisitionDeviceWrapper.CheckForTriggerSignal(TestCameraFeed) == false)
-                {
-                    ; // Do nothing
-                }
-                Console.WriteLine("Successfully got a trigger input!");
+                TestCameraFeed.AcquisitionDeviceWrapper.WaitForTriggerInput();
+                Console.WriteLine("Successfully waited for a trigger input!");
             }
             catch (Exception GetTriggerException)
             {
@@ -61,18 +58,18 @@ namespace SDPCameraSystem
             }
         }
 
-        static void CreateTestAcquisitionDeviceCallback()
+        static void CreateTestAcquisitionDeviceNotificationInterface()
         {
-            TryToCreateAnAcquisitionDeviceCallback();
+            TryToCreateAnAcquisitionDeviceNotificationInterface();
         }
 
-        TryToCreateAnAcquisitionDeviceCallback()
+        static void TryToCreateAnAcquisitionDeviceNotificationInterface()
         {
             try
             {
                 CameraFeed TestCameraFeed = new CameraFeed();
-                TestCameraFeed.AcquisitionDeviceWrapper.CreateAcquisitionDeviceCallback();
-                Console.WriteLine("Successfully created an AcquisitionDevice callback!")
+                TestCameraFeed.AcquisitionDeviceWrapper.CreateAcquisitionDeviceNotificationInterface();
+                Console.WriteLine("Successfully created an AcquisitionDevice callback!");
             }
             catch (Exception CreateAcquisitionDeviceCallbackException)
             {
