@@ -32,8 +32,9 @@ namespace SDPCameraSystem
         {
             while (!Device.IsFeatureAvailable("FrameTrigger"))
             {
-                Console.WriteLine("Trigger not available!");
+                // Do nothing  
             }
+            Console.WriteLine("Trigger available!");
         }
 
         public void CreateAcquisitionDeviceCallback(object DataSender, SapAcqDeviceNotifyEventArgs EventArguments)
