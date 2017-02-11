@@ -28,6 +28,7 @@ namespace SDPCameraSystem
             try
             {
                 CameraFeed TestCameraFeed = new CameraFeed();
+                
                 Console.WriteLine("Successfully created a TestFeature!");
             }
             catch (Exception CreateFeatureException)
