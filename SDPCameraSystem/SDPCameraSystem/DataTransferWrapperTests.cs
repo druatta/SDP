@@ -28,7 +28,8 @@ namespace SDPCameraSystem
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
                 LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper);
+                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
                 BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
                 ViewWrapper TestViewWrapper = new ViewWrapper(TestBufferWrappers);
                 DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);

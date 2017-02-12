@@ -12,6 +12,7 @@ namespace SDPCameraSystem
         {
             Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
             //CreateTestAcquisitionDeviceWrapper();
+            //TestEnableChangesInFeatureValues();
             WaitForTriggerTest();
             //CreateTestAcquisitionDeviceNotificationInterface();
 
@@ -31,32 +32,14 @@ namespace SDPCameraSystem
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
                 LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper);
+                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
                 Console.WriteLine("Successfully created an AcquisitionDevice()!");
             }
             catch (Exception CreateAcquisitionDeviceWrapperException)
             {
                 Console.WriteLine("Failed to create an AcquisitionDevice()! {0}",
                     CreateAcquisitionDeviceWrapperException.Message);
-            }
-        }
-
-        static void WaitForTriggerTest()
-        {
-            TryToWaitForATriggerInput();
-        }
-
-        static void TryToWaitForATriggerInput()
-        {
-            CameraFeed TestCameraFeed = new CameraFeed();
-            try
-            {
-                TestCameraFeed.AcquisitionDeviceWrapper.WaitForTriggerInput();
-                Console.WriteLine("Successfully waited for a trigger input!");
-            }
-            catch (Exception GetTriggerException)
-            {
-                Console.WriteLine("Failed to get a trigger input!", GetTriggerException.Message);
             }
         }
 
@@ -77,6 +60,45 @@ namespace SDPCameraSystem
             {
                 Console.WriteLine("Failed to create an AcquisitionDevice callback! {0}",
                     CreateAcquisitionDeviceCallbackException.Message);
+            }
+        }
+
+        static void TestEnableChangesInFeatureValues()
+        {
+            TryToEnableChangesInFeatureValues();
+        }
+
+        static void TryToEnableChangesInFeatureValues()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.AcquisitionDeviceWrapper.EnableChangesInFeatureValues();
+                Console.WriteLine("Successfully enabled changes in Feature values!");
+            }
+            catch (Exception EnableChangesInFeatureValuesException)
+            {
+                Console.WriteLine("Failed to enable changes in feature values!",
+                    EnableChangesInFeatureValuesException.Message);
+            }
+        }
+
+        static void WaitForTriggerTest()
+        {
+            TryToWaitForATriggerInput();
+        }
+
+        static void TryToWaitForATriggerInput()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.AcquisitionDeviceWrapper.WaitForTriggerInput(TestCameraFeed.FeatureWrapper);
+                Console.WriteLine("Successfully waited for a trigger input!");
+            }
+            catch (Exception GetTriggerException)
+            {
+                Console.WriteLine("Failed to get a trigger input!", GetTriggerException.Message);
             }
         }
     }

@@ -51,7 +51,7 @@ namespace SDPCameraSystem
 
         public void CreateCameraObject()
         {
-            AcquisitionDeviceWrapper = new AcquisitionDeviceWrapper(ConfigurationFile, LocationWrapper);
+            AcquisitionDeviceWrapper = new AcquisitionDeviceWrapper(ConfigurationFile, LocationWrapper, FeatureWrapper);
         }
 
         public void CreateCameraImageBuffers()
