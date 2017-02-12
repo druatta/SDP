@@ -8,23 +8,23 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class ConfigurationParameters
+    class ConfigurationFile
     {
         public string ServerName;
         public int ResourceIndex = 0;
         public string ConfigFileName;
 
         protected string ConfigFilePath;
-        protected string[] ConfigFiles;
+        protected string[] ConfigFileStringArray;
         protected int SDPServerNumber = 1;
         protected int FirstConfigFile = 0;
 
-        public ConfigurationParameters()
+        public ConfigurationFile()
         {
             ServerName = SapManager.GetServerName(SDPServerNumber);
             ConfigFilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-            ConfigFiles = Directory.GetFiles(ConfigFilePath, "*.ccf");
-            ConfigFileName = ConfigFiles[FirstConfigFile]; 
+            ConfigFileStringArray = Directory.GetFiles(ConfigFilePath, "*.ccf");
+            ConfigFileName = ConfigFileStringArray[FirstConfigFile]; 
         }
 
 

@@ -26,7 +26,10 @@ namespace SDPCameraSystem
         {
             try
             {
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
+                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
+                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
                 BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
                 ViewWrapper TestViewWrapper = new ViewWrapper(TestBufferWrappers);
                 Console.WriteLine("Successfully created a new TestViewWrapper()!");

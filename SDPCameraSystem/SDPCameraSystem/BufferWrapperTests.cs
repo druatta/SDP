@@ -8,15 +8,17 @@ namespace SDPCameraSystem
 {
     class BufferWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
-            //CreateTestBufferWrappers();
-            TestSaveCurrentBufferToFile();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
+        //    //CreateTestBufferWrappers();
+        //    //CreateBufferSaveParameters();
+        //    //PrintBufferSaveParameters();
+        //    TestSaveCurrentBufferToFile();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestBufferWrappers()
         {
@@ -27,7 +29,10 @@ namespace SDPCameraSystem
         {
             try
             {
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper();
+                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
+                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
+                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
                 BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
                 Console.WriteLine("Successfully created the BufferWrappers()!");
             }
@@ -35,6 +40,45 @@ namespace SDPCameraSystem
             {
                 Console.WriteLine("Failed to create a BufferWrapper()! {0}",
                     CreateBufferWrapperException.Message);
+            }
+        }
+
+        static void CreateBufferSaveParameters()
+        {
+            TryToCreateBufferSaveParameters();
+        }
+
+        static void TryToCreateBufferSaveParameters()
+        {
+            try
+            {
+                CameraFeed TestFeed = new CameraFeed();
+                TestFeed.BufferWrappers.CreateBufferSaveParameters(); // Is currently in the Buffer Wrapper constructor!
+                Console.WriteLine("Successfully created the Buffer Save Parameters!");
+            }
+            catch (Exception CreateBufferSaveParametersException)
+            {
+                Console.WriteLine("Failed to create Buffer Save Parameters! {0}",
+                    CreateBufferSaveParametersException.Message);
+            }
+        }
+
+        static void PrintBufferSaveParameters()
+        {
+            TryToPrintBufferSaveParameters();
+        }
+
+        static void TryToPrintBufferSaveParameters()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.BufferWrappers.PrintBufferSaveParameters();
+            }
+            catch (Exception PrintBufferSaveParametersException)
+            {
+                Console.WriteLine("Failed to print out the Buffer Save Parameters! {0}",
+                    PrintBufferSaveParametersException.Message);
             }
         }
 
@@ -57,5 +101,7 @@ namespace SDPCameraSystem
                     SaveCurrentBufferToFileException.Message);
             }
         }
+
+
     }
 }

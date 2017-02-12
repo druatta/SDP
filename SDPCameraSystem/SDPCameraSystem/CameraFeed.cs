@@ -10,31 +10,48 @@ namespace SDPCameraSystem
 {
     class CameraFeed
     {
+        public ConfigurationFile ConfigurationFile;
+        public LocationWrapper LocationWrapper;
+        public FeatureWrapper FeatureWrapper;
         public AcquisitionDeviceWrapper AcquisitionDeviceWrapper;
         public BufferWrappers BufferWrappers;
         public ViewWrapper ViewWrapper;
         public DataTransferWrapper DataTransferWrapper;
-
-        //public SapFeature Feature;
-        //public SapAcqDeviceNotifyHandler Handler;
         
         public CameraFeed()
         {
-            CreateCameraFeed(); // Test all four CameraFeed.Create() functions separately, then uncomment
-                                    // This to make creating a CameraFeed a single call
+            CreateCameraFeed(); 
         }
 
         public void CreateCameraFeed()
         {
+            CreateCameraConfigurationFile();
+            CreateCameraNetworkLocation();
+            CreateCameraFeatureHandler();
             CreateCameraObject();
             CreateCameraImageBuffers();
             CreateCameraViewingWindow();
             CreateCameraDataTransfer();
         }
 
+        public void CreateCameraConfigurationFile()
+        {
+            ConfigurationFile = new ConfigurationFile();
+        }
+
+        public void CreateCameraNetworkLocation()
+        {
+            LocationWrapper = new LocationWrapper(ConfigurationFile);
+        }
+
+        public void CreateCameraFeatureHandler()
+        {
+            FeatureWrapper = new FeatureWrapper(LocationWrapper);
+        }
+
         public void CreateCameraObject()
         {
-            AcquisitionDeviceWrapper = new AcquisitionDeviceWrapper();
+            AcquisitionDeviceWrapper = new AcquisitionDeviceWrapper(ConfigurationFile, LocationWrapper, FeatureWrapper);
         }
 
         public void CreateCameraImageBuffers()
@@ -52,8 +69,21 @@ namespace SDPCameraSystem
             DataTransferWrapper = new DataTransferWrapper(AcquisitionDeviceWrapper, BufferWrappers, ViewWrapper);
         }
 
+        public void SaveImageOnTriggerInputForever()
+        {
+            while (true)
+            {
+                SaveImageOnTriggerInput();
+                Console.WriteLine("Image saved!");
+            }
+        }
 
-
+        public void SaveImageOnTriggerInput()
+        {
+            if (AcquisitionDeviceWrapper.CheckForChangeInTriggerInput(FeatureWrapper) == true) {
+                BufferWrappers.SaveBufferToFile();
+            }
+        }
 
     }
 
