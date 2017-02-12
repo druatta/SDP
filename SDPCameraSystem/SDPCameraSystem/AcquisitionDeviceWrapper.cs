@@ -10,14 +10,20 @@ namespace SDPCameraSystem
     class AcquisitionDeviceWrapper
     {
         public SapAcqDevice Device;
-        public bool FrameTriggerEvent;
+        public Boolean FrameTriggerStatus;
+        public static Boolean PreviousTriggerStatus;
+        public String FeatureValueChangeString = "Feature Value Changed";
+        public String FrameTriggerString = "LineStatus";
+        SapFeature.IncrementType Increment;
+        SapFeature.AccessMode Access;
+        SapFeature.Type Type;
 
         public AcquisitionDeviceWrapper(ConfigurationFile ConfigurationFile, LocationWrapper LocationWrapper, FeatureWrapper FeatureWrapper)
         {
             CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
             CheckForSuccessfulAcquisitionDeviceCreation();
             CreateAcquisitionDeviceNotificationInterface();
-            //EnableChangesInFeatureValues();
+            EnableChangesInFeatureValues();
         }
 
         public void CreateNewAcquisitionDevice(LocationWrapper LocationWrapper, ConfigurationFile ConfigurationFile)
@@ -44,13 +50,14 @@ namespace SDPCameraSystem
         {
             if (CheckIfChangesInFeatureValuesAreEnabled() == false)
             {
-                Device.EnableEvent("Feature Value Changed");
+                Device.EnableEvent(FeatureValueChangeString);
             }
         }
 
         public Boolean CheckIfChangesInFeatureValuesAreEnabled()
         {
-            if (Device.IsEventEnabled("Feature Value Changed")) {
+            if (Device.IsEventEnabled(FeatureValueChangeString))
+            {
                 return true;
             }
             else // Changes in Feature Values are not enabled
@@ -61,18 +68,31 @@ namespace SDPCameraSystem
 
         public void WaitForTriggerInput(FeatureWrapper FeatureWrapper)
         {
-            while (true)
+            while (Device.IsFeatureAvailable(FrameTriggerString))
             {
-                if (Device.IsFeatureAvailable("EventLine1Event"))
-                {
-                    Console.WriteLine("EventFrameTrigger is available!");
-                    Device.GetFeatureInfo("EventLine1Event", FeatureWrapper.Feature);
-                    Device.GetFeatureValue("EventLine1Event", out FrameTriggerEvent);
-                    Console.WriteLine("Line 1 Event is: " + Convert.ToString(FrameTriggerEvent));
-                }
-
+                CheckForChangeInTriggerInput(FeatureWrapper);
             }
+        }
 
+        public void GetTriggerParameters(FeatureWrapper FeatureWrapper)
+        {
+            Device.GetFeatureInfo(FrameTriggerString, FeatureWrapper.Feature);
+            Device.GetFeatureValue(FrameTriggerString, out FrameTriggerStatus);
+        }
+
+        public void CheckForChangeInTriggerInput(FeatureWrapper FeatureWrapper)
+        {
+            GetTriggerParameters(FeatureWrapper);
+            if (PreviousTriggerStatus != FrameTriggerStatus)
+            {
+                Console.WriteLine("Trigger went from " + PreviousTriggerStatus + " to " + FrameTriggerStatus);
+                UpdateTriggerStatus();
+            }
+        }
+
+        public void UpdateTriggerStatus()
+        {
+            PreviousTriggerStatus = FrameTriggerStatus;
         }
     }
 }
