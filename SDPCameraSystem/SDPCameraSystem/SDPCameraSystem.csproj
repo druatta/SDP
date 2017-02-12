@@ -69,8 +69,6 @@
   <ItemGroup>
     <Compile Include="AcquisitionDeviceWrapper.cs" />
     <Compile Include="AcquisitionDeviceWrapperTests.cs" />
-    <Compile Include="AcquisitionWrapper.cs" />
-    <Compile Include="AcquisitionWrapperTests.cs" />
     <Compile Include="ConfigurationFile.cs" />
     <Compile Include="ConfigurationFileTests.cs" />
     <Compile Include="BufferWrappers.cs" />

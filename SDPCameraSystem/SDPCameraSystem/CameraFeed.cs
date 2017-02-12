@@ -69,9 +69,21 @@ namespace SDPCameraSystem
             DataTransferWrapper = new DataTransferWrapper(AcquisitionDeviceWrapper, BufferWrappers, ViewWrapper);
         }
 
+        public void SaveImageOnTriggerInputForever()
+        {
+            while (true)
+            {
+                SaveImageOnTriggerInput();
+                Console.WriteLine("Image saved!");
+            }
+        }
 
-
-
+        public void SaveImageOnTriggerInput()
+        {
+            if (AcquisitionDeviceWrapper.CheckForChangeInTriggerInput(FeatureWrapper) == true) {
+                BufferWrappers.SaveBufferToFile();
+            }
+        }
 
     }
 

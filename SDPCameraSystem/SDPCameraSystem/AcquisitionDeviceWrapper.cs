@@ -14,9 +14,6 @@ namespace SDPCameraSystem
         public static Boolean PreviousTriggerStatus;
         public String FeatureValueChangeString = "Feature Value Changed";
         public String FrameTriggerString = "LineStatus";
-        SapFeature.IncrementType Increment;
-        SapFeature.AccessMode Access;
-        SapFeature.Type Type;
 
         public AcquisitionDeviceWrapper(ConfigurationFile ConfigurationFile, LocationWrapper LocationWrapper, FeatureWrapper FeatureWrapper)
         {
@@ -80,14 +77,19 @@ namespace SDPCameraSystem
             Device.GetFeatureValue(FrameTriggerString, out FrameTriggerStatus);
         }
 
-        public void CheckForChangeInTriggerInput(FeatureWrapper FeatureWrapper)
+        public Boolean CheckForChangeInTriggerInput(FeatureWrapper FeatureWrapper)
         {
             GetTriggerParameters(FeatureWrapper);
             if (PreviousTriggerStatus != FrameTriggerStatus)
             {
-                Console.WriteLine("Trigger went from " + PreviousTriggerStatus + " to " + FrameTriggerStatus);
                 UpdateTriggerStatus();
+                return true;
             }
+            else
+            {
+                return false;
+            }
+           
         }
 
         public void UpdateTriggerStatus()

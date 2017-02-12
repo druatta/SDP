@@ -11,24 +11,25 @@ namespace SDPCameraSystem
 {
     class CameraFeedTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
-        //    Console.WriteLine("These tests can only be run one at a time because " +
-        //        "we only have one physical camera to test them on.");
-        //    Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
-        //        " as you change tests!");
-        //    //CreateTestCameraConfigurationFile();
-        //    CreateTestCameraNetworkLocation();
-        //    //CreateTestCameraObject();
-        //    //CreateTestCameraImageBuffers();
-        //    //CreateTestCameraViewingWindow();
-        //    //CreateTestCameraDataTransfer();
-        //    //CreateTestCameraFeed();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
+            Console.WriteLine("These tests can only be run one at a time because " +
+                "we only have one physical camera to test them on.");
+            Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
+                " as you change tests!");
+            //CreateTestCameraConfigurationFile();
+            //CreateTestCameraNetworkLocation();
+            //CreateTestCameraObject();
+            //CreateTestCameraImageBuffers();
+            //CreateTestCameraViewingWindow();
+            //CreateTestCameraDataTransfer();
+            //CreateTestCameraFeed();
+            CreateTestCameraFeedThatSavesImagesOnExternalTrigger();
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
         static void CreateTestCameraConfigurationFile()
         {
@@ -175,6 +176,25 @@ namespace SDPCameraSystem
             {
                 Console.WriteLine("Failed to create a new Camera Feed! {0}",
                     CreateNewCameraFeedException.Message);
+            }
+        }
+
+        static void CreateTestCameraFeedThatSavesImagesOnExternalTrigger()
+        {
+            TryToCreateCameraFeedThatSavesImagesOnExternalTrigger();
+        }
+
+        static void TryToCreateCameraFeedThatSavesImagesOnExternalTrigger()
+        {
+            try
+            {
+                CameraFeed TestCameraFeed = new CameraFeed();
+                TestCameraFeed.SaveImageOnTriggerInputForever();
+            }
+            catch (Exception CreateCameraFeedWithExternalTriggerException)
+            {
+                Console.WriteLine("Failed to Create Camera Feed that saves images on External Trigger! {0}",
+                    CreateCameraFeedWithExternalTriggerException.Message);
             }
         }
     }

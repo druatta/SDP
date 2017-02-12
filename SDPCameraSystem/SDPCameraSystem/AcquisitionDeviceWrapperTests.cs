@@ -8,18 +8,18 @@ namespace SDPCameraSystem
 {
     class AcquisitionDeviceWrapperTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
-            //CreateTestAcquisitionDeviceWrapper();
-            //TestEnableChangesInFeatureValues();
-            WaitForTriggerTest();
-            //CreateTestAcquisitionDeviceNotificationInterface();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the AcquisitionDevice tests. ");
+        //    //CreateTestAcquisitionDeviceWrapper();
+        //    //TestEnableChangesInFeatureValues();
+        //    WaitForTriggerTest();
+        //    //CreateTestAcquisitionDeviceNotificationInterface();
 
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestAcquisitionDeviceWrapper()
         {
@@ -93,8 +93,10 @@ namespace SDPCameraSystem
             try
             {
                 CameraFeed TestCameraFeed = new CameraFeed();
-                TestCameraFeed.AcquisitionDeviceWrapper.WaitForTriggerInput(TestCameraFeed.FeatureWrapper);
-                Console.WriteLine("Successfully waited for a trigger input!");
+                while (true)
+                {
+                    TestCameraFeed.AcquisitionDeviceWrapper.CheckForChangeInTriggerInput(TestCameraFeed.FeatureWrapper);
+                }
             }
             catch (Exception GetTriggerException)
             {

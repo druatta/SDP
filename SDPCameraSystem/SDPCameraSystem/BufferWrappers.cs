@@ -27,7 +27,7 @@ namespace SDPCameraSystem
 
         public void CreateBufferSaveParameters()
         {
-            SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\TestImages";
+            SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\Images";
             SaveFileStringArray = Directory.GetFiles(SaveDirectory, "*.bmp");
             SaveFileName = SaveFileStringArray[FirstSaveFile];
             SaveFileType = "-format bmp";
