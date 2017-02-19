@@ -10,7 +10,7 @@ namespace SDPCameraSystem
 {
     class ConfigurationFile
     {
-        public string ServerName;
+        public string ServerName; 
         public int ResourceIndex = 0;
         public string ConfigFileName;
 

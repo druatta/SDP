@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DALSA.SaperaLT.SapClassBasic;
 
 
+
+
 namespace SDPCameraSystem
 {
     class CameraFeed
@@ -27,7 +29,7 @@ namespace SDPCameraSystem
         {
             CreateCameraConfigurationFile();
             CreateCameraNetworkLocation();
-            CreateCameraFeatureHandler();
+            CreateCameraEventHandler();
             CreateCameraObject();
             CreateCameraImageBuffers();
             CreateCameraViewingWindow();
@@ -44,7 +46,7 @@ namespace SDPCameraSystem
             LocationWrapper = new LocationWrapper(ConfigurationFile);
         }
 
-        public void CreateCameraFeatureHandler()
+        public void CreateCameraEventHandler()
         {
             FeatureWrapper = new FeatureWrapper(LocationWrapper);
         }

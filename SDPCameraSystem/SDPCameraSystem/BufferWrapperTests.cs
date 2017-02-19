@@ -8,17 +8,17 @@ namespace SDPCameraSystem
 {
     class BufferWrapperTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
-        //    //CreateTestBufferWrappers();
-        //    //CreateBufferSaveParameters();
-        //    //PrintBufferSaveParameters();
-        //    TestSaveCurrentBufferToFile();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the BufferWrapper tests. ");
+            //CreateTestBufferWrappers();
+            TestCreateBufferSaveParameters();
+            //PrintBufferSaveParameters();
+            //TestSaveCurrentBufferToFile();
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
         static void CreateTestBufferWrappers()
         {
@@ -43,7 +43,7 @@ namespace SDPCameraSystem
             }
         }
 
-        static void CreateBufferSaveParameters()
+        static void TestCreateBufferSaveParameters()
         {
             TryToCreateBufferSaveParameters();
         }
