@@ -5,9 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DALSA.SaperaLT.SapClassBasic;
 
-
-
-
 namespace SDPCameraSystem
 {
     class CameraComposition
@@ -22,15 +19,15 @@ namespace SDPCameraSystem
         
         public CameraComposition()
         {
-            CreateCameraFeed(); 
+            CreateCamera(); 
         }
 
-        public void CreateCameraFeed()
+        public void CreateCamera()
         {
             CreateConfigurationFile();
             CreateNetworkLocation();
             CreateEventHandler();
-            CreateObject();
+            CreateCameraObject();
             CreateImageBuffers();
             CreateViewingWindow();
             CreateDataTransfer();
@@ -51,7 +48,7 @@ namespace SDPCameraSystem
             EventHandler = new EventHandler(NetworkLocation);
         }
 
-        public void CreateObject()
+        public void CreateCameraObject()
         {
             CameraObject = new CameraObject(ConfigurationFile, NetworkLocation, EventHandler);
         }
