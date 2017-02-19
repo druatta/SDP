@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class AcquisitionDeviceWrapper
+    class CameraObject
     {
         public SapAcqDevice Device;
         public Boolean FrameTriggerStatus;
@@ -19,7 +19,7 @@ namespace SDPCameraSystem
 
 
         //class that calls all of the below creation functions
-        public AcquisitionDeviceWrapper(ConfigurationFile ConfigurationFile, LocationWrapper LocationWrapper, FeatureWrapper FeatureWrapper)
+        public CameraObject(ConfigurationFile ConfigurationFile, NetworkLocation LocationWrapper, EventHandler FeatureWrapper)
         {
             CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
             CheckForSuccessfulAcquisitionDeviceCreation();
@@ -31,7 +31,7 @@ namespace SDPCameraSystem
         //Creation Functions
 
         //Creates a new sap acquistion device by setting the location and setting up config file name
-        public void CreateNewAcquisitionDevice(LocationWrapper LocationWrapper, ConfigurationFile ConfigurationFile)
+        public void CreateNewAcquisitionDevice(NetworkLocation LocationWrapper, ConfigurationFile ConfigurationFile)
         {
             Device = new SapAcqDevice(LocationWrapper.Location, ConfigurationFile.ConfigFileName);
         }
@@ -76,7 +76,7 @@ namespace SDPCameraSystem
 
 
 
-        public void WaitForTriggerInput(FeatureWrapper FeatureWrapper)
+        public void WaitForTriggerInput(EventHandler FeatureWrapper)
         {
             while (Device.IsFeatureAvailable(FrameTriggerString))
             {
@@ -84,13 +84,13 @@ namespace SDPCameraSystem
             }
         }
 
-        public void GetTriggerParameters(FeatureWrapper FeatureWrapper)
+        public void GetTriggerParameters(EventHandler FeatureWrapper)
         {
             Device.GetFeatureInfo(FrameTriggerString, FeatureWrapper.Feature);
             Device.GetFeatureValue(FrameTriggerString, out FrameTriggerStatus);
         }
 
-        public Boolean CheckForChangeInTriggerInput(FeatureWrapper FeatureWrapper)
+        public Boolean CheckForChangeInTriggerInput(EventHandler FeatureWrapper)
         {
             GetTriggerParameters(FeatureWrapper);
             if (PreviousTriggerStatus != FrameTriggerStatus)

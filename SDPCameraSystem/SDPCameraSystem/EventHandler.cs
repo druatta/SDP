@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class FeatureWrapper
+    class EventHandler
     {
         public SapFeature Feature;
 
-        public FeatureWrapper(LocationWrapper LocationWrapper)
+        public EventHandler(NetworkLocation LocationWrapper)
         {
             CreateFeature(LocationWrapper);
             CheckForSuccessfulFeatureCreationUsingSaperaAPI();
         }
 
-        public void CreateFeature(LocationWrapper LocationWrapper)
+        public void CreateFeature(NetworkLocation LocationWrapper)
         {
             Feature = new SapFeature(LocationWrapper.Location);
         }

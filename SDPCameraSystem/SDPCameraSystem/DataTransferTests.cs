@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class DataTransferWrapperTests
+    class DataTransferTests
     {
         //static void Main(string[] args)
         //{
@@ -27,12 +27,12 @@ namespace SDPCameraSystem
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
-                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
-                BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
-                ViewWrapper TestViewWrapper = new ViewWrapper(TestBufferWrappers);
-                DataTransferWrapper TestDataTransferWrapper = new DataTransferWrapper(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);
+                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
+                EventHandler TestFeatureWrapper = new EventHandler(TestLocationWrapper);
+                CameraObject TestDeviceWrapper = new CameraObject(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
+                ImageBuffers TestBufferWrappers = new ImageBuffers(TestDeviceWrapper);
+                ViewingWindow TestViewWrapper = new ViewingWindow(TestBufferWrappers);
+                DataTransfer TestDataTransferWrapper = new DataTransfer(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);
                 Console.WriteLine("Successfully created a data transfer!");
             }
             catch (Exception CreateDataTransferException)

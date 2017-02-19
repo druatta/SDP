@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class ViewWrapper
+    class ViewingWindow
     {
         public SapView View;
 
-        public ViewWrapper(BufferWrappers BufferWrappers)
+        public ViewingWindow(ImageBuffers BufferWrappers)
         {
             CreateNewView(BufferWrappers);
             CheckForSuccessfulViewCreation();
         }
 
-        public void CreateNewView(BufferWrappers BufferWrappers)
+        public void CreateNewView(ImageBuffers BufferWrappers)
         {
             View = new SapView(BufferWrappers.Buffers);
         }
