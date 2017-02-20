@@ -11,25 +11,25 @@ namespace SDPCameraSystem
 {
     class CameraCompositionTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
-            Console.WriteLine("These tests can only be run one at a time because " +
-                "we only have one physical camera to test them on.");
-            Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
-                " as you change tests!");
-            //CreateTestCameraConfigurationFile();
-            //CreateTestCameraNetworkLocation();
-            //CreateTestCameraObject();
-            //CreateTestCameraImageBuffers();
-            //CreateTestCameraViewingWindow();
-            //CreateTestCameraDataTransfer();
-            //CreateTestCameraFeed();
-            CreateTestCameraFeedThatSavesImagesOnExternalTrigger();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
+        //    Console.WriteLine("These tests can only be run one at a time because " +
+        //        "we only have one physical camera to test them on.");
+        //    Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
+        //        " as you change tests!");
+        //    //CreateTestCameraConfigurationFile();
+        //    //CreateTestCameraNetworkLocation();
+        //    //CreateTestCameraObject();
+        //    //CreateTestCameraImageBuffers();
+        //    //CreateTestCameraViewingWindow();
+        //    //CreateTestCameraDataTransfer();
+        //    //CreateTestCameraFeed();
+        //    CreateTestCameraFeedThatSavesImagesOnExternalTrigger();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestCameraConfigurationFile()
         {
