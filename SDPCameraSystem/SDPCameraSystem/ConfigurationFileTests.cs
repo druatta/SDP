@@ -40,7 +40,20 @@ namespace SDPCameraSystem
 
         static void AssignConfigurationFileServerNameTest()
         {
-            //TryToAssignAConfigurationFileServerName();
+            TryToAssignTheConfigurationFileServerName();
+        }
+
+        static void TryToAssignTheConfigurationFileServerName()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+
         }
 
 

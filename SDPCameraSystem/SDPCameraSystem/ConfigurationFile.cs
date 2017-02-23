@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DALSA.SaperaLT.SapClassBasic;
 using System.IO;
 
@@ -26,6 +22,8 @@ namespace SDPCameraSystem
             ConfigFileStringArray = Directory.GetFiles(ConfigFilePath, "*.ccf");
             ConfigFileName = ConfigFileStringArray[FirstConfigFile]; 
         }
+
+        
 
 
     }
