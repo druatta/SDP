@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class AcquisitionDeviceWrapperTests
+    class CameraObjectTests
     {
         //static void Main(string[] args)
         //{
@@ -31,9 +31,9 @@ namespace SDPCameraSystem
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
-                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
+                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
+                EventHandler TestFeatureWrapper = new EventHandler(TestLocationWrapper);
+                CameraObject TestDeviceWrapper = new CameraObject(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
                 Console.WriteLine("Successfully created an AcquisitionDevice()!");
             }
             catch (Exception CreateAcquisitionDeviceWrapperException)
@@ -52,8 +52,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
-                TestCameraFeed.AcquisitionDeviceWrapper.CreateAcquisitionDeviceNotificationInterface();
+                CameraComposition TestCameraFeed = new CameraComposition();
+                TestCameraFeed.CameraObject.CreateAcquisitionDeviceNotificationInterface();
                 Console.WriteLine("Successfully created an AcquisitionDevice callback!");
             }
             catch (Exception CreateAcquisitionDeviceCallbackException)
@@ -72,8 +72,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
-                TestCameraFeed.AcquisitionDeviceWrapper.EnableChangesInFeatureValues();
+                CameraComposition TestCameraFeed = new CameraComposition();
+                TestCameraFeed.CameraObject.EnableChangesInFeatureValues();
                 Console.WriteLine("Successfully enabled changes in Feature values!");
             }
             catch (Exception EnableChangesInFeatureValuesException)
@@ -92,10 +92,10 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 while (true)
                 {
-                    TestCameraFeed.AcquisitionDeviceWrapper.CheckForChangeInTriggerInput(TestCameraFeed.FeatureWrapper);
+                    TestCameraFeed.CameraObject.CheckForChangeInTriggerInput(TestCameraFeed.EventHandler);
                 }
             }
             catch (Exception GetTriggerException)

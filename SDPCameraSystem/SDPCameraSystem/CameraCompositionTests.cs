@@ -9,27 +9,27 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class CameraFeedTests
+    class CameraCompositionTests
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
-            Console.WriteLine("These tests can only be run one at a time because " +
-                "we only have one physical camera to test them on.");
-            Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
-                " as you change tests!");
-            //CreateTestCameraConfigurationFile();
-            //CreateTestCameraNetworkLocation();
-            //CreateTestCameraObject();
-            //CreateTestCameraImageBuffers();
-            //CreateTestCameraViewingWindow();
-            //CreateTestCameraDataTransfer();
-            //CreateTestCameraFeed();
-            CreateTestCameraFeedThatSavesImagesOnExternalTrigger();
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("Hello, World! These are the CameraFeed tests. ");
+        //    Console.WriteLine("These tests can only be run one at a time because " +
+        //        "we only have one physical camera to test them on.");
+        //    Console.WriteLine("Add functionality to the CreateCameraFeed() function" +
+        //        " as you change tests!");
+        //    //CreateTestCameraConfigurationFile();
+        //    //CreateTestCameraNetworkLocation();
+        //    //CreateTestCameraObject();
+        //    //CreateTestCameraImageBuffers();
+        //    //CreateTestCameraViewingWindow();
+        //    //CreateTestCameraDataTransfer();
+        //    //CreateTestCameraFeed();
+        //    CreateTestCameraFeedThatSavesImagesOnExternalTrigger();
 
-            Console.WriteLine("Press any key to terminate.");
-            Console.ReadKey();
-        }
+        //    Console.WriteLine("Press any key to terminate.");
+        //    Console.ReadKey();
+        //}
 
         static void CreateTestCameraConfigurationFile()
         {
@@ -40,8 +40,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
-                TestCameraFeed.CreateCameraConfigurationFile();
+                CameraComposition TestCameraFeed = new CameraComposition();
+                TestCameraFeed.CreateConfigurationFile();
                 Console.WriteLine("Successfully created a camera configuration file!");
             }
             catch (Exception CreateCameraConfigurationFileException)
@@ -60,8 +60,8 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
-                TestCameraFeed.CreateCameraNetworkLocation();
+                CameraComposition TestCameraFeed = new CameraComposition();
+                TestCameraFeed.CreateNetworkLocation();
                 Console.WriteLine("Successfully created Camera network location!");
             }
             catch (Exception CreateCameraNetworkLocationException)
@@ -81,7 +81,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 TestCameraFeed.CreateCameraObject();
                 Console.WriteLine("Successfully created a CameraObject()!");
             } 
@@ -102,9 +102,9 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 TestCameraFeed.CreateCameraObject();
-                TestCameraFeed.CreateCameraImageBuffers();
+                TestCameraFeed.CreateImageBuffers();
                 Console.WriteLine("Successfully created the CameraImageBuffers()!");
             }
             catch (Exception CreateCameraImageBufferException)
@@ -123,10 +123,10 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 TestCameraFeed.CreateCameraObject();
-                TestCameraFeed.CreateCameraImageBuffers();
-                TestCameraFeed.CreateCameraViewingWindow();
+                TestCameraFeed.CreateImageBuffers();
+                TestCameraFeed.CreateViewingWindow();
                 Console.WriteLine("Successfully created a new camera viewing window!");
             }
             catch (Exception CreateCameraViewingWindowException)
@@ -145,11 +145,11 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 TestCameraFeed.CreateCameraObject();
-                TestCameraFeed.CreateCameraImageBuffers();
-                TestCameraFeed.CreateCameraViewingWindow();
-                TestCameraFeed.CreateCameraDataTransfer();
+                TestCameraFeed.CreateImageBuffers();
+                TestCameraFeed.CreateViewingWindow();
+                TestCameraFeed.CreateDataTransfer();
                 Console.WriteLine("Successfully created a CameraDataTransfer!");
             }
             catch (Exception CreateCameraDataTransferException)
@@ -169,7 +169,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 Console.WriteLine("Successfully created a CameraFeed()!");
             }
             catch (Exception CreateNewCameraFeedException)
@@ -188,7 +188,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 TestCameraFeed.SaveImageOnTriggerInputForever();
             }
             catch (Exception CreateCameraFeedWithExternalTriggerException)

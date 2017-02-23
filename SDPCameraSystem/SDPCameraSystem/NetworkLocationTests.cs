@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class LocationWrapperTests
+    class NetworkLocationTests
     {
         //static void Main(string[] args)
         //{
@@ -28,7 +28,7 @@ namespace SDPCameraSystem
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
+                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
                 Console.WriteLine("New LocationWrapper() created!");
             }
             catch (Exception CreateNewLocationWrapperException)

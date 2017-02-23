@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class BufferWrappers
+    class ImageBuffers
     {
         public SapBuffer Buffers;
         private int BufferCount = 2;
@@ -17,8 +17,9 @@ namespace SDPCameraSystem
         private string SaveFileName;
         private int FirstSaveFile = 0;
         private string SaveFileType;
+        static int i = 0;
 
-        public BufferWrappers(AcquisitionDeviceWrapper DeviceWrapper)
+        public ImageBuffers(CameraObject DeviceWrapper)
         {
             CreateBufferSaveParameters();
             CreateNewBuffers(DeviceWrapper);
@@ -41,7 +42,7 @@ namespace SDPCameraSystem
             Console.WriteLine("Buffer Save File Name is: {0}", SaveFileName);
         }
 
-        public void CreateNewBuffers(AcquisitionDeviceWrapper DeviceWrapper)
+        public void CreateNewBuffers(CameraObject DeviceWrapper)
         {
             Buffers = new SapBufferWithTrash(BufferCount, DeviceWrapper.Device, SapBuffer.MemoryType.ScatterGather);
         }
@@ -53,11 +54,20 @@ namespace SDPCameraSystem
 
         public void SaveBufferToFile()
         {
-            Buffers.Save(SaveFileName, SaveFileType);
+            string Date = DateTime.Today.ToShortDateString();
+            string Time = DateTime.Now.ToString("h:mm:ss tt");
+
+            string ModifiedString = SaveFileName.Insert(SaveFileName.Length - 4, i + "");
+
+            Console.WriteLine(ModifiedString);
+
+            Buffers.Save(ModifiedString, SaveFileType);
+            i++;
+
         }
 
 
 
-        
+
     }
 }

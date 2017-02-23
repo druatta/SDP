@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class ViewWrapperTests
+    class ViewingWindowTests
     {
         //static void Main(string[] args)
         //{
@@ -27,11 +27,11 @@ namespace SDPCameraSystem
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                LocationWrapper TestLocationWrapper = new LocationWrapper(TestConfigurationFile);
-                FeatureWrapper TestFeatureWrapper = new FeatureWrapper(TestLocationWrapper);
-                AcquisitionDeviceWrapper TestDeviceWrapper = new AcquisitionDeviceWrapper(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
-                BufferWrappers TestBufferWrappers = new BufferWrappers(TestDeviceWrapper);
-                ViewWrapper TestViewWrapper = new ViewWrapper(TestBufferWrappers);
+                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
+                EventHandler TestFeatureWrapper = new EventHandler(TestLocationWrapper);
+                CameraObject TestDeviceWrapper = new CameraObject(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
+                ImageBuffers TestBufferWrappers = new ImageBuffers(TestDeviceWrapper);
+                ViewingWindow TestViewWrapper = new ViewingWindow(TestBufferWrappers);
                 Console.WriteLine("Successfully created a new TestViewWrapper()!");
             }
             catch (Exception CreateViewWrapperException)

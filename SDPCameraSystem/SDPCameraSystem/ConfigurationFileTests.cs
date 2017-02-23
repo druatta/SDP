@@ -8,14 +8,16 @@ namespace SDPCameraSystem
 {
     class ConfigurationFileTests
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, World! These are the AcquisitonParameter tests.");
-        //    CreateAcquisitionParametersTest();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World! These are the AcquisitonParameter tests.");
+            //CreateAcquisitionParametersTest();
+            AssignConfigurationFileServerNameTest();
 
-        //    Console.WriteLine("Press any key to terminate.");
-        //    Console.ReadKey();
-        //}
+
+            Console.WriteLine("Press any key to terminate.");
+            Console.ReadKey();
+        }
 
         static void CreateAcquisitionParametersTest()
         {
@@ -34,6 +36,24 @@ namespace SDPCameraSystem
                 Console.WriteLine("CreateAcquisitionParameters() failed! {0}", 
                     CreateAcquisitionParametersException.Message);
             }
+        }
+
+        static void AssignConfigurationFileServerNameTest()
+        {
+            TryToAssignTheConfigurationFileServerName();
+        }
+
+        static void TryToAssignTheConfigurationFileServerName()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class FeatureWrapperTests
+    class EventHandlerTests
     {
         //static void Main(string[] args)
         //{
@@ -27,7 +27,7 @@ namespace SDPCameraSystem
         {
             try
             {
-                CameraFeed TestCameraFeed = new CameraFeed();
+                CameraComposition TestCameraFeed = new CameraComposition();
                 
                 Console.WriteLine("Successfully created a TestFeature!");
             }

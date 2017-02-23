@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class DataTransferWrapper
+    class DataTransfer
     {
         public SapTransfer Transfer;
 
-        public DataTransferWrapper(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, ViewWrapper ViewWrapper)
+        public DataTransfer(CameraObject DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
         {
             CreateNewDataTransfer(DeviceWrapper, BufferWrappers, ViewWrapper);
         }
 
-        public void CreateNewDataTransfer(AcquisitionDeviceWrapper DeviceWrapper, BufferWrappers BufferWrappers, ViewWrapper ViewWrapper)
+        public void CreateNewDataTransfer(CameraObject DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
         {
             Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffers);
             UpdateFrameRate(ViewWrapper);
@@ -24,7 +24,7 @@ namespace SDPCameraSystem
             GrabTransferFeed();
         }
 
-        public void UpdateFrameRate(ViewWrapper ViewWrapper)
+        public void UpdateFrameRate(ViewingWindow ViewWrapper)
         {
             Transfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
             Transfer.XferNotify += new SapXferNotifyHandler(UpdateTransfer);

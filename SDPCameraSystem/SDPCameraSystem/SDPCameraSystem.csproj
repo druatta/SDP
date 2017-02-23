@@ -67,22 +67,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcquisitionDeviceWrapper.cs" />
-    <Compile Include="AcquisitionDeviceWrapperTests.cs" />
+    <Compile Include="CameraObject.cs" />
+    <Compile Include="CameraObjectTests.cs" />
     <Compile Include="ConfigurationFile.cs" />
     <Compile Include="ConfigurationFileTests.cs" />
-    <Compile Include="BufferWrappers.cs" />
-    <Compile Include="BufferWrapperTests.cs" />
-    <Compile Include="FeatureWrapper.cs" />
-    <Compile Include="FeatureWrapperTests.cs" />
-    <Compile Include="LocationWrapper.cs" />
-    <Compile Include="LocationWrapperTests.cs" />
-    <Compile Include="DataTransferWrapper.cs" />
-    <Compile Include="DataTransferWrapperTests.cs" />
-    <Compile Include="ViewWrapper.cs" />
-    <Compile Include="ViewWrapperTests.cs" />
-    <Compile Include="CameraFeed.cs" />
-    <Compile Include="CameraFeedTests.cs" />
+    <Compile Include="ImageBuffers.cs" />
+    <Compile Include="ImageBufferTests.cs" />
+    <Compile Include="EventHandler.cs" />
+    <Compile Include="EventHandlerTests.cs" />
+    <Compile Include="NetworkLocation.cs" />
+    <Compile Include="NetworkLocationTests.cs" />
+    <Compile Include="DataTransfer.cs" />
+    <Compile Include="DataTransferTests.cs" />
+    <Compile Include="ViewingWindow.cs" />
+    <Compile Include="ViewingWindowTests.cs" />
+    <Compile Include="CameraComposition.cs" />
+    <Compile Include="CameraCompositionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
