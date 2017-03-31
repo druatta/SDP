@@ -15,7 +15,7 @@ namespace SDPCameraSystem
         {
             CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
             CheckForSuccessfulAcquisitionDeviceCreation();
-            CreateAcquisitionDeviceNotificationInterface();
+            CreateCameraObjectNotificationInterface();
             EnableChangesInFeatureValues();
         }
 
@@ -34,7 +34,7 @@ namespace SDPCameraSystem
             Device = DataSender as SapAcqDevice;
         }
 
-        public void CreateAcquisitionDeviceNotificationInterface()
+        public void CreateCameraObjectNotificationInterface()
         {
             Device.AcqDeviceNotify += new SapAcqDeviceNotifyHandler(CreateAcquisitionDeviceCallback);
         }

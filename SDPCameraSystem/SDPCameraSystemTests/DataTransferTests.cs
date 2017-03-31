@@ -7,27 +7,21 @@ namespace SDPCameraSystem
     public class DataTransferTests
     {
         [TestMethod]
-        public void CreateTestDataTransferWrapper()
-        {
-            TryToCreateADataTransferWrapper();
-        }
-
-        public void TryToCreateADataTransferWrapper()
+         public void TryToCreateADataTransferTest()
         {
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
-                EventHandler TestFeatureWrapper = new EventHandler(TestLocationWrapper);
-                CameraObject TestDeviceWrapper = new CameraObject(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
-                ImageBuffers TestBufferWrappers = new ImageBuffers(TestDeviceWrapper);
-                ViewingWindow TestViewWrapper = new ViewingWindow(TestBufferWrappers);
-                DataTransfer TestDataTransferWrapper = new DataTransfer(TestDeviceWrapper, TestBufferWrappers, TestViewWrapper);
-                Console.WriteLine("Successfully created a data transfer!");
+                NetworkLocation TestNetworkLocation = new NetworkLocation(TestConfigurationFile);
+                EventHandler TestEventHandler = new EventHandler(TestNetworkLocation);
+                CameraObject TestCameraObject = new CameraObject(TestConfigurationFile, TestNetworkLocation, TestEventHandler);
+                ImageBuffers TestImageBuffers = new ImageBuffers(TestCameraObject);
+                ViewingWindow TestViewingWindow = new ViewingWindow(TestImageBuffers);
+                DataTransfer TestDataTransfer = new DataTransfer(TestCameraObject, TestImageBuffers, TestViewingWindow);
             }
             catch (Exception CreateDataTransferException)
             {
-                Console.WriteLine("Failed to create a data transfer! {0}", CreateDataTransferException.Message);
+                Assert.Fail(CreateDataTransferException.Message);
             }
         }
 

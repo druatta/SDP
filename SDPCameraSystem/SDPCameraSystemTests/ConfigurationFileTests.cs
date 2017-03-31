@@ -7,22 +7,15 @@ namespace SDPCameraSystem
     public class ConfigurationFileTests
     {
         [TestMethod]
-        public void CreateAcquisitionParametersTest()
-        {
-            TryToCreateAcquisitionParameters();
-        }
-
-        public void TryToCreateAcquisitionParameters()
+        public void TryToCreateAcquisitionParametersTest()
         {
             try
             {
                 ConfigurationFile TestParameters = new ConfigurationFile();
-                Console.WriteLine("CreateAcquisitionParameters() passed!");
             }
             catch (Exception CreateAcquisitionParametersException)
             {
-                Console.WriteLine("CreateAcquisitionParameters() failed! {0}", 
-                    CreateAcquisitionParametersException.Message);
+                Assert.Fail(CreateAcquisitionParametersException.Message);
             }
         }
 

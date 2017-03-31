@@ -6,18 +6,18 @@ namespace SDPCameraSystem
     {
         public SapFeature Feature;
 
-        public EventHandler(NetworkLocation LocationWrapper)
+        public EventHandler(NetworkLocation NetworkLocation)
         {
-            CreateFeature(LocationWrapper);
-            CheckForSuccessfulFeatureCreationUsingSaperaAPI();
+            CreateEventHandler(NetworkLocation);
+            CheckForSuccessfulEventHandlerCreation();
         }
 
-        public void CreateFeature(NetworkLocation LocationWrapper)
+        public void CreateEventHandler(NetworkLocation NetworkLocation)
         {
-            Feature = new SapFeature(LocationWrapper.Location);
+            Feature = new SapFeature(NetworkLocation.Location);
         }
 
-        public void CheckForSuccessfulFeatureCreationUsingSaperaAPI()
+        public void CheckForSuccessfulEventHandlerCreation()
         {
             Feature.Create();
         }

@@ -8,23 +8,17 @@ namespace SDPCameraSystem
     {
 
         [TestMethod]
-        public void CreateTestFeature()
-        {
-            TryToCreateTestFeature();
-        }
-
-        public void TryToCreateTestFeature()
+         public void TryToCreateEventHandlerTest()
         {
             try
             {
-                CameraComposition TestCameraFeed = new CameraComposition();
-
-                Console.WriteLine("Successfully created a TestFeature!");
+                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+                NetworkLocation TestNetworkLocation = new NetworkLocation(TestConfigurationFile);
+                EventHandler TestEventHandler = new EventHandler(TestNetworkLocation);
             }
-            catch (Exception CreateFeatureException)
+            catch (Exception CreateEventHandlerException)
             {
-                Console.WriteLine("Failed to create a Feature! {0}",
-                    CreateFeatureException.Message);
+                Assert.Fail(CreateEventHandlerException.Message);
             }
         }
 

@@ -7,23 +7,16 @@ namespace SDPCameraSystem
     public class NetworkLocationTests
     {
         [TestMethod]
-        public void CreateTestLocationWrapper()
-        {
-            TryToCreateNewLocationWrapper();
-        }
-
-        public void TryToCreateNewLocationWrapper()
+        public void TryToCreateNewLocationWrapperTest()
         {
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
-                Console.WriteLine("New LocationWrapper() created!");
+                NetworkLocation NetworkLocation = new NetworkLocation(TestConfigurationFile);
             }
             catch (Exception CreateNewLocationWrapperException)
             {
-                Console.WriteLine("Failed to create new LocationWrapper()! {0}",
-                    CreateNewLocationWrapperException.Message);
+                Assert.Fail(CreateNewLocationWrapperException.Message);
             }
         }
     }

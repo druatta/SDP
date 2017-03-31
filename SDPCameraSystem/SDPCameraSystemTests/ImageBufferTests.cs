@@ -7,88 +7,61 @@ namespace SDPCameraSystem
     public class ImageBufferTests
     {
         [TestMethod]
-        public void CreateTestBufferWrappers()
-        {
-            TryToCreateBufferWrappers();
-        }
-
-        public void TryToCreateBufferWrappers()
+        public void TryToCreateImageBufferTest()
         {
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                NetworkLocation TestLocationWrapper = new NetworkLocation(TestConfigurationFile);
-                EventHandler TestFeatureWrapper = new EventHandler(TestLocationWrapper);
-                CameraObject TestDeviceWrapper = new CameraObject(TestConfigurationFile, TestLocationWrapper, TestFeatureWrapper);
-                ImageBuffers TestBufferWrappers = new ImageBuffers(TestDeviceWrapper);
-                Console.WriteLine("Successfully created the BufferWrappers()!");
+                NetworkLocation TestNetworkLocation = new NetworkLocation(TestConfigurationFile);
+                EventHandler TestEventHandler = new EventHandler(TestNetworkLocation);
+                CameraObject TestCameraObject = new CameraObject(TestConfigurationFile, TestNetworkLocation, TestEventHandler);
+                ImageBuffers TestImageBuffers = new ImageBuffers(TestCameraObject);
             }
-            catch (Exception CreateBufferWrapperException)
+            catch (Exception CreateImageBufferException)
             {
-                Console.WriteLine("Failed to create a BufferWrapper()! {0}",
-                    CreateBufferWrapperException.Message);
+                Assert.Fail(CreateImageBufferException.Message);
             }
         }
 
         [TestMethod]
-        public void TestCreateBufferSaveParameters()
-        {
-            TryToCreateBufferSaveParameters();
-        }
-
-        public void TryToCreateBufferSaveParameters()
+        public void TryToCreateBufferSaveParametersTest()
         {
             try
             {
-                CameraComposition TestFeed = new CameraComposition();
-                TestFeed.ImageBuffers.CreateBufferSaveParameters(); // Is currently in the Buffer Wrapper constructor!
-                Console.WriteLine("Successfully created the Buffer Save Parameters!");
+                CameraComposition TestCamera = new CameraComposition();
+                TestCamera.ImageBuffers.CreateBufferSaveParameters(); 
             }
             catch (Exception CreateBufferSaveParametersException)
             {
-                Console.WriteLine("Failed to create Buffer Save Parameters! {0}",
-                    CreateBufferSaveParametersException.Message);
+                Assert.Fail(CreateBufferSaveParametersException.Message);
             }
         }
 
         [TestMethod]
-        public void PrintBufferSaveParameters()
-        {
-            TryToPrintBufferSaveParameters();
-        }
-
-        public void TryToPrintBufferSaveParameters()
+        public void TryToPrintBufferSaveParametersTest()
         {
             try
             {
-                CameraComposition TestCameraFeed = new CameraComposition();
-                TestCameraFeed.ImageBuffers.PrintBufferSaveParameters();
+                CameraComposition TestCamera = new CameraComposition();
+                TestCamera.ImageBuffers.PrintBufferSaveParameters();
             }
             catch (Exception PrintBufferSaveParametersException)
             {
-                Console.WriteLine("Failed to print out the Buffer Save Parameters! {0}",
-                    PrintBufferSaveParametersException.Message);
+                Assert.Fail(PrintBufferSaveParametersException.Message);
             }
         }
 
         [TestMethod]
-        public void TestSaveCurrentBufferToFile()
-        {
-            TryToSaveCurrentBufferToFile();
-        }
-
-        public void TryToSaveCurrentBufferToFile()
+        public void TryToSaveCurrentBufferToFileTest()
         {
             try
             {
-                CameraComposition TestCameraFeed = new CameraComposition();
-                TestCameraFeed.ImageBuffers.SaveBufferToFile();
-                Console.WriteLine("Successfully saved the current buffer to file!");
+                CameraComposition TestCamera = new CameraComposition();
+                TestCamera.ImageBuffers.SaveBufferToFile();
             }
             catch (Exception SaveCurrentBufferToFileException)
             {
-                Console.WriteLine("Failed to save current buffer to file! {0}",
-                    SaveCurrentBufferToFileException.Message);
+                Assert.Fail(SaveCurrentBufferToFileException.Message);
             }
         }
 
