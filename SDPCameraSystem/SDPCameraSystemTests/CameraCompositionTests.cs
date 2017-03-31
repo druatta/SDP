@@ -159,7 +159,7 @@ namespace SDPCameraSystem
             }
         }
 
-        [TestMethod]
+        [TestMethod, Timeout(1000)]
         public void CreateTestCameraFeedThatSavesImagesOnExternalTrigger()
         {
             TryToCreateCameraFeedThatSavesImagesOnExternalTrigger();
