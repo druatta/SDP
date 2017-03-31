@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DALSA.SaperaLT.SapClassBasic;
 
 namespace SDPCameraSystem
 {
-    class CameraComposition
+    public class CameraComposition
     {
         public ConfigurationFile ConfigurationFile;
         public NetworkLocation NetworkLocation;

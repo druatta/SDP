@@ -1,14 +1,10 @@
 ﻿using DALSA.SaperaLT.SapClassBasic;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class ImageBuffers
+    public class ImageBuffers
     {
         public SapBuffer Buffers;
         private int BufferCount = 2;

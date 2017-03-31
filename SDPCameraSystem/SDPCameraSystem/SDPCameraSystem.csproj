@@ -52,6 +52,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DALSA.SaperaLT.SapClassBasic, Version=8.20.0.1718, Culture=neutral, PublicKeyToken=4d8604101dcb6b58, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -68,21 +71,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CameraObject.cs" />
-    <Compile Include="CameraObjectTests.cs" />
+    <Compile Include="Executable.cs" />
     <Compile Include="ConfigurationFile.cs" />
-    <Compile Include="ConfigurationFileTests.cs" />
     <Compile Include="ImageBuffers.cs" />
-    <Compile Include="ImageBufferTests.cs" />
     <Compile Include="EventHandler.cs" />
-    <Compile Include="EventHandlerTests.cs" />
     <Compile Include="NetworkLocation.cs" />
-    <Compile Include="NetworkLocationTests.cs" />
     <Compile Include="DataTransfer.cs" />
-    <Compile Include="DataTransferTests.cs" />
     <Compile Include="ViewingWindow.cs" />
-    <Compile Include="ViewingWindowTests.cs" />
     <Compile Include="CameraComposition.cs" />
-    <Compile Include="CameraCompositionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

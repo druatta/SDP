@@ -4,7 +4,7 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    class ConfigurationFile
+    public class ConfigurationFile
     {
         public string ServerName; 
         public int ResourceIndex = 0;

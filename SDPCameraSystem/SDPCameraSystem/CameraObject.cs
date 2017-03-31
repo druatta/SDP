@@ -1,13 +1,9 @@
 ﻿using DALSA.SaperaLT.SapClassBasic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SDPCameraSystem
 {
-    class CameraObject
+    public class CameraObject
     {
         public SapAcqDevice Device;
         public Boolean FrameTriggerStatus;
@@ -15,10 +11,6 @@ namespace SDPCameraSystem
         public String FeatureValueChangeString = "Feature Value Changed";
         public String FrameTriggerString = "LineStatus";
 
-
-
-
-        //class that calls all of the below creation functions
         public CameraObject(ConfigurationFile ConfigurationFile, NetworkLocation LocationWrapper, EventHandler FeatureWrapper)
         {
             CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
@@ -27,10 +19,6 @@ namespace SDPCameraSystem
             EnableChangesInFeatureValues();
         }
 
-        
-        //Creation Functions
-
-        //Creates a new sap acquistion device by setting the location and setting up config file name
         public void CreateNewAcquisitionDevice(NetworkLocation LocationWrapper, ConfigurationFile ConfigurationFile)
         {
             Device = new SapAcqDevice(LocationWrapper.Location, ConfigurationFile.ConfigFileName);
@@ -51,8 +39,6 @@ namespace SDPCameraSystem
             Device.AcqDeviceNotify += new SapAcqDeviceNotifyHandler(CreateAcquisitionDeviceCallback);
         }
 
-
-
         public void EnableChangesInFeatureValues()
         {
             if (CheckIfChangesInFeatureValuesAreEnabled() == false)
@@ -67,14 +53,11 @@ namespace SDPCameraSystem
             {
                 return true;
             }
-            else // Changes in Feature Values are not enabled
+            else 
             {
                 return false;
             }
         }
-
-
-
 
         public void WaitForTriggerInput(EventHandler FeatureWrapper)
         {
