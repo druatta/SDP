@@ -1,22 +1,46 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace SDPCameraSystem
 {
     [TestClass]
-    public class ConfigurationFileTests
+    public class ConfigurationFileTests : ConfigurationFile
     {
         [TestMethod]
-        public void TryToCreateAcquisitionParametersTest()
+        public void CreateConfigurationFileTest()
+        {
+            ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+        }
+
+        [TestMethod]
+        public void AssignConfigurationFileServerNameTest()
         {
             try
             {
-                ConfigurationFile TestParameters = new ConfigurationFile();
-            }
-            catch (Exception CreateAcquisitionParametersException)
+                AssignConfigurationFileServerName();
+            } catch (Exception AssignConfigurationFileServerNameException)
             {
-                Assert.Fail(CreateAcquisitionParametersException.Message);
+                throw new Exception("Configuration file server name not found! " +
+                    AssignConfigurationFileServerNameException.Message);
             }
+        }
+
+        [TestMethod]
+        public void AssignConfigurationFilePathTest()
+        {
+            AssignConfigurationFilePath();
+        }
+
+        [TestMethod]
+        public void AssignCCFParametersToConfigurationFileTest()
+        {
+            AssignCCFParametersToConfigurationFile();
+        }
+
+        [TestMethod]
+        public void FindACameraConfigurationFileTest()
+        {
+            FindACameraConfigurationFile();
         }
 
     }

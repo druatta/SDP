@@ -7,7 +7,7 @@ namespace SDPCameraSystem
     public class ViewingWindowTests
     {
         [TestMethod]
-        public void TryToCreateNewTestViewWrapperTest()
+        public void TryToCreateViewingWindowTest()
         {
             try
             {

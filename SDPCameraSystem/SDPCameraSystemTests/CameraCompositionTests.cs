@@ -41,12 +41,14 @@ namespace SDPCameraSystem
             {
                 CameraComposition TestCameraFeed = new CameraComposition();
                 TestCameraFeed.CreateCameraObject();
+                Assert.IsNotNull(TestCameraFeed.CameraObject);
             } 
             catch (Exception CreateCameraObjectException)
             {
                 Assert.Fail(CreateCameraObjectException.Message);
             }
             
+
         }
 
         [TestMethod]
