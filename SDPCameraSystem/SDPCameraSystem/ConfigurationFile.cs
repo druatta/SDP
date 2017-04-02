@@ -11,36 +11,50 @@ namespace SDPCameraSystem
         public ConfigurationFile()
         {
             AssignConfigurationFileServerName();
-            AssignConfigurationFilePath();
+            //AssignConfigurationFilePath();
             FindACameraConfigurationFile();
             AssignCCFParametersToConfigurationFile();
         }
 
-        public string ServerName;
-        private int SDPServerNumber = 1;
-        public void AssignConfigurationFileServerName()
+        public static string ServerName;
+        public static void AssignConfigurationFileServerName()
         {
-            ServerName = SapManager.GetServerName(SDPServerNumber);
+            int SDPCameraServerNumber = 1;
+            ServerName = SapManager.GetServerName(SDPCameraServerNumber);
         }
 
-        private string ConfigFilePath;
-        public void AssignConfigurationFilePath()
+        static string ConfigurationFilePath;
+        public static void AssignConfigurationFilePath()
         {
-            ConfigFilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
+            ConfigurationFilePath = FindConfigurationFilePath();
         }
 
-        public void FindACameraConfigurationFile()
+        public static string FindConfigurationFilePath()
         {
-            ConfigFileStringArray = Directory.GetFiles(ConfigFilePath, "*.ccf");
+            string ConfigurationFilePath;
+            ConfigurationFilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User";
+            return ConfigurationFilePath;
         }
+
+        static string[] ConfigFileStringArray;
+        public static void FindACameraConfigurationFile()
+        {
+            string CameraConfigurationFileType = "*.ccf";
+            AssignConfigurationFilePath();
+            ConfigFileStringArray = Directory.GetFiles(ConfigurationFilePath, CameraConfigurationFileType);
+        }
+
+
+
+
 
         public string ConfigFileName;
-        private string[] ConfigFileStringArray;
-        private int FirstConfigFile = 0;
+        int FirstConfigFile = 0;
         public void AssignCCFParametersToConfigurationFile()
         {
             ConfigFileName = ConfigFileStringArray[FirstConfigFile];
         }
+
 
     }
 

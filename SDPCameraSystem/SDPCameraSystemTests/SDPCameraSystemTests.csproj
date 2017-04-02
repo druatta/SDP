@@ -53,6 +53,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DALSA.SaperaLT.SapClassBasic, Version=8.20.0.1718, Culture=neutral, PublicKeyToken=4d8604101dcb6b58, processorArchitecture=AMD64" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
