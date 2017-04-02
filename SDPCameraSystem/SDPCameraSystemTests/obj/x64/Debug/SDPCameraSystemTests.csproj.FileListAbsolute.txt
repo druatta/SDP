@@ -7,3 +7,12 @@ C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x
 C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\obj\x64\Debug\SDPCameraSystemTests.csprojResolveAssemblyReference.cache
 C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\obj\x64\Debug\SDPCameraSystemTests.dll
 C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\obj\x64\Debug\SDPCameraSystemTests.pdb
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x64\Debug\SDPCameraSystemTests.dll
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x64\Debug\SDPCameraSystemTests.pdb
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x64\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x64\Debug\SDPCameraSystem.exe
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\bin\x64\Debug\SDPCameraSystem.pdb
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\obj\x64\Debug\SDPCameraSystemTests.csprojResolveAssemblyReference.cache
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\obj\x64\Debug\SDPCameraSystemTests.dll
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystemTests\obj\x64\Debug\SDPCameraSystemTests.pdb
