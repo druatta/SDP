@@ -10,50 +10,40 @@ namespace SDPCameraSystem
 
         public ConfigurationFile()
         {
-            AssignConfigurationFileServerName();
-            //AssignConfigurationFilePath();
-            FindACameraConfigurationFile();
-            AssignCCFParametersToConfigurationFile();
+            AssignServerName();
+            Assign_CCF_File();
         }
 
         public static string ServerName;
-        public static void AssignConfigurationFileServerName()
+        public static void AssignServerName()
         {
-            int SDPCameraServerNumber = 1;
-            ServerName = SapManager.GetServerName(SDPCameraServerNumber);
+            int SDPServerNumber = 1;
+            ServerName = SapManager.GetServerName(SDPServerNumber);
         }
 
-        static string ConfigurationFilePath;
-        public static void AssignConfigurationFilePath()
+        public static string Name;
+        public static void Assign_CCF_File()
         {
-            ConfigurationFilePath = FindConfigurationFilePath();
+            Find_CCF_File();
+            int FirstFile = 0;
+            Name = CCF_FileArray[FirstFile];
         }
 
-        public static string FindConfigurationFilePath()
+        public static string FilePath;
+        public static string[] CCF_FileArray;
+        public static void Find_CCF_File()
         {
-            string ConfigurationFilePath;
-            ConfigurationFilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User";
-            return ConfigurationFilePath;
+            string CCF_FileType = "*.ccf";
+            Assign_CCF_FilePath();
+            CCF_FileArray = Directory.GetFiles(FilePath, CCF_FileType);
         }
 
-        static string[] ConfigFileStringArray;
-        public static void FindACameraConfigurationFile()
+        public static void Assign_CCF_FilePath()
         {
-            string CameraConfigurationFileType = "*.ccf";
-            AssignConfigurationFilePath();
-            ConfigFileStringArray = Directory.GetFiles(ConfigurationFilePath, CameraConfigurationFileType);
+            FilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
         }
 
 
-
-
-
-        public string ConfigFileName;
-        int FirstConfigFile = 0;
-        public void AssignCCFParametersToConfigurationFile()
-        {
-            ConfigFileName = ConfigFileStringArray[FirstConfigFile];
-        }
 
 
     }
