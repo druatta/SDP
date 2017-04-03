@@ -7,10 +7,17 @@ namespace SDPCameraSystem
     public class NetworkLocationTests
     {
         [TestMethod]
-        public void CreateNewLocationWrapperTest()
+        public void ConstructNetworkLocation()
         {
-                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                NetworkLocation NetworkLocation = new NetworkLocation(TestConfigurationFile);
+            ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+            NetworkLocation NetworkLocation = new NetworkLocation(TestConfigurationFile);
         }
+
+        [TestMethod]
+        public void AddConfigurationFileParametersToNetworkLocationTest()
+        {
+            NetworkLocation.AddConfigurationFileParametersToNetworkLocation();
+        }
+
     }
 }

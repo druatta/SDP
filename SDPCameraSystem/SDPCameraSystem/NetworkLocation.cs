@@ -4,11 +4,17 @@ namespace SDPCameraSystem
 {
     public class NetworkLocation
     {
-        public SapLocation Location;
-
         public NetworkLocation(ConfigurationFile ConfigurationFile)
+        {
+            AddConfigurationFileParametersToNetworkLocation();
+        }
+
+        public static SapLocation Location;
+        public static void AddConfigurationFileParametersToNetworkLocation()
         {
             Location = new SapLocation(ConfigurationFile.ServerName, ConfigurationFile.ResourceIndex);
         }
+
+
     }
 }

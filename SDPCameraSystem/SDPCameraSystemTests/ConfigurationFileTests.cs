@@ -9,15 +9,15 @@ namespace SDPCameraSystem
     public class ConfigurationFileTests
     {
         [TestMethod]
-        public void ClassConstructionTest()
+        public void ClassConstruction()
         {
             ConfigurationFile TestConstruction = new ConfigurationFile();
-            AssignServerNameTest();
-            TryToAssign_CCF_FileTest();
+            AssignServerName();
+            TryToAssign_CCF_File();
         }
 
         [TestMethod]
-        public void AssignServerNameTest()
+        public void AssignServerName()
         {
             ConfigurationFile.AssignServerName();
             AssertServerNameIsFound();
@@ -31,7 +31,7 @@ namespace SDPCameraSystem
         }
 
         [TestMethod]
-        public void Find_CCF_FileTest()
+        public void Find_CCF_File()
         {
             ConfigurationFile.Find_CCF_File();
             Assert_CCF_FileExists();
@@ -45,7 +45,7 @@ namespace SDPCameraSystem
         }
 
         [TestMethod]
-        public void Assign_CCF_FilePathTest()
+        public void Assign_CCF_FilePath()
         {
             ConfigurationFile.Assign_CCF_FilePath();
             Assert_CCF_FilePathExists();
@@ -58,7 +58,7 @@ namespace SDPCameraSystem
         }
 
         [TestMethod]
-        public void TryToAssign_CCF_FileTest()
+        public void TryToAssign_CCF_File()
         {
             try
             {

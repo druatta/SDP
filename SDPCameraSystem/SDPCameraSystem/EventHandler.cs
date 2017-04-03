@@ -6,13 +6,13 @@ namespace SDPCameraSystem
     {
         public SapFeature Feature;
 
-        public EventHandler(NetworkLocation NetworkLocation)
+        public EventHandler()
         {
-            CreateEventHandler(NetworkLocation);
+            CreateEventHandler();
             CheckForSuccessfulEventHandlerCreation();
         }
 
-        public void CreateEventHandler(NetworkLocation NetworkLocation)
+        public void CreateEventHandler()
         {
             Feature = new SapFeature(NetworkLocation.Location);
         }

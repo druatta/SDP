@@ -21,7 +21,7 @@ namespace SDPCameraSystem
 
         public void CreateNewAcquisitionDevice(NetworkLocation LocationWrapper, ConfigurationFile ConfigurationFile)
         {
-            Device = new SapAcqDevice(LocationWrapper.Location, ConfigurationFile.Name);
+            Device = new SapAcqDevice(NetworkLocation.Location, ConfigurationFile.Name);
         }
 
         public void CheckForSuccessfulAcquisitionDeviceCreation()
