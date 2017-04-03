@@ -14,6 +14,11 @@ namespace SDPCameraSystem
 
         public CameraComposition()
         {
+            CreateCamera();
+        }
+
+        public void CreateCamera()
+        {
             CreateConfigurationFile();
             CreateNetworkLocation();
             CreateEventHandler();

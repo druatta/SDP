@@ -23,7 +23,7 @@ namespace SDPCameraSystem
         
         public void AssertServerNameIsFound()
         {
-            string CameraIsDisconnectedMessage = "\n\nServer Name not found. Camera is disconnected!";
+            string CameraIsDisconnectedMessage = "\n\nCamera is disconnected!";
             Assert.AreNotEqual(SapManager.LastStatusCode, SapStatus.SERVER_NOT_FOUND, 
                 SapManager.LastStatusMessage + CameraIsDisconnectedMessage);
         }
