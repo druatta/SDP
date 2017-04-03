@@ -8,18 +8,11 @@ namespace SDPCameraSystem
         {
             //CameraComposition SDPCamera = new CameraComposition();
 
-            ConfigurationFile.Assign_CCF_FilePath();
-            Console.WriteLine(ConfigurationFile.FilePath);
+            ConfigurationFile TestConfigurationFile = new ConfigurationFile();
+            NetworkLocation NetworkLocation = new NetworkLocation(TestConfigurationFile);
 
-            if (ConfigurationFile.FilePath == null)
-            {
-                Console.WriteLine("File path exists.");
-            }
-            else
-            {
-                Console.WriteLine("File path does not exist.");
-            }
 
+            Console.WriteLine("Testing completed.");
             while (true)
             {
 
