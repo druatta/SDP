@@ -8,6 +8,7 @@ namespace SDPCameraSystem
 
         public EventHandler()
         {
+            NetworkLocation NetworkLocation = new NetworkLocation();
             CreateEventHandler();
             CheckForSuccessfulEventHandlerCreation();
         }

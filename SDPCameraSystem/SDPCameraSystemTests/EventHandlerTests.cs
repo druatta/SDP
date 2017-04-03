@@ -13,8 +13,8 @@ namespace SDPCameraSystem
             try
             {
                 ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                NetworkLocation TestNetworkLocation = new NetworkLocation(TestConfigurationFile);
-                EventHandler TestEventHandler = new EventHandler(TestNetworkLocation);
+                NetworkLocation TestNetworkLocation = new NetworkLocation();
+                EventHandler TestEventHandler = new EventHandler();
             }
             catch (Exception CreateEventHandlerException)
             {
