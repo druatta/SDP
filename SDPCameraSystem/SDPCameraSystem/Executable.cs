@@ -6,8 +6,12 @@ namespace SDPCameraSystem
     {
         public static void Main(string[] args)
         {
-           CameraComposition SDPCamera = new CameraComposition();
+            CameraComposition SDPCamera = new CameraComposition();
 
+            while (true)
+            {
+
+            }
         }
     }
 }
