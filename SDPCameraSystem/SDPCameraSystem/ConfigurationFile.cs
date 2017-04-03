@@ -6,13 +6,14 @@ namespace SDPCameraSystem
 {
     public class ConfigurationFile
     {
+        public const int ResourceIndex = 0;
+
         public ConfigurationFile()
         {
             AssignServerName();
             Assign_CCF_File();
         }
-
-        public const int ResourceIndex = 0;
+        
         public static string ServerName;
         public static void AssignServerName()
         {

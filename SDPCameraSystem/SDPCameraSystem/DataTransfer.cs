@@ -15,7 +15,7 @@ namespace SDPCameraSystem
         {
             Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffers);
             UpdateFrameRate(ViewWrapper);
-            CheckForSuccessfulDataTransferCreation(); // Failed! Invalid handle - Buffer
+            CheckForSuccessfulDataTransferCreation(); 
             GrabTransferFeed();
         }
 

@@ -6,10 +6,10 @@ namespace SDPCameraSystem
     public class CameraObject
     {
         public SapAcqDevice Device;
-        public Boolean FrameTriggerStatus;
-        public static Boolean PreviousTriggerStatus;
-        public String FeatureValueChangeString = "Feature Value Changed";
-        public String FrameTriggerString = "LineStatus";
+        public bool FrameTriggerStatus;
+        public static bool PreviousTriggerStatus;
+        public string FeatureValueChangeString = "Feature Value Changed";
+        public string FrameTriggerString = "LineStatus";
 
         public CameraObject(ConfigurationFile ConfigurationFile, NetworkLocation LocationWrapper, EventHandler FeatureWrapper)
         {
