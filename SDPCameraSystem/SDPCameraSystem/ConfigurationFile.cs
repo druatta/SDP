@@ -4,13 +4,25 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    public class ConfigurationFile
+    public sealed class ConfigurationFile
     {
-        public ConfigurationFile()
+        public static readonly Lazy<ConfigurationFile> LazyConfigurationFile = new Lazy<ConfigurationFile>(() => new ConfigurationFile());
+
+
+        public static ConfigurationFile Instance
+        {
+            get
+            {
+                return LazyConfigurationFile.Value;
+            }
+        }
+
+        private ConfigurationFile()
         {
             AssignServerName();
             Assign_CCF_File();
         }
+
 
         public const int ResourceIndex = 0;
         public static string ServerName;

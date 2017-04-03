@@ -6,8 +6,10 @@ namespace SDPCameraSystem
     {
         public static void Main(string[] args)
         {
-            CameraComposition SDPCamera = new CameraComposition();
+            Lazy<ConfigurationFile> TestConfigurationFile = new Lazy<ConfigurationFile>();
+            Lazy<ConfigurationFile> SecondTestConfigurationFile = new Lazy<ConfigurationFile>();
 
+            Console.WriteLine("Testing complete.");
             while (true)
             {
 

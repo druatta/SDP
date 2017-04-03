@@ -9,17 +9,7 @@ namespace SDPCameraSystem
         [TestMethod]
         public void TryToCreateAnAcquisitionCameraObjectTest()
         {
-            try
-            {
-                ConfigurationFile TestConfigurationFile = new ConfigurationFile();
-                NetworkLocation TestNetworkLocation = new NetworkLocation();
-                EventHandler TestEventHandler = new EventHandler();
-                CameraObject TestCameraObject = new CameraObject(TestConfigurationFile, TestNetworkLocation, TestEventHandler);
-            }
-            catch (Exception CreateAcquisitionCameraObjectException)
-            {
-                Assert.Fail(CreateAcquisitionCameraObjectException.Message);
-            }
+
         }
 
         [TestMethod]

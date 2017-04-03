@@ -30,7 +30,7 @@ namespace SDPCameraSystem
 
         public void CreateConfigurationFile()
         {
-            ConfigurationFile = new ConfigurationFile();
+            //ConfigurationFile = new ConfigurationFile();
         }
 
         public void CreateNetworkLocation()
