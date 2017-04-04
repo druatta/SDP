@@ -80,9 +80,9 @@
     <Compile Include="ViewingWindowTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDPCameraSystem\SDPCameraSystem.csproj">
+    <ProjectReference Include="..\SDPCameraSystem\CameraFeedConstruction.csproj">
       <Project>{1294f79f-5245-45c2-a71a-bb3e1b8f5084}</Project>
-      <Name>SDPCameraSystem</Name>
+      <Name>CameraFeedConstruction</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
