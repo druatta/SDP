@@ -9,25 +9,13 @@ namespace SDPCameraSystem
     public class ConfigurationFileTests
     {
         [TestMethod]
-        public void ConstructConfigurationFileSingletonTest()
+        public void ConstructConfigurationFileTest()
         {
-            Lazy<ConfigurationFile> TestConfigurationFile = new Lazy<ConfigurationFile>();
-            Assert.IsTrue(TestConfigurationFile.IsValueCreated, "Creation of the first Configuration File failed!");
+            Lazy<ConfigurationFile> LazyConfigurationFile = new Lazy<ConfigurationFile>();
+            AssertServerNameIsFound();
+            Assert_CCF_FileExists();
         }
-
-        [TestMethod]
-        public void EnsureMultipleConfigurationFilesCannotBeCreatedTest()
-        {
-            Lazy<ConfigurationFile> TestConfigurationFile = new Lazy<ConfigurationFile>();
-            Lazy<ConfigurationFile> SecondTestConfigurationFile = new Lazy<ConfigurationFile>();
-            Assert.IsFalse(SecondTestConfigurationFile.IsValueCreated, "Creation of the second Configuration File succeeded!");
-        }
-
-        public void AssertIfTheConfigurationFileAlreadyExists()
-        {
-           // Assert.IsTrue(TestConfigurationFile.IsValueCreated);
-        }
-
+ 
         [TestMethod]
         public void AssignServerNameTest()
         {

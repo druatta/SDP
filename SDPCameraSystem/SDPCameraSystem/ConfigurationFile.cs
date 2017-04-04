@@ -6,8 +6,8 @@ namespace SDPCameraSystem
 {
     public sealed class ConfigurationFile
     {
-        public static readonly Lazy<ConfigurationFile> LazyConfigurationFile = new Lazy<ConfigurationFile>(() => new ConfigurationFile());
-
+        private static readonly Lazy<ConfigurationFile> LazyConfigurationFile = 
+            new Lazy<ConfigurationFile>(() => new ConfigurationFile());
 
         public static ConfigurationFile Instance
         {
@@ -22,7 +22,6 @@ namespace SDPCameraSystem
             AssignServerName();
             Assign_CCF_File();
         }
-
 
         public const int ResourceIndex = 0;
         public static string ServerName;
