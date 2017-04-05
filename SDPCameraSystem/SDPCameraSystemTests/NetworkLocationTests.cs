@@ -9,15 +9,12 @@ namespace SDPCameraSystem
         [TestMethod]
         public void AddConfigurationFileParametersToNetworkLocationTest()
         {
+            Assert.IsNotNull(ConfigurationFile.ServerName);
+            Assert.IsNotNull(ConfigurationFile.ResourceIndex);
             NetworkLocation.AddConfigurationFileParametersToNetworkLocation();
             
         }
 
-        [TestMethod]
-        public void CreateConfigurationFileTest()
-        {
-            NetworkLocation.CreateConfigurationFile();
-        }
 
 
 

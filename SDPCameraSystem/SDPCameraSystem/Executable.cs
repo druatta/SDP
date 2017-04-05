@@ -6,7 +6,7 @@ namespace SDPCameraSystem
     {
         public static void Main(string[] args)
         {
-            NetworkLocation.CreateConfigurationFile();
+            NetworkLocation TestNetworkLocation = new NetworkLocation();
 
             Console.WriteLine("Testing complete.");
             while (true)
