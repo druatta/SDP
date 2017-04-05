@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace SDPCameraSystem
 {
@@ -6,16 +7,19 @@ namespace SDPCameraSystem
     public class NetworkLocationTests
     {
         [TestMethod]
-        public void ConstructNetworkLocationTest()
-        {
-            NetworkLocation NetworkLocation = new NetworkLocation();
-        }
-
-        [TestMethod]
         public void AddConfigurationFileParametersToNetworkLocationTest()
         {
             NetworkLocation.AddConfigurationFileParametersToNetworkLocation();
+            
         }
+
+        [TestMethod]
+        public void CreateConfigurationFileTest()
+        {
+            NetworkLocation.CreateConfigurationFile();
+        }
+
+
 
     }
 }

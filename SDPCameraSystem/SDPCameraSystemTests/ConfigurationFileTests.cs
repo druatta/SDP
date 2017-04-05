@@ -9,14 +9,6 @@ namespace SDPCameraSystem
     public class ConfigurationFileTests
     {
         [TestMethod]
-        public void ConstructConfigurationFileTest()
-        {
-            Lazy<ConfigurationFile> LazyConfigurationFile = new Lazy<ConfigurationFile>();
-            AssertServerNameIsFound();
-            Assert_CCF_FileExists();
-        }
- 
-        [TestMethod]
         public void AssignServerNameTest()
         {
             ConfigurationFile.AssignServerName();
