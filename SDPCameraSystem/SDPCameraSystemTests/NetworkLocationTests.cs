@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using DALSA.SaperaLT.SapClassBasic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace SDPCameraSystem
@@ -9,11 +10,17 @@ namespace SDPCameraSystem
         [TestMethod]
         public void AddConfigurationFileParametersToNetworkLocationTest()
         {
-            Assert.IsNotNull(ConfigurationFile.ServerName);
-            Assert.IsNotNull(ConfigurationFile.ResourceIndex);
             NetworkLocation.AddConfigurationFileParametersToNetworkLocation();
-            
+            Console.WriteLine(SapManager.LastStatusMessage);
+            AssertSapManagerDidNotThrowNullServerError();
         }
+
+        public void AssertSapManagerDidNotThrowNullServerError()
+        {
+            Assert.AreNotEqual(SapManager.LastStatusCode, SapStatus.ARG_NULL, SapManager.LastStatusMessage);
+        }
+
+
 
 
 
