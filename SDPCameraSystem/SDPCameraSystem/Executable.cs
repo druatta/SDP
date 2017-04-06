@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DALSA.SaperaLT.SapClassBasic;
+using System;
 
 namespace SDPCameraSystem
 {

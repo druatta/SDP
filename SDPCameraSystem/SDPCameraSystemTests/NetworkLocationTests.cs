@@ -1,6 +1,7 @@
 ﻿using DALSA.SaperaLT.SapClassBasic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 
 namespace SDPCameraSystem
 {
@@ -8,17 +9,13 @@ namespace SDPCameraSystem
     public class NetworkLocationTests
     {
         [TestMethod]
+        [ExpectedException(typeof(AccessViolationException))]
         public void AddConfigurationFileParametersToNetworkLocationTest()
         {
             NetworkLocation.AddConfigurationFileParametersToNetworkLocation();
-            Console.WriteLine(SapManager.LastStatusMessage);
-            AssertSapManagerDidNotThrowNullServerError();
         }
 
-        public void AssertSapManagerDidNotThrowNullServerError()
-        {
-            Assert.AreNotEqual(SapManager.LastStatusCode, SapStatus.ARG_NULL, SapManager.LastStatusMessage);
-        }
+
 
 
 
