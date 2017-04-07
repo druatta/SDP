@@ -7,8 +7,7 @@ namespace SDPCameraSystem
     {
         public static void Main(string[] args)
         {
-
-
+           
             Console.WriteLine("Testing complete.");
             while (true)
             {

@@ -9,21 +9,9 @@ namespace SDPCameraSystem
     public class ServerTests
     {
         [TestMethod]
-        public void TryToAssignServerNameAndResourceIndexToSapLocationTest()
+        public void GetServerNameAndFailIfServerNotFound()
         {
-            try
-            {
-                Server.AssignServerNameAndResourceIndexToSapLocation();
-            }
-            catch (AccessViolationException CameraServerNotFoundInitializedException)
-            {
-                AssertServerExistsBasedOnLastSaperaStatusCode();
-            }
-            }
-        [TestMethod]
-        public void GetUCSCComputerServerNameTest()
-        {
-            Server.GetUCSCComputerServerName();
+            Server.GetServerName();
             AssertServerExistsBasedOnLastSaperaStatusCode();
         }
 
@@ -41,10 +29,10 @@ namespace SDPCameraSystem
         public void Find_CCF_FileDirectoryTest()
         {
             Server.Find_CCF_FileDirectory();
-            Assert_CCF_FileExists();
+            Assert_CCF_FileDirectoryIsNotEmpty();
         }
 
-        public void Assert_CCF_FileExists()
+        public void Assert_CCF_FileDirectoryIsNotEmpty()
         {
             int Zero = 0;
             string CCF_FilePathIsEmptyMessage = "\n\n'" + Server.FilePath + "' is empty!";

@@ -6,24 +6,20 @@ namespace SDPCameraSystem
 {
     public class Server
     {
+        public static SapLocation Location;
+        public const int ResourceIndex = 0;
         public Server()
         {
-            AssignServerNameAndResourceIndexToSapLocation();
-        }
-
-        public static SapLocation Location;
-        public static void AssignServerNameAndResourceIndexToSapLocation()
-        {
+            Assign_CCF_File();
+            GetServerName();
             Location = new SapLocation(ServerName, ResourceIndex);
         }
 
-
-        public const int ResourceIndex = 0;
         public static string ServerName;
-        public static void GetUCSCComputerServerName()
+        public static void GetServerName()
         {
-            int UCSCComputerServerNumber = 1;
-            ServerName = SapManager.GetServerName(UCSCComputerServerNumber);
+            int UCSC_ComputerServerNumber = 1;
+            ServerName = SapManager.GetServerName(UCSC_ComputerServerNumber);
         }
 
         public static string Name;

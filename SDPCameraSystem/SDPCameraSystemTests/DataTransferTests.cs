@@ -9,7 +9,7 @@ namespace SDPCameraSystem
         [TestMethod]
          public void TryToCreateADataTransferTest()
         {
-
+            Assert.Fail();
         }
 
 

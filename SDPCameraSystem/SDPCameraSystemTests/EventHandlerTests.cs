@@ -10,7 +10,7 @@ namespace SDPCameraSystem
         [TestMethod]
          public void TryToCreateEventHandlerTest()
         {
-
+            Assert.Fail();
         }
 
     }
