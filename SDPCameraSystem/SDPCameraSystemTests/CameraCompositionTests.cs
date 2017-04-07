@@ -6,33 +6,6 @@ namespace SDPCameraSystem
     [TestClass]
     public class CameraCompositionTests
     {
-        [TestMethod]
-        public void TryToCreateCameraConfigurationFile()
-        {
-            try
-            {
-                CameraComposition TestCameraFeed = new CameraComposition();
-                TestCameraFeed.CreateConfigurationFile();
-            }
-            catch (Exception CreateCameraConfigurationFileException)
-            {
-               Assert.Fail(CreateCameraConfigurationFileException.Message);
-            }
-        }
-
-        [TestMethod]
-        public void TryToCreateCameraNetworkLocationTest()
-        {
-            try
-            {
-                CameraComposition TestCameraFeed = new CameraComposition();
-                TestCameraFeed.CreateNetworkLocation();
-            }
-            catch (Exception CreateCameraNetworkLocationException)
-            {
-                Assert.Fail(CreateCameraNetworkLocationException.Message);
-            }
-        }
 
         [TestMethod]
         public void TryToCreateNewTestCameraObjectTest()
