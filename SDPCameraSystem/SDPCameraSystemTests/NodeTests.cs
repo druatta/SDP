@@ -4,8 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SDPCameraSystem
 {
     [TestClass]
-    public class ImageBufferTests
+    public class CameraObjectTests
     {
-
+     
     }
 }

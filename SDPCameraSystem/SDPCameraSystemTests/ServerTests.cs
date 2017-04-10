@@ -6,12 +6,12 @@ using System.IO;
 namespace SDPCameraSystem
 {
     [TestClass]
-    public class ConfigurationFileTests
+    public class ServerTests
     {
         [TestMethod]
         public void AssignServerNameTest()
         {
-            ConfigurationFile.AssignServerName();
+            Server.AssignServerName();
             AssertServerNameIsFound();
         }
         
@@ -28,28 +28,28 @@ namespace SDPCameraSystem
         [TestMethod]
         public void Find_CCF_FileTest()
         {
-            ConfigurationFile.Find_CCF_File();
+            Server.Find_CCF_File();
             Assert_CCF_FileExists();
         }
 
         public void Assert_CCF_FileExists()
         {
             int Zero = 0;
-            string ConfigurationFilePathIsEmptyMessage = "\n\n'" + ConfigurationFile.FilePath + "' is empty!";
-            Assert.AreNotEqual(ConfigurationFile.CCF_FileArray.Length, Zero, ConfigurationFilePathIsEmptyMessage);
+            string ConfigurationFilePathIsEmptyMessage = "\n\n'" + Server.FilePath + "' is empty!";
+            Assert.AreNotEqual(Server.CCF_FileArray.Length, Zero, ConfigurationFilePathIsEmptyMessage);
         }
 
         [TestMethod]
         public void Assign_CCF_FilePathTest()
         {
-            ConfigurationFile.Assign_CCF_FilePath();
+            Server.Assign_CCF_FilePath();
             Assert_CCF_FilePathExists();
         }
 
         public void Assert_CCF_FilePathExists()
         {
-            string CCF_FilePathDoesNotExistMessage = "\n\n'" + ConfigurationFile.FilePath + "' does not exist!";
-            Assert.IsTrue(Directory.Exists(ConfigurationFile.FilePath), CCF_FilePathDoesNotExistMessage);
+            string CCF_FilePathDoesNotExistMessage = "\n\n'" + Server.FilePath + "' does not exist!";
+            Assert.IsTrue(Directory.Exists(Server.FilePath), CCF_FilePathDoesNotExistMessage);
         }
 
         [TestMethod]
@@ -57,12 +57,12 @@ namespace SDPCameraSystem
         {
             try
             {
-                ConfigurationFile.Assign_CCF_File();
+                Server.Assign_CCF_File();
             }
                 catch (IndexOutOfRangeException CCF_Assignment_Exception)
             {
-                string CCF_FileNotFoundMessage = "\n\n" + "CCF file not found in '" + ConfigurationFile.FilePath + "'\n\n";
-                Assert.IsNotNull(ConfigurationFile.Name, CCF_FileNotFoundMessage + CCF_Assignment_Exception.Message);
+                string CCF_FileNotFoundMessage = "\n\n" + "CCF file not found in '" + Server.FilePath + "'\n\n";
+                Assert.IsNotNull(Server.Name, CCF_FileNotFoundMessage + CCF_Assignment_Exception.Message);
             }
             
         }

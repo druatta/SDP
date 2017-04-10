@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraFeedConstruction", "SDPCameraSystem\CameraFeedConstruction.csproj", "{1294F79F-5245-45C2-A71A-BB3E1B8F5084}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Construction", "SDPCameraSystem\Construction.csproj", "{1294F79F-5245-45C2-A71A-BB3E1B8F5084}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraFeedConstructionTests", "SDPCameraSystemTests\CameraFeedConstructionTests.csproj", "{488E8FA6-2640-48DA-9A66-6DC3F1113EA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructionTests", "SDPCameraSystemTests\ConstructionTests.csproj", "{488E8FA6-2640-48DA-9A66-6DC3F1113EA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

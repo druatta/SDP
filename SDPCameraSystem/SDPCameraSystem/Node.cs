@@ -3,7 +3,7 @@ using System;
 
 namespace SDPCameraSystem
 {
-    public class CameraObject
+    public class Node
     {
         public SapAcqDevice Device;
         public Boolean FrameTriggerStatus;
@@ -11,17 +11,17 @@ namespace SDPCameraSystem
         public String FeatureValueChangeString = "Feature Value Changed";
         public String FrameTriggerString = "LineStatus";
 
-        public CameraObject(ConfigurationFile ConfigurationFile, NetworkLocation LocationWrapper, EventHandler FeatureWrapper)
+        public Node(Server ConfigurationFile)
         {
-            CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
+            CreateNewAcquisitionDevice(ConfigurationFile);
             CheckForSuccessfulAcquisitionDeviceCreation();
             CreateCameraObjectNotificationInterface();
             EnableChangesInFeatureValues();
         }
 
-        public void CreateNewAcquisitionDevice(NetworkLocation LocationWrapper, ConfigurationFile ConfigurationFile)
+        public void CreateNewAcquisitionDevice(Server ConfigurationFile)
         {
-            Device = new SapAcqDevice(NetworkLocation.Location, ConfigurationFile.Name);
+            Device = new SapAcqDevice(Server.Location, Server.Name);
         }
 
         public void CheckForSuccessfulAcquisitionDeviceCreation()
@@ -59,23 +59,23 @@ namespace SDPCameraSystem
             }
         }
 
-        public void WaitForTriggerInput(EventHandler FeatureWrapper)
+        public void WaitForTriggerInput()
         {
             while (Device.IsFeatureAvailable(FrameTriggerString))
             {
-                CheckForChangeInTriggerInput(FeatureWrapper);
+                CheckForChangeInTriggerInput();
             }
         }
 
-        public void GetTriggerParameters(EventHandler FeatureWrapper)
+        public void GetTriggerParameters()
         {
-            Device.GetFeatureInfo(FrameTriggerString, FeatureWrapper.Feature);
+            Device.GetFeatureInfo(FrameTriggerString, Node.Feature);
             Device.GetFeatureValue(FrameTriggerString, out FrameTriggerStatus);
         }
 
-        public Boolean CheckForChangeInTriggerInput(EventHandler FeatureWrapper)
+        public bool CheckForChangeInTriggerInput()
         {
-            GetTriggerParameters(FeatureWrapper);
+            GetTriggerParameters();
             if (PreviousTriggerStatus != FrameTriggerStatus)
             {
                 UpdateTriggerStatus();
@@ -85,7 +85,17 @@ namespace SDPCameraSystem
             {
                 return false;
             }
-           
+        }
+
+        public static SapFeature Feature;
+        public void CreateEventHandler()
+        {
+            Feature = new SapFeature(Server.Location);
+        }
+
+        public void CheckForSuccessfulEventHandlerCreation()
+        {
+            Feature.Create();
         }
 
         public void UpdateTriggerStatus()

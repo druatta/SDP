@@ -1,0 +1,6 @@
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.exe.config
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.exe
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\SDPCameraSystem.pdb
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\x64\Debug\SDPCameraSystem.exe
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\x64\Debug\SDPCameraSystem.pdb
