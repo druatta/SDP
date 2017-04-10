@@ -2,24 +2,22 @@
 
 namespace SDPCameraSystem
 {
-    public class CameraComposition
+    public class Construction
     {
         
         public Server UCSCServer = new Server();
-        public EventHandler EventHandler;
-        public CameraObject CameraObject;
+        public Node CameraObject;
         public ImageBuffers ImageBuffers;
         public ViewingWindow ViewingWindow;
         public DataTransfer DataTransfer;
 
-        public CameraComposition()
+        public Construction()
         {
             CreateCamera();
         }
 
         public void CreateCamera()
         {
-            CreateEventHandler();
             CreateCameraObject();
             CreateImageBuffers();
             CreateViewingWindow();
@@ -28,14 +26,9 @@ namespace SDPCameraSystem
 
 
 
-        public void CreateEventHandler()
-        {
-            EventHandler = new EventHandler();
-        }
-
         public void CreateCameraObject()
         {
-            CameraObject = new CameraObject(UCSCServer, EventHandler);
+            CameraObject = new Node(UCSCServer);
         }
 
         public void CreateImageBuffers()
@@ -64,7 +57,7 @@ namespace SDPCameraSystem
 
         public void SaveImageOnTriggerInput()
         {
-            if (CameraObject.CheckForChangeInTriggerInput(EventHandler) == true)
+            if (CameraObject.CheckForChangeInTriggerInput() == true)
             {
                 ImageBuffers.SaveBufferToFile();
             }

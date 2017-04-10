@@ -15,7 +15,7 @@ namespace SDPCameraSystem
         private string SaveFileType;
         static int i = 0;
 
-        public ImageBuffers(CameraObject DeviceWrapper)
+        public ImageBuffers(Node DeviceWrapper)
         {
             CreateBufferSaveParameters();
             CreateNewBuffers(DeviceWrapper);
@@ -38,7 +38,7 @@ namespace SDPCameraSystem
             Console.WriteLine("Buffer Save File Name is: {0}", SaveFileName);
         }
 
-        public void CreateNewBuffers(CameraObject DeviceWrapper)
+        public void CreateNewBuffers(Node DeviceWrapper)
         {
             Buffers = new SapBufferWithTrash(BufferCount, DeviceWrapper.Device, SapBuffer.MemoryType.ScatterGather);
         }

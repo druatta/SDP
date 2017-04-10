@@ -70,14 +70,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CameraObject.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Executable.cs" />
     <Compile Include="ImageBuffers.cs" />
-    <Compile Include="EventHandler.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="DataTransfer.cs" />
     <Compile Include="ViewingWindow.cs" />
-    <Compile Include="CameraComposition.cs" />
+    <Compile Include="Construction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

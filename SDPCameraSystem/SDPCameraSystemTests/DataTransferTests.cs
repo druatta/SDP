@@ -6,11 +6,7 @@ namespace SDPCameraSystem
     [TestClass]
     public class DataTransferTests
     {
-        [TestMethod]
-         public void TryToCreateADataTransferTest()
-        {
-            Assert.Fail();
-        }
+
 
 
     }

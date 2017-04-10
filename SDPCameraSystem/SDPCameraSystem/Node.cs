@@ -3,15 +3,27 @@ using System;
 
 namespace SDPCameraSystem
 {
-    public class CameraObject
+    public class Node
     {
         public SapAcqDevice Device;
-        public Boolean FrameTriggerStatus;
-        public static Boolean PreviousTriggerStatus;
-        public String FeatureValueChangeString = "Feature Value Changed";
-        public String FrameTriggerString = "LineStatus";
+        public bool FrameTriggerStatus;
+        public static bool PreviousTriggerStatus;
+        public string FeatureValueChangeString = "Feature Value Changed";
+        public string FrameTriggerString = "LineStatus";
 
-        public CameraObject(Server CameraServer, EventHandler FeatureWrapper)
+        public static SapFeature Feature;
+        public void CreateEventHandler()
+        {
+            Server CameraServer = new Server();
+            Feature = new SapFeature(Server.Location);
+        }
+
+        public void CheckForSuccessfulEventHandlerCreation()
+        {
+            Feature.Create();
+        }
+
+        public Node(Server CameraServer)
         {
             CreateNewAcquisitionDevice(CameraServer);
             CheckForSuccessfulAcquisitionDeviceCreation();
@@ -63,19 +75,19 @@ namespace SDPCameraSystem
         {
             while (Device.IsFeatureAvailable(FrameTriggerString))
             {
-                CheckForChangeInTriggerInput(FeatureWrapper);
+                CheckForChangeInTriggerInput();
             }
         }
 
-        public void GetTriggerParameters(EventHandler FeatureWrapper)
+        public void GetTriggerParameters()
         {
-            Device.GetFeatureInfo(FrameTriggerString, FeatureWrapper.Feature);
+            Device.GetFeatureInfo(FrameTriggerString, Node.Feature);
             Device.GetFeatureValue(FrameTriggerString, out FrameTriggerStatus);
         }
 
-        public Boolean CheckForChangeInTriggerInput(EventHandler FeatureWrapper)
+        public bool CheckForChangeInTriggerInput()
         {
-            GetTriggerParameters(FeatureWrapper);
+            GetTriggerParameters();
             if (PreviousTriggerStatus != FrameTriggerStatus)
             {
                 UpdateTriggerStatus();
