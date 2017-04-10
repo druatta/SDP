@@ -7,7 +7,7 @@ namespace SDPCameraSystem
     {
         public static void Main(string[] args)
         {
-            Construction TestConstruction = new Construction();
+            NetworkLocation TestNetworkLocation = new NetworkLocation();
 
             Console.WriteLine("Testing complete.");
             while (true)

@@ -4,12 +4,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SDPCameraSystem
 {
     [TestClass]
-    public class ViewingWindowTests
+    public class EventHandlerTests
     {
+
         [TestMethod]
-        public void TryToCreateViewingWindowTest()
+         public void TryToCreateEventHandlerTest()
         {
 
         }
+
     }
 }

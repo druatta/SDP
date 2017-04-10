@@ -4,13 +4,12 @@ using System.IO;
 
 namespace SDPCameraSystem
 {
-    public class Server
+    public class ConfigurationFile
     {
-        public Server()
+        public ConfigurationFile()
         {
             AssignServerName();
             Assign_CCF_File();
-            AddConfigurationFileParametersToNetworkLocation();
         }
 
         public const int ResourceIndex = 0;
@@ -41,12 +40,6 @@ namespace SDPCameraSystem
         public static void Assign_CCF_FilePath()
         {
             FilePath = Environment.GetEnvironmentVariable("SAPERADIR") + "\\CamFiles\\User\\";
-        }
-
-        public static SapLocation Location;
-        public static void AddConfigurationFileParametersToNetworkLocation()
-        {
-            Location = new SapLocation(Server.ServerName, Server.ResourceIndex);
         }
 
 

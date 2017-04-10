@@ -2,15 +2,17 @@
 
 namespace SDPCameraSystem
 {
-    public class Construction
+    public class CameraComposition
     {
-        public Server Server;
-        public Node CameraObject;
+        public ConfigurationFile ConfigurationFile;
+        public NetworkLocation NetworkLocation;
+        public EventHandler EventHandler;
+        public CameraObject CameraObject;
         public ImageBuffers ImageBuffers;
         public ViewingWindow ViewingWindow;
         public DataTransfer DataTransfer;
 
-        public Construction()
+        public CameraComposition()
         {
             CreateCamera();
         }
@@ -18,6 +20,8 @@ namespace SDPCameraSystem
         public void CreateCamera()
         {
             CreateConfigurationFile();
+            CreateNetworkLocation();
+            CreateEventHandler();
             CreateCameraObject();
             CreateImageBuffers();
             CreateViewingWindow();
@@ -26,13 +30,22 @@ namespace SDPCameraSystem
 
         public void CreateConfigurationFile()
         {
-            Server = new Server();
+            //ConfigurationFile = new ConfigurationFile();
         }
 
+        public void CreateNetworkLocation()
+        {
+            NetworkLocation = new NetworkLocation();
+        }
+
+        public void CreateEventHandler()
+        {
+            EventHandler = new EventHandler();
+        }
 
         public void CreateCameraObject()
         {
-            CameraObject = new Node(Server);
+            CameraObject = new CameraObject(ConfigurationFile, NetworkLocation, EventHandler);
         }
 
         public void CreateImageBuffers()
@@ -61,7 +74,7 @@ namespace SDPCameraSystem
 
         public void SaveImageOnTriggerInput()
         {
-            if (CameraObject.CheckForChangeInTriggerInput() == true)
+            if (CameraObject.CheckForChangeInTriggerInput(EventHandler) == true)
             {
                 ImageBuffers.SaveBufferToFile();
             }

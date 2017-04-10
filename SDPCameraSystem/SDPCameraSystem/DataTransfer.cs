@@ -6,12 +6,12 @@ namespace SDPCameraSystem
     {
         public SapTransfer Transfer;
 
-        public DataTransfer(Node DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
+        public DataTransfer(CameraObject DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
         {
             CreateNewDataTransfer(DeviceWrapper, BufferWrappers, ViewWrapper);
         }
 
-        public void CreateNewDataTransfer(Node DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
+        public void CreateNewDataTransfer(CameraObject DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
         {
             Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffers);
             UpdateFrameRate(ViewWrapper);

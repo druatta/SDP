@@ -69,18 +69,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ConstructionTests.cs" />
-    <Compile Include="NodeTests.cs" />
-    <Compile Include="ServerTests.cs" />
+    <Compile Include="CameraCompositionTests.cs" />
+    <Compile Include="CameraObjectTests.cs" />
+    <Compile Include="ConfigurationFileTests.cs" />
     <Compile Include="DataTransferTests.cs" />
+    <Compile Include="EventHandlerTests.cs" />
     <Compile Include="ImageBufferTests.cs" />
+    <Compile Include="NetworkLocationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewingWindowTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDPCameraSystem\Construction.csproj">
+    <ProjectReference Include="..\SDPCameraSystem\CameraFeedConstruction.csproj">
       <Project>{1294f79f-5245-45c2-a71a-bb3e1b8f5084}</Project>
-      <Name>Construction</Name>
+      <Name>CameraFeedConstruction</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
