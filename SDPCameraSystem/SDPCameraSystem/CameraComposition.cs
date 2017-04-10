@@ -4,8 +4,8 @@ namespace SDPCameraSystem
 {
     public class CameraComposition
     {
-        public ConfigurationFile ConfigurationFile;
-        public NetworkLocation NetworkLocation;
+        
+        public Server UCSCServer = new Server();
         public EventHandler EventHandler;
         public CameraObject CameraObject;
         public ImageBuffers ImageBuffers;
@@ -19,8 +19,6 @@ namespace SDPCameraSystem
 
         public void CreateCamera()
         {
-            CreateConfigurationFile();
-            CreateNetworkLocation();
             CreateEventHandler();
             CreateCameraObject();
             CreateImageBuffers();
@@ -28,15 +26,7 @@ namespace SDPCameraSystem
             CreateDataTransfer();
         }
 
-        public void CreateConfigurationFile()
-        {
-            //ConfigurationFile = new ConfigurationFile();
-        }
 
-        public void CreateNetworkLocation()
-        {
-            NetworkLocation = new NetworkLocation();
-        }
 
         public void CreateEventHandler()
         {
@@ -45,7 +35,7 @@ namespace SDPCameraSystem
 
         public void CreateCameraObject()
         {
-            CameraObject = new CameraObject(ConfigurationFile, NetworkLocation, EventHandler);
+            CameraObject = new CameraObject(UCSCServer, EventHandler);
         }
 
         public void CreateImageBuffers()

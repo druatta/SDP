@@ -1,36 +1,38 @@
-﻿using System;
-using DALSA.SaperaLT.SapClassBasic;
+﻿using DALSA.SaperaLT.SapClassBasic;
+using System;
 using System.IO;
 
 namespace SDPCameraSystem
 {
-    public class ConfigurationFile
+    public class Server
     {
-        public ConfigurationFile()
+        public static SapLocation Location;
+        public const int ResourceIndex = 0;
+        public Server()
         {
-            AssignServerName();
             Assign_CCF_File();
+            GetServerName();
+            Location = new SapLocation(ServerName, ResourceIndex);
         }
 
-        public const int ResourceIndex = 0;
         public static string ServerName;
-        public static void AssignServerName()
+        public static void GetServerName()
         {
-            int SDPServerNumber = 1;
-            ServerName = SapManager.GetServerName(SDPServerNumber);
+            int UCSC_ComputerServerNumber = 1;
+            ServerName = SapManager.GetServerName(UCSC_ComputerServerNumber);
         }
 
         public static string Name;
         public static void Assign_CCF_File()
         {
-            Find_CCF_File();
+            Find_CCF_FileDirectory();
             int FirstFile = 0;
             Name = CCF_FileArray[FirstFile];
         }
 
         public static string FilePath;
         public static string[] CCF_FileArray;
-        public static void Find_CCF_File()
+        public static void Find_CCF_FileDirectory()
         {
             string CCF_FileType = "*.ccf";
             Assign_CCF_FilePath();
@@ -43,9 +45,5 @@ namespace SDPCameraSystem
         }
 
 
-
-
     }
-
 }
-

@@ -14,8 +14,8 @@ namespace SDPCameraSystem
 
         public void CreateEventHandler()
         {
-            NetworkLocation NetworkLocation = new NetworkLocation();
-            Feature = new SapFeature(NetworkLocation.Location);
+            Server CameraServer = new Server();
+            Feature = new SapFeature(Server.Location);
         }
 
         public void CheckForSuccessfulEventHandlerCreation()

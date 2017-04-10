@@ -11,17 +11,17 @@ namespace SDPCameraSystem
         public String FeatureValueChangeString = "Feature Value Changed";
         public String FrameTriggerString = "LineStatus";
 
-        public CameraObject(ConfigurationFile ConfigurationFile, NetworkLocation LocationWrapper, EventHandler FeatureWrapper)
+        public CameraObject(Server CameraServer, EventHandler FeatureWrapper)
         {
-            CreateNewAcquisitionDevice(LocationWrapper, ConfigurationFile);
+            CreateNewAcquisitionDevice(CameraServer);
             CheckForSuccessfulAcquisitionDeviceCreation();
             CreateCameraObjectNotificationInterface();
             EnableChangesInFeatureValues();
         }
 
-        public void CreateNewAcquisitionDevice(NetworkLocation LocationWrapper, ConfigurationFile ConfigurationFile)
+        public void CreateNewAcquisitionDevice(Server LocationWrapper)
         {
-            Device = new SapAcqDevice(NetworkLocation.Location, ConfigurationFile.Name);
+            Device = new SapAcqDevice(Server.Location, Server.Name);
         }
 
         public void CheckForSuccessfulAcquisitionDeviceCreation()
