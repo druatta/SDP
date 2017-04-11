@@ -1,0 +1,6 @@
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\Factory\bin\Debug\Factory.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\Factory\bin\Debug\Factory.pdb
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\Factory\bin\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\Factory\obj\Debug\Factory.csprojResolveAssemblyReference.cache
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\Factory\obj\Debug\Factory.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\Factory\obj\Debug\Factory.pdb

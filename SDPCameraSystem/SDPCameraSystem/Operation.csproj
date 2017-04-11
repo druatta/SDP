@@ -70,17 +70,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Node.cs" />
     <Compile Include="Executable.cs" />
-    <Compile Include="ImageBuffers.cs" />
-    <Compile Include="Server.cs" />
-    <Compile Include="DataTransfer.cs" />
-    <Compile Include="ViewingWindow.cs" />
-    <Compile Include="Construction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Factory\Factory.csproj">
+      <Project>{d387e57a-bdba-46d6-a378-ba89f5d601bf}</Project>
+      <Name>Factory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

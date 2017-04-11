@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "SDPCameraSystem\Factory.csproj", "{1294F79F-5245-45C2-A71A-BB3E1B8F5084}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operation", "SDPCameraSystem\Operation.csproj", "{1294F79F-5245-45C2-A71A-BB3E1B8F5084}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryTests", "SDPCameraSystemTests\FactoryTests.csproj", "{488E8FA6-2640-48DA-9A66-6DC3F1113EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{D387E57A-BDBA-46D6-A378-BA89F5D601BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationTests", "OperationTests\OperationTests.csproj", "{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,22 @@ Global
 		{488E8FA6-2640-48DA-9A66-6DC3F1113EA2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{488E8FA6-2640-48DA-9A66-6DC3F1113EA2}.Release|x64.ActiveCfg = Release|Any CPU
 		{488E8FA6-2640-48DA-9A66-6DC3F1113EA2}.Release|x64.Build.0 = Release|Any CPU
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Debug|x64.ActiveCfg = Debug|x64
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Debug|x64.Build.0 = Debug|x64
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{D387E57A-BDBA-46D6-A378-BA89F5D601BF}.Release|x64.Build.0 = Release|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Debug|x64.Build.0 = Debug|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Release|x64.ActiveCfg = Release|Any CPU
+		{F604C3C6-6215-42AD-9B3A-FDAC9E8767E8}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

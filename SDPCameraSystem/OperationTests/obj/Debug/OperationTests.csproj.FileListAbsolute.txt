@@ -1,0 +1,5 @@
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\OperationTests\bin\Debug\OperationTests.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\OperationTests\bin\Debug\OperationTests.pdb
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\OperationTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\OperationTests\obj\Debug\OperationTests.dll
+C:\Users\druatta\Documents\GitHub\SDP\SDPCameraSystem\OperationTests\obj\Debug\OperationTests.pdb
