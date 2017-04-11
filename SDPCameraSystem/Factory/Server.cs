@@ -11,12 +11,12 @@ namespace SDPCameraSystem
         public Server()
         {
             Assign_CCF_File();
-            GetServerName();
+            AssignSDPServerName();
             Location = new SapLocation(ServerName, ResourceIndex);
         }
 
         public static string ServerName;
-        public static void GetServerName()
+        public static void AssignSDPServerName()
         {
             int UCSC_ComputerServerNumber = 1;
             ServerName = SapManager.GetServerName(UCSC_ComputerServerNumber);
@@ -25,14 +25,14 @@ namespace SDPCameraSystem
         public static string Name;
         public static void Assign_CCF_File()
         {
-            Find_CCF_FileDirectory();
+            FindConfigurationFileDirectory();
             int FirstFile = 0;
             Name = CCF_FileArray[FirstFile];
         }
 
         public static string FilePath;
         public static string[] CCF_FileArray;
-        public static void Find_CCF_FileDirectory()
+        public static void FindConfigurationFileDirectory()
         {
             string CCF_FileType = "*.ccf";
             Assign_CCF_FilePath();

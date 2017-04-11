@@ -6,49 +6,32 @@ namespace SDPCameraSystem
 {
     public class ImageBuffers
     {
-        public SapBuffer Buffers;
-        private int BufferCount = 2;
-        private string SaveDirectory;
-        private string[] SaveFileStringArray;
-        private string SaveFileName;
-        private int FirstSaveFile = 0;
-        private string SaveFileType;
-        static int i = 0;
+        private static string SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\Images";
+        private static string[] SaveFileStringArray = Directory.GetFiles(SaveDirectory, "*.bmp");
+        private const int FirstSaveFile = 0;
+        private static string SaveFileName = SaveFileStringArray[FirstSaveFile];
+        private static string SaveFileType = "-format bmp";
 
-        public ImageBuffers(Node DeviceWrapper)
+        public ImageBuffers()
         {
-            CreateBufferSaveParameters();
-            CreateNewBuffers(DeviceWrapper);
+            CreateNewBuffers();
             CheckForSuccessfulBufferCreation();
         }
 
-        public void CreateBufferSaveParameters()
+        private const int BufferCount = 2;
+        public static SapBuffer Buffers;
+        public static void CreateNewBuffers()
         {
-            SaveDirectory = Environment.GetEnvironmentVariable("SAPERADIR") + "\\Images";
-            SaveFileStringArray = Directory.GetFiles(SaveDirectory, "*.bmp");
-            SaveFileName = SaveFileStringArray[FirstSaveFile];
-            SaveFileType = "-format bmp";
+            Buffers = new SapBufferWithTrash(BufferCount, Node.Device, SapBuffer.MemoryType.ScatterGather);
         }
 
-        public void PrintBufferSaveParameters()
-        {
-            Console.WriteLine("Buffer Save Directory is: {0}", SaveDirectory);
-            Console.WriteLine("Buffer Save Files are: {0}", SaveFileStringArray);
-            Console.WriteLine("Buffer Save File Type is: {0}", SaveFileType);
-            Console.WriteLine("Buffer Save File Name is: {0}", SaveFileName);
-        }
-
-        public void CreateNewBuffers(Node DeviceWrapper)
-        {
-            Buffers = new SapBufferWithTrash(BufferCount, DeviceWrapper.Device, SapBuffer.MemoryType.ScatterGather);
-        }
-
-        public void CheckForSuccessfulBufferCreation()
+        public static void CheckForSuccessfulBufferCreation()
         {
             Buffers.Create();
         }
 
-        public void SaveBufferToFile()
+        static int i = 0;
+        public static void SaveBufferToFile()
         {
             string Date = DateTime.Today.ToShortDateString();
             string Time = DateTime.Now.ToString("h:mm:ss tt");

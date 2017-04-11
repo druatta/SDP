@@ -4,7 +4,6 @@ namespace SDPCameraSystem
 {
     public class Construction
     {
-        
         public Server UCSCServer = new Server();
         public Node CameraObject;
         public ImageBuffers ImageBuffers;
@@ -24,8 +23,6 @@ namespace SDPCameraSystem
             CreateDataTransfer();
         }
 
-
-
         public void CreateCameraObject()
         {
             CameraObject = new Node(UCSCServer);
@@ -33,36 +30,18 @@ namespace SDPCameraSystem
 
         public void CreateImageBuffers()
         {
-            ImageBuffers = new ImageBuffers(CameraObject);
+            ImageBuffers = new ImageBuffers();
         }
 
         public void CreateViewingWindow()
         {
-            ViewingWindow = new ViewingWindow(ImageBuffers);
+            ViewingWindow = new ViewingWindow();
         }
 
         public void CreateDataTransfer()
         {
-            DataTransfer = new DataTransfer(CameraObject, ImageBuffers, ViewingWindow);
+            DataTransfer = new DataTransfer();
         }
-
-        public void SaveImageOnTriggerInputForever()
-        {
-            while (true)
-            {
-                SaveImageOnTriggerInput();
-                Console.WriteLine("Image saved!");
-            }
-        }
-
-        public void SaveImageOnTriggerInput()
-        {
-            if (CameraObject.CheckForChangeInTriggerInput() == true)
-            {
-                ImageBuffers.SaveBufferToFile();
-            }
-        }
-
     }
 
 }

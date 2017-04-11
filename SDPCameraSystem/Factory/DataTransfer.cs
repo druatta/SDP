@@ -4,26 +4,21 @@ namespace SDPCameraSystem
 {
     public class DataTransfer
     {
-        public SapTransfer Transfer;
+        public static SapTransfer Transfer;
 
-        public DataTransfer(Node DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
+        public DataTransfer()
         {
-            CreateNewDataTransfer(DeviceWrapper, BufferWrappers, ViewWrapper);
-        }
-
-        public void CreateNewDataTransfer(Node DeviceWrapper, ImageBuffers BufferWrappers, ViewingWindow ViewWrapper)
-        {
-            Transfer = new SapAcqDeviceToBuf(DeviceWrapper.Device, BufferWrappers.Buffers);
-            UpdateFrameRate(ViewWrapper);
-            CheckForSuccessfulDataTransferCreation(); 
+            Transfer = new SapAcqDeviceToBuf(Node.Device, ImageBuffers.Buffers);
+            UpdateFrameRate();
+            CheckForSuccessfulDataTransferCreation();
             GrabTransferFeed();
         }
 
-        public void UpdateFrameRate(ViewingWindow ViewWrapper)
+        public void UpdateFrameRate()
         {
             Transfer.Pairs[0].EventType = SapXferPair.XferEventType.EndOfFrame;
             Transfer.XferNotify += new SapXferNotifyHandler(UpdateTransfer);
-            Transfer.XferNotifyContext = ViewWrapper.View;
+            Transfer.XferNotifyContext = ViewingWindow.View;
         }
 
         public void UpdateTransfer(object sender, SapXferNotifyEventArgs args)

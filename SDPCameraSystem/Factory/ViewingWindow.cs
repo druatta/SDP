@@ -4,17 +4,17 @@ namespace SDPCameraSystem
 {
     public class ViewingWindow
     {
-        public SapView View;
+        public static SapView View;
 
-        public ViewingWindow(ImageBuffers BufferWrappers)
+        public ViewingWindow()
         {
-            CreateNewView(BufferWrappers);
+            CreateNewView();
             CheckForSuccessfulViewCreation();
         }
 
-        public void CreateNewView(ImageBuffers BufferWrappers)
+        public void CreateNewView()
         {
-            View = new SapView(BufferWrappers.Buffers);
+            View = new SapView(ImageBuffers.Buffers);
         }
 
         public void CheckForSuccessfulViewCreation()

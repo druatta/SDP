@@ -9,38 +9,22 @@ namespace SDPCameraSystem
     public class ServerTests
     {
         [TestMethod]
-        public void GetServerNameAndFailIfServerNotFound()
+        public void ServerExistsTest()
         {
-            Server.GetServerName();
-            AssertServerExistsBasedOnLastSaperaStatusCode();
-        }
-
-        public void AssertServerExistsBasedOnLastSaperaStatusCode()
-        {
-            AssertSapManagerDidNotThrowServerNotFoundError();
-        }
-
-        public void AssertSapManagerDidNotThrowServerNotFoundError()
-        {
+            Server.AssignSDPServerName();
             Assert.AreNotEqual(SapManager.LastStatusCode, SapStatus.SERVER_NOT_FOUND, SapManager.LastStatusMessage);
         }
 
         [TestMethod]
-        public void Find_CCF_FileDirectoryTest()
+        public void ConfigurationFileDirectoryIsNotEmptyTest()
         {
-            Server.Find_CCF_FileDirectory();
-            Assert_CCF_FileDirectoryIsNotEmpty();
-        }
-
-        public void Assert_CCF_FileDirectoryIsNotEmpty()
-        {
+            Server.FindConfigurationFileDirectory();
             int Zero = 0;
-            string CCF_FilePathIsEmptyMessage = "\n\n'" + Server.FilePath + "' is empty!";
-            Assert.AreNotEqual(Server.CCF_FileArray.Length, Zero, CCF_FilePathIsEmptyMessage);
+            Assert.AreNotEqual(Server.CCF_FileArray.Length, Zero);
         }
 
         [TestMethod]
-        public void Assign_CCF_FilePathTest()
+        public void AssignConfigurationFilePathTest()
         {
             Server.Assign_CCF_FilePath();
             Assert_CCF_FilePathExists();
@@ -48,8 +32,7 @@ namespace SDPCameraSystem
 
         public void Assert_CCF_FilePathExists()
         {
-            string CCF_FilePathDoesNotExistMessage = "\n\n'" + Server.FilePath + "' does not exist!";
-            Assert.IsTrue(Directory.Exists(Server.FilePath), CCF_FilePathDoesNotExistMessage);
+            Assert.IsTrue(Directory.Exists(Server.FilePath));
         }
 
         [TestMethod]
