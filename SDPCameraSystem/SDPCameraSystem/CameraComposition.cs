@@ -73,7 +73,7 @@ namespace SDPCameraSystem
             while (true)
             {
                 SaveImageOnTriggerInput();
-                Console.WriteLine("Image saved!");
+                
             }
         }
 
@@ -81,6 +81,7 @@ namespace SDPCameraSystem
         {
             if (CameraObject.CheckForChangeInTriggerInput(EventHandler) == true) {
                 ImageBuffers.SaveBufferToFile();
+                Console.WriteLine("Image saved!");
             }
         }
 
