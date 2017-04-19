@@ -96,6 +96,7 @@ namespace SDPCameraSystem
             if (PreviousTriggerStatus != FrameTriggerStatus)
             {
                 UpdateTriggerStatus();
+                Console.WriteLine("trigger occured");
                 return true;
             }
             else
