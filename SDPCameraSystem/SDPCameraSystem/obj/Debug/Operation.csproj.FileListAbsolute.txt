@@ -1,0 +1,9 @@
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.exe.config
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.exe
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\Debug\SDPCameraSystem.pdb
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.exe
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\SDPCameraSystem.pdb
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\DALSA.SaperaLT.SapClassBasic.dll
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\Factory.dll
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\bin\Debug\Factory.pdb
+C:\Users\kateeva\Documents\GitHub\SDP\SDPCameraSystem\SDPCameraSystem\obj\Debug\Operation.csprojResolveAssemblyReference.cache
